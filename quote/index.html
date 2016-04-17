@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Basic Bootstrap Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- FONT AWESOME LIBRARY -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- CSS FILE LINK -->
+    <link rel="stylesheet" type="text/css" href="quotes.css">
+</head>
+
+<body>
+    <!-- CODE BELOW -->
+    <!-- TITLE -->
+    <div class="container">
+        <div class="title">
+            <b><h1 class="text-center">Game of Thrones</h1></b>
+            <p class="text-center">Quote Generator</p>
+        </div>
+    </div>
+    <!-- BOX TO DISPLAY QUOTES -->
+    <blockquote>
+        <div class="well">
+            <div class="quote"></div>
+            <div class="cite"></div>
+        </div>
+    </blockquote>
+    <!-- BUTTON TO GENERATE QUOTES -->
+    <div class="text-center">
+        <button type="button" class="btn btn-default">Click For A Quote!</button>
+    </div>
+    <!-- TWITTER BUTTON -->
+    <div id="tweetBtn" <a href="https://twitter.com/share" id="twitter-btn" class="twitter-share-button" {count} data-size="large" data-hashtags="Quotes">
+        </a>
+    </div>
+    <!-- CODE ABOVE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="quotes.js"></script>
+    <!-- TWITTER SCRIPT -->
+    <script>
+    ! function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0],
+            p = /^http:/.test(d.location) ? 'http' : 'https';
+        if (!d.getElementById(id)) {
+            js = d.createElement(s);
+            js.id = id;
+            js.src = p + '://platform.twitter.com/widgets.js';
+            fjs.parentNode.insertBefore(js, fjs);
+        }
+    }(document, 'script', 'twitter-wjs');
+    </script>
+    <!-- livereload script-->
+    <script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+    </script>
+</body>
+
+</html>
