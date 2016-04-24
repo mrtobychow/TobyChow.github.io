@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- FONT AWESOME LIBRARY -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <!-- CSS FILE LINK -->
+    <link rel="stylesheet" href="weather.css">
+    <!-- Fonts -->
+    <link href='https://fonts.googleapis.com/css?family=Passion+One:400,900' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Rokkitt:700' rel='stylesheet' type='text/css'>
+</head>
+<!-- c284f8c5508846be79e1cb10000e9335 -->
+
+<body>
+    <!-- CODE BELOW -->
+    <div class="background-img">
+        <div class="contain">
+            <!-- Date Display -->
+            <div class="display">
+                <h1 class="date-display"></h1> <span id="date-underline"></span>
+            </div>
+            <!-- Location display -->
+            <div class="display location-display">
+                <h1><span id="location-text"></span></h1>
+            </div>
+            <!-- weather.main > weather.description > weather.icon-->
+            <div class=" display weather-display">
+                <h1><span id="weather-text"></span></h1>
+            </div>
+            <!-- Time since last update -->
+            <div class=" display time-display">
+                <h4>Last update: <span id="update-time"> </span></h4>
+                <div class="button">
+                    <button type="button" class="btn btn-info btn-xs" id="weather-update">Update Info</button>
+                    <button type="button" class="btn btn-info btn-xs" id="temp-switch">Switch to Farenheit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- CODE ABOVE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="weather.js"></script>
+</body>
+
+</html>
