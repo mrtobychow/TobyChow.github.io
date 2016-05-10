@@ -2,6 +2,8 @@ $(document).ready(function() {
     var app_ID = 'c284f8c5508846be79e1cb10000e9335';
     var lat;
     var lon;
+    var city;
+    var country;
     // tempType options: metric , imperial
     var tempType = 'metric';
     var tempUnit = '&#8451';
@@ -19,8 +21,6 @@ $(document).ready(function() {
             dataType: 'json',
             success: function(json) {
                 var temperature;
-                var city = json.name;
-                var country = json.sys.country;
                 //Sets temperature in metric or imperial format depending on tempType input, returns temperature to be displayed in desired units
                 if (tempType === 'metric') {
                     temperatureC = json.main.temp;
@@ -170,13 +170,14 @@ $(document).ready(function() {
         maximumAge: 0
     };
 
-    // Get lat and lon of user if permission is allowed
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position, options) {
-            lat = position.coords.latitude;
-            lon = position.coords.longitude;
-            updateTime();
+    $.getJSON('http://ipinfo.io', function(data) {
+        city = data.city;
+        country = data.country;
+        loc = data.loc.split(',');
+        lat = loc[0];
+        lon = loc[1];
+        updateTime();
+    });
 
-        });
-    }
+
 });
