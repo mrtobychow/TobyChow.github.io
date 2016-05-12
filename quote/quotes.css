@@ -27,7 +27,7 @@ body {
 }
 
 .quote-container {
-    font-size: 20pt;
+    font-size: 24pt;
     border: 1px solid blue !important;
 }
 
@@ -44,4 +44,10 @@ body {
 
 .buttons .quote-btn {
     margin-left: 2em;
+}
+
+@media (max-width: 600px) {
+    .quote-container {
+        font-size: 15pt;
+    }
 }
