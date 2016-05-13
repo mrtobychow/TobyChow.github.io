@@ -46,7 +46,7 @@ body {
     margin-left: 2em;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 728px) {
     .quote-container {
         font-size: 15pt;
     }
