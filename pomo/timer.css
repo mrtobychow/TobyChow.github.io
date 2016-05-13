@@ -73,3 +73,9 @@ input {
         font-size: 30px;
     }
 }
+
+@media(max-width: 320px) {
+    input {
+        font-size: 14px;
+    }
+}
