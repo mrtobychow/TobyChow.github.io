@@ -69,4 +69,7 @@ input {
     .start-work-time {
         margin-left: 30px;
     }
+    input {
+        font-size: 30px;
+    }
 }
