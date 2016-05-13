@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- FONT AWESOME LIBRARY -->
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
+    <!-- CSS FILE LINK -->
+    <link rel="stylesheet" type="text/css" href="timer.css">
+    <!-- GOOGLE FONTS -->
+    <link href='https://fonts.googleapis.com/css?family=Orbitron:500' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+    <!-- CODE BELOW -->
+    <div class="contain">
+        <span class="title">Pomodoro Clock</span>
+        <div class="start-time">
+            <div class="start-work-time">
+                <p>Work Session</p>
+                <div class="work-session">
+                    <span id="add-work-min" class="glyphicon glyphicon-arrow-up"></span>
+                    <input type="text" maxlength="2" class="start-work-display" autofocus="true"></input>
+                    <span id="minus-work-min" class="glyphicon glyphicon-arrow-down"></span>
+                </div>
+            </div>
+            <div class="start-break-time">
+                <p>Break Session</p>
+                <div class="start-break">
+                    <span id="add-break-min" class="glyphicon glyphicon-arrow-up"></span>
+                    <input type="text" maxlength="2" class="start-break-display"></input>
+                    <span id="minus-break-min" class="glyphicon glyphicon-arrow-down"></span>
+                </div>
+            </div>
+        </div>
+        <div class="timer">
+            <p id="status">Work Time!</p>
+            <span id="work-minutes-display"></span>:<span id="work-seconds-display"></span>
+            <hr>
+            <div class="buttons">
+                <button id="start" type="button" class="btn btn-info">Start</button>
+                <button id="pause" type="button" class="btn btn-info">Pause</button>
+                <br>
+                <button id="reset" type="button" class="btn btn-info">Reset</button>
+                <br>
+                <audio id="alarm" src="alarm.mp3" volume="0.7" loop="true" controls></audio>
+            </div>
+        </div>
+    </div>
+    <!-- CODE ABOVE -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="timer.js"></script>
+</body>
+
+</html>
