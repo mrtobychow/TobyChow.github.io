@@ -13,39 +13,29 @@
 }
 
 .contain {
-    margin: 10% 0 0 0;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .date-display {
-    display: block;
     font-family: 'Rokkitt', serif;
 }
 
 #date-underline {
     display: block;
     border: 1px solid white;
-    margin-left: 25%;
-    width: 50%;
 }
 
 .location-display,
 .weather-display,
 .time-display {
-    color: black;
     font: bold;
+    width: 100vw;
+    text-align: center;
     background-color: rgba(0, 0, 0, 0.3);
-    height: 4em;
-    margin: 1.5em 0;
-}
-
-h1,
-h4 {
-    margin-left: 25%;
-}
-
-#weather-update {
-    margin-left: 25%;
-    margin-right: 7%;
 }
 
 .display {
@@ -54,6 +44,5 @@ h4 {
 
 #location-text,
 #weather-text {
-    display: inline-block;
     padding-top: 8px;
 }
