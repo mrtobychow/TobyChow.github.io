@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Basic Bootstrap Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- Optional Bootstrap theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- FONT AWESOME LIBRARY -->
+    <script src="https://use.fontawesome.com/533b6a7b5d.js"></script>
+    <!-- CSS FILE LINK -->
+    <link rel="stylesheet" type="text/css" href="wiki.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <!-- CODE BELOW -->
+    <div class="container">
+        <!-- Mobile Recent Searches -->
+        <div class="row top-btn">
+            <div class="btn-group mobile">
+                <button type="button" class="text-left btn btn-default dropdown-toggle recent-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Recent Search <i class="fa fa-caret-down" aria-hidden="true"></i>
+                </button>
+                <ul class="dropdown-menu">
+                </ul>
+            </div>
+            <!-- Random Button -->
+            <div class="col-xs-6
+ col-md-12 text-center random-button">
+                <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+                    <button class="btn btn-default btn-link random" type="submit">Random Page
+                    </button>
+                </a>
+            </div>
+        </div>
+        <!-- Search Bar -->
+        <div class="input-group">
+            <!-- 'X' Button  -->
+            <span class="input-group-btn">
+               <button class="btn btn-default remove" type="button">
+                   <span class="glyphicon glyphicon-remove"></span>
+            </button>
+            </span>
+            <!-- Input field -->
+            <input type="text" class="form-control
+" autofocus="true">
+            <!-- Search Button --><span class="input-group-btn">
+            <button class="btn btn-default search" type="button">
+            Search
+            </button>
+            </span>
+        </div>
+        <br>
+        <div class="row">
+            <!-- Recent Searches -->
+            <div class="list-group recent-search col-md-3 web">
+                <li class="list-group-item list-group-item-success">
+                    <button class="btn btn-default btn-xs recent-btn" type="button">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button> Recent Search
+                </li>
+            </div>
+            <!-- Content Section -->
+            <div class="content col-md-9"></div>
+        </div>
+    </div>
+    <!-- CODE ABOVE -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="wiki.js"></script>
+</body>
+
+</html>
