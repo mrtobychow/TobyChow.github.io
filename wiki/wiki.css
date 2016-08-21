@@ -1,0 +1,53 @@
+* {
+    box-sizing: border-box;
+}
+
+
+/*Screen size >= 992px*/
+
+@media(min-width: 992px) {
+    .panel.col-md-6 {
+        padding: 0;
+        width: 47%;
+        margin: 1em 1.5%;
+        height: 10em;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .mobile {
+        display: none;
+    }
+}
+
+
+/*Screen size <= 991px*/
+
+@media(max-width: 991px) {
+    .web {
+        display: none;
+    }
+}
+
+.random-button {
+    margin-top: 1em;
+    margin-bottom: 1em;
+}
+
+.mobile {
+    margin-top: 1em;
+}
+
+.web {
+    padding: 0;
+    max-width: 11em;
+}
+
+.recent-search-result {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mobile-result {
+    padding-left: 10px;
+}
