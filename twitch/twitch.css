@@ -1,64 +1,114 @@
-    .streamer {
-        position: relative;
-        margin: 2em auto 1em;
-        text-align: center;
-        display: none;
-    }
-    
-    .name,
-    .status,
-    .play {
-        /* horz. center*/
-        position: absolute;
-        margin: 0 auto;
-        left: 0;
-        right: 0;
-        width: 320px;
-        color: white;
-        font-size: 1.2em;
-        background-color: rgba(0, 0, 0, 0.5);
-    }
-    
-    .name {
-        top: 0;
-    }
-    
-    .logo {
-        border-radius: 10em;
-        position: absolute;
-        top: -0.5em;
-        right: -10px;
-        width: 75px;
-        height: 75px;
-    }
-    
-    .status {
-        /* horz. center, rest of properties inherited from .name*/
-        bottom: 0;
-    }
-    
-    .offline {
-        background-color: rgba(255, 255, 255, 0.15);
-    }
-    
-    .closed {
-        background-color: rgba(144, 48, 48, 0.74);
-    }
-    
-    .play {
-        position: absolute;
-        width: 320px;
-        height: 180px;
-        background: rgba(0, 0, 0, 0.5);
-    }
-    
-    .play-btn {
-        position: absolute;
-        width: 320px;
-        height: 90px;
-        bottom: 0;
-        right: 0;
-        left: 0;
-        top: 0;
-        margin: auto;
-    }
+ @font-face {
+     font-family: twitch;
+     src: url(fonts/twitchBold.ttf);
+ }
+ 
+ h1 {
+     position: absolute;
+     height: 1em;
+     margin: auto;
+     font-family: twitch;
+     text-align: center;
+     top: 0;
+     right: 0;
+     left: 0;
+     bottom: 0;
+ }
+ 
+ .twitch-banner {
+     position: relative;
+     width: 100vw;
+     height: 20vh;
+     background-color: #64439a;
+ }
+ 
+ .loading {
+     text-align: center;
+     width: 100px;
+     height: 200px;
+     position: absolute;
+     top: 0;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     margin: auto;
+ }
+ 
+ .streamer {
+     position: relative;
+     margin: 2em auto 1em;
+     text-align: center;
+     display: none;
+ }
+ 
+ .name,
+ .status,
+ .play {
+     /* horz. center*/
+     position: absolute
+;
+     margin: 0 auto;
+     left: 0;
+     right: 0;
+     width: 320px;
+     color: white;
+     font-size: 1.2em;
+     background-color: rgba(0, 0, 0, 0.5);
+ }
+ 
+ .name {
+     top: 0;
+ }
+ 
+ .logo {
+     border-radius: 10em;
+     position: absolute;
+     top: -0.5em;
+     right: -10px;
+     width: 75px;
+     height: 75px;
+ }
+ 
+ .person-icon {
+     background: grey;
+     border-radius: 50em;
+     width: 1em;
+     margin-right: -10px;
+ }
+ 
+ .status {
+     /* horz. center, rest of properties inherited from .name*/
+     bottom: 0;
+ }
+ 
+ .offline {
+     background-color: rgba(255, 255, 255, 0.15);
+ }
+ 
+ .closed {
+     background-color: rgba(144, 48, 48, 0.74);
+ }
+ 
+ .play {
+     position: absolute;
+     width: 320px;
+     height: 180px;
+     background: rgba(0, 0, 0, 0.5);
+ }
+ 
+ .play-btn {
+     position: absolute;
+     width: 320px;
+     height: 90px;
+     bottom: 0;
+     right: 0;
+     left: 0;
+     top: 0;
+     margin: auto;
+ }
+ 
+ @media (max-width:340px) {
+     .streamer {
+         padding-left: 0;
+     }
+ }

@@ -88,7 +88,7 @@ $(document).ready(function() {
                         if (channelLogo !== null) {
                             logo = '<img class="logo" src="' + channelLogo + '">';
                         } else {
-                            logo = "";
+                            logo = '<i class="fa fa-user fa-4x person-icon" aria-hidden="true"></i>';
                         }
                         // Creates html structure for each streamer                  
                         var bsCol = `<div class="col-md-4 col-sm-6 col-xs-12 streamer ${streamer}">`;
