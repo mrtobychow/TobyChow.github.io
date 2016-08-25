@@ -102,8 +102,9 @@ $(document).ready(function() {
                 <div class="name">${streamer}
                     <div class="logo">${logo}</div>
                 </div>
-                <div class="status">${status}</div>
                 <div class="previewPic">${image}</div>
+                <div class="status">${status}</div>
+                
                 `);
                     })();
 
