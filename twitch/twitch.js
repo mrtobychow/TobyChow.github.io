@@ -6,11 +6,13 @@
 //waiting for ajax call to complete before working with data, 
 //fixed hover flickering issue
 //tree traversal for different 'this' values
-//creating overlay of play button
+//hovering on overlapping elements
+//Sorting streamers first by status, then if online, by alphabetical name
+//Ordering columns with bootstrap's push/pull classes
 $(document).ready(function() {
 
     // List of streamers to display
-    var streamers = ['esl_csgo', 'freecodecamp', 'voyboy', 'reynad27', 'joshog', 'Kolento', 'potato', 'brunofin', 'comster404', 'nalcs1', 'nalcs2'];
+    var streamers = ['esl_csgo', 'freecodecamp', 'voyboy', 'reynad27', 'callofduty', 'Kolento', 'potato', 'brunofin', 'comster404', 'nalcs1', 'nalcs2'];
     var numStreamers = streamers.length;
     // can use result object after resolve to clean up global namespace
     var streamLink;
@@ -18,6 +20,7 @@ $(document).ready(function() {
     var channelLogo;
     var previewPic;
     var isOnline;
+    // track number of streamers that are loaded and ready to be displayed
     var count = 0;
 
     // Get twitch API info and displays information
@@ -28,6 +31,7 @@ $(document).ready(function() {
             function createTemplatePic(width, height) {
                 return 'http://static-cdn.jtvnw.net/previews-ttv/live_user_test_channel-' + width + 'x' + height + '.jpg';
             }
+            //Call twitch API
             $.when(
                 $.ajax({
                     url: 'https://api.twitch.tv/kraken/channels/' + query,
@@ -56,7 +60,7 @@ $(document).ready(function() {
                 // Display appropriate stream status
                 if (isOnline === null) {
                     status = 'Offline';
-                } else if (status === 422) {
+                } else if (status === 422 || status === 404) {
                     status = 'Account closed';
                 }
 
@@ -67,19 +71,25 @@ $(document).ready(function() {
                 if (status === 'Account closed') {
                     $(`.${query} > .status`).addClass('closed');
                 }
-
                 resolve();
             });
         });
     }
 
+    function sortStreamers() {
+        console.log(status);
+
+    }
+    sortStreamers();
+
+
     function display(streamers) {
         // Removes first item in 'streamers' and returns value to 'streamer'
         var streamer = streamers.shift();
+        // if not end of list
         if (streamer) {
             // Creates display after each streamer's data is obtained
             twitchAPI(streamer).then(function(result) {
-                    console.log(result);
                     // IIFE - Creates individual container for each streamer
                     (function createDisplay() {
                         var logo;
@@ -94,18 +104,16 @@ $(document).ready(function() {
                         var bsCol = `<div class="col-md-4 col-sm-6 col-xs-12 streamer ${streamer}">`;
                         $('.row').append(
                             `${bsCol}
-                <div class="overlay">
-                    <a href="https://www.twitch.tv/${streamer}" target="_blank">
-                        <i class="fa fa-play-circle fa-5x play-btn" aria-hidden="true" style="display:none"></i>
-                    </a>
-                </div>
-                <div class="name">${streamer}
-                    <div class="logo">${logo}</div>
-                </div>
-                <div class="previewPic">${image}</div>
-                <div class="status">${status}</div>
-                
-                `);
+                                <div class="overlay">
+                                    <a href="https://www.twitch.tv/${streamer}" target="_blank">
+                                <i class="fa fa-play-circle fa-5x play-btn" aria-hidden="true" style="display:none"></i>
+                                     </a>
+                                </div>
+                                <div class="name">${streamer}
+                                    <div class="logo">${logo}</div>
+                                </div>
+                                <div class="previewPic">${image}</div>
+                                <div class="status">${status}</div>`);
                     })();
 
                     // Shows play button on hover
@@ -123,7 +131,6 @@ $(document).ready(function() {
                             $(this).removeClass('play'); // context of 'this' is changed??
                             $('.play-btn').hide();
                             var name = $(this).siblings('.name');
-                            console.log(name);
                             var status = $(this).siblings('.status');
                             $(status).slideDown();
                         });
