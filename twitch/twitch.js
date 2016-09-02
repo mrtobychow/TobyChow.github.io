@@ -12,7 +12,7 @@
 $(document).ready(function() {
 
     // List of streamers to display
-    var streamers = ['esl_csgo', 'freecodecamp', 'voyboy', 'reynad27', 'callofduty', 'Kolento', 'potato', 'brunofin', 'comster404', 'nalcs1', 'nalcs2'];
+    var streamers = ['esl_csgo', 'freecodecamp', 'Voyboy', 'reynad27', 'callofduty', 'Kolento', 'imaqtpie', 'brunofin', 'comster404', 'nalcs1', 'nalcs2'];
     var numStreamers = streamers.length;
     // can use result object after resolve to clean up global namespace
     var streamLink;
@@ -57,29 +57,18 @@ $(document).ready(function() {
 
             .then(function() {
 
-                // Display appropriate stream status
+                // Assign appropriate stream status
                 if (isOnline === null) {
                     status = 'Offline';
                 } else if (status === 422 || status === 404) {
                     status = 'Account closed';
                 }
-
-                // Attach 'offline' and 'closed' status if applicable
-                if (status === 'Offline') {
-                    $(`.${query} > .status`).addClass('offline');
-                }
-                if (status === 'Account closed') {
-                    $(`.${query} > .status`).addClass('closed');
-                }
-                resolve();
+                resolve(); // end of promise
             });
         });
     }
 
-    function sortStreamers() {
-        console.log(status);
-
-    }
+    function sortStreamers() {}
     sortStreamers();
 
 
@@ -101,7 +90,7 @@ $(document).ready(function() {
                             logo = '<i class="fa fa-user fa-4x person-icon" aria-hidden="true"></i>';
                         }
                         // Creates html structure for each streamer                  
-                        var bsCol = `<div class="col-md-4 col-sm-6 col-xs-12 streamer ${streamer}">`;
+                        var bsCol = `<div class="col-md-4 col-sm-6 col-xs-12 streamer ${streamer}" data-name="${streamer}">`;
                         $('.row').append(
                             `${bsCol}
                                 <div class="overlay">
@@ -115,7 +104,14 @@ $(document).ready(function() {
                                 <div class="previewPic">${image}</div>
                                 <div class="status">${status}</div>`);
                     })();
-
+                    //Appends status (online / offline /closed) to bsCol
+                    if (status === 'Offline') {
+                        $('.row').find(`.${streamer}`).addClass('offline');
+                    } else if (status === 'Account closed') {
+                        $('.row').find(`.${streamer}`).addClass('closed');
+                    } else {
+                        $('.row').find(`.${streamer}`).addClass('online');
+                    }
                     // Shows play button on hover
                     $('.overlay,.preview').hover(function() {
                             var overlay = $(this).parent('.previewPic').siblings('.overlay ');
@@ -140,6 +136,28 @@ $(document).ready(function() {
 
                     //Only create next streamer's display after current streamer is complete to preserve the array's order
                     display(streamers);
+
+                })
+                //Sort by status priority (online > offline > closed), and alphabetically within each of those statuses
+                .then(function() {
+                    //Sorts query alphabetically
+                    function sortBy(query) {
+                        query.sort(function(a, b) {
+                                return (a.dataset.name).localeCompare(b.dataset.name);
+                            })
+                            .appendTo($container);
+                    }
+                    if (count === numStreamers) {
+                        var $container = $('.row');
+                        // Defining differnet queries to pass into sortBy function
+                        var alphabetical = $container.find('.streamer');
+                        var statusOnline = $container.find('.online');
+                        var statusOffline = $container.find('.offline');
+                        var statusClosed = $container.find('.closed');
+                        sortBy(statusOnline);
+                        sortBy(statusOffline);
+                        sortBy(statusClosed);
+                    }
                 })
                 // Displays content and removes loading icon once all content is loaded (prevents loading each display one by one)
                 .then(function() {

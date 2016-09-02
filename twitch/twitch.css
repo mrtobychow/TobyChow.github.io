@@ -24,8 +24,7 @@
  
  .loading {
      text-align: center;
-     width: 100px;
-     height: 200px;
+     height: 10em;
      position: absolute;
      top: 0;
      right: 0;
@@ -78,14 +77,7 @@
  .status {
      /* horz. center, rest of properties inherited from .name*/
      bottom: 0;
- }
- 
- .offline {
-     background-color: rgba(255, 255, 255, 0.15);
- }
- 
- .closed {
-     background-color: rgba(144, 48, 48, 0.74);
+     max-height: 50px;
  }
  
  .play {
@@ -105,6 +97,7 @@
      top: 0;
      margin: auto;
  }
+ /*Fix alignment issues at resolutions below*/
  
  @media (max-width:340px) {
      .streamer {
