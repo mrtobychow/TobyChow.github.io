@@ -12,7 +12,7 @@
 $(document).ready(function() {
 
     // List of streamers to display
-    var streamers = ['esl_csgo', 'freecodecamp', 'Voyboy', 'reynad27', 'callofduty', 'Kolento', 'imaqtpie', 'brunofin', 'comster404', 'nalcs1', 'nalcs2'];
+    var streamers = ['esl_csgo', 'freecodecamp', 'Voyboy', 'reynad27', 'callofduty', 'Kolento', 'Imaqtpie', 'brunofin', 'comster404', 'nalcs1', 'nalcs2'];
     var numStreamers = streamers.length;
     // can use result object after resolve to clean up global namespace
     var streamLink;
@@ -68,10 +68,6 @@ $(document).ready(function() {
         });
     }
 
-    function sortStreamers() {}
-    sortStreamers();
-
-
     function display(streamers) {
         // Removes first item in 'streamers' and returns value to 'streamer'
         var streamer = streamers.shift();
@@ -91,14 +87,16 @@ $(document).ready(function() {
                         }
                         // Creates html structure for each streamer                  
                         var bsCol = `<div class="col-md-4 col-sm-6 col-xs-12 streamer ${streamer}" data-name="${streamer}">`;
-                        $('.row').append(
+                        $('.streamer-container').append(
                             `${bsCol}
                                 <div class="overlay">
                                     <a href="https://www.twitch.tv/${streamer}" target="_blank">
-                                <i class="fa fa-play-circle fa-5x play-btn" aria-hidden="true" style="display:none"></i>
+                                        <i class="fa fa-play-circle fa-5x play-btn" aria-hidden="true" style="display:none"></i>
                                      </a>
                                 </div>
-                                <div class="name">${streamer}
+                                <div class="name">
+                                    <i class="fa fa-times-circle delete-btn" aria-hidden="true"></i>
+                                    ${streamer}
                                     <div class="logo">${logo}</div>
                                 </div>
                                 <div class="previewPic">${image}</div>
@@ -106,11 +104,11 @@ $(document).ready(function() {
                     })();
                     //Appends status (online / offline /closed) to bsCol
                     if (status === 'Offline') {
-                        $('.row').find(`.${streamer}`).addClass('offline');
+                        $('.streamer-container').find(`.${streamer}`).addClass('offline');
                     } else if (status === 'Account closed') {
-                        $('.row').find(`.${streamer}`).addClass('closed');
+                        $('.streamer-container').find(`.${streamer}`).addClass('closed');
                     } else {
-                        $('.row').find(`.${streamer}`).addClass('online');
+                        $('.streamer-container').find(`.${streamer}`).addClass('online');
                     }
                     // Shows play button on hover
                     $('.overlay,.preview').hover(function() {
@@ -130,6 +128,11 @@ $(document).ready(function() {
                             var status = $(this).siblings('.status');
                             $(status).slideDown();
                         });
+                    // Attach delete event handler to 'delete-btn'
+                    $('.delete-btn').on('click', function(event) {
+                        var streamer = $(this).closest('.streamer');
+                        $(streamer).remove();
+                    });
 
                     // track streamers info that are ready to be displayed
                     count++;
@@ -148,7 +151,7 @@ $(document).ready(function() {
                             .appendTo($container);
                     }
                     if (count === numStreamers) {
-                        var $container = $('.row');
+                        var $container = $('.streamer-container');
                         // Defining differnet queries to pass into sortBy function
                         var alphabetical = $container.find('.streamer');
                         var statusOnline = $container.find('.online');
@@ -171,4 +174,26 @@ $(document).ready(function() {
 
     // Init
     display(streamers);
+
+    function addStreamer(streamer) {
+        if (streamer) {
+            // Remove 1 to account for adding a new streamer because count only tracks the original array length from 'streamers'
+            count -= 1;
+        }
+        display(streamer);
+    }
+
+    // Adds streamer when search button is clicked
+    $('.search-btn').on('click', function(event) {
+        var query = $('.search-bar').val();
+        addStreamer([query]);
+    });
+
+    // Adds streamer when 'enter' key is pressed
+    $("input").on('keydown', function(evt) {
+        if (evt.which === 13) {
+            var query = $('.search-bar').val();
+            addStreamer([query]);
+        }
+    });
 });

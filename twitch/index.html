@@ -21,7 +21,21 @@
     <!-- CODE BELOW -->
     <!-- twitch banner -->
     <div class="twitch-banner">
-        <h1 class="banner">Twitch Viewer</h1>
+        <div class="banner-lockup">
+            <span class="title"><h1>Twitch Viewer</h1></span>
+            <!-- Search Bar -->
+            <div class="col-lg-12">
+                <div class="input-group search-group">
+                    <input type="text" class="form-control search-bar" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default search-btn" type="button">Go!</button>
+                    </span>
+                </div>
+                <!-- /input-group -->
+            </div>
+            <!-- /.col-lg-6 -->
+        </div>
+        <!-- /.row -->
     </div>
     <!-- loading spinner icon -->
     <div class="container">
@@ -29,7 +43,7 @@
             <h1>Loading</h1>
             <span class="loading-icon"><i class="fa fa-spinner fa-spin fa-3x fa-fw "></i></span>
         </div>
-        <div class="row row-eq-height"></div>
+        <div class="row row-eq-height streamer-container"></div>
     </div>
     <!-- CODE ABOVE -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>

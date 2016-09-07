@@ -3,23 +3,24 @@
      src: url(fonts/twitchBold.ttf);
  }
  
- h1 {
-     position: absolute;
-     height: 1em;
-     margin: auto;
-     font-family: twitch;
-     text-align: center;
-     top: 0;
-     right: 0;
-     left: 0;
-     bottom: 0;
- }
- 
  .twitch-banner {
      position: relative;
      width: 100vw;
-     height: 20vh;
+     height: 30vh;
      background-color: #64439a;
+ }
+ 
+ h1 {
+     font-family: twitch;
+     text-align: center;
+     margin-top: 0;
+     padding-top: 30px;
+ }
+ 
+ .search-group {
+     min-width: 50vw;
+     max-width: 30em;
+     margin: 0 auto;
  }
  
  .loading {
@@ -54,8 +55,22 @@
      background-color: rgba(0, 0, 0, 0.5);
  }
  
+ .delete-btn {
+     margin-left: -2px;
+     margin-top: -2px;
+     float: left;
+     color: grey;
+ }
+ 
+ .delete-btn:hover {
+     cursor: pointer;
+     color: red;
+     transform: scale(1.5, 1.5);
+ }
+ 
  .name {
      top: 0;
+     text-transform: capitalize;
  }
  
  .logo {
@@ -117,5 +132,26 @@
      }
      .person-icon {
          font-size: 2.5em !important;
+     }
+ }
+ 
+ @media (max-width: 456px) {
+     h1 {
+         font-size: 30pt;
+     }
+ }
+ 
+ @media (min-width:768px) {
+     h1 {
+         font-size: 70pt;
+     }
+ }
+ 
+ @media (min-width:456px) and (max-width:767px) {
+     h1 {
+         font-size: 50pt;
+     }
+     .twitch-banner {
+         height: 25vh;
      }
  }
