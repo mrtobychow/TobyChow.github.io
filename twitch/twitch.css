@@ -1,6 +1,6 @@
  @font-face {
      font-family: twitch;
-     src: url(https://github.com/TobyChow/TobyChow.github.io/tree/master/twitch/fonts/twitchBold.ttf);
+     src: url(/fonts/twitchBold.ttf);
  }
  
  .twitch-banner {
@@ -64,7 +64,7 @@
  
  .delete-btn:hover {
      cursor: pointer;
-     color: red;
+     color: #a57e7e;
      transform: scale(1.5, 1.5);
  }
  
