@@ -1,6 +1,6 @@
  @font-face {
      font-family: twitch;
-     src: url(fonts/twitchBold.ttf);
+     src: url(https://github.com/TobyChow/TobyChow.github.io/tree/master/twitch/fonts/twitchBold.ttf);
  }
  
  .twitch-banner {
