@@ -12,7 +12,7 @@
 $(document).ready(function() {
 
     // List of streamers to display
-    var streamers = ['esl_csgo', 'freecodecamp', 'Voyboy', 'reynad27', 'callofduty', 'Kolento', 'Imaqtpie', 'brunofin', 'comster404', 'nalcs1', 'nalcs2'];
+    var streamers = ['esl_csgo', 'freecodecamp', 'voyboy', 'reynad27', 'callofduty', 'kolento', 'imaqtpie', 'brunofin', 'comster404', 'nalcs1', 'nalcs2'];
     var copy = streamers.slice(0); // to be used for 'display' function, so 'streamers' can be perserved (.shift() mutates array)
     var numStreamers = streamers.length;
     // can use result object after resolve to clean up global namespace
@@ -178,14 +178,14 @@ $(document).ready(function() {
     display(streamers);
 
     function addStreamer(streamer) {
-        console.log($('.streamer-container').find('*').hasClass('freecodecamp'));
-        console.log($('.streamer-container').find('*').hasClass('fefefeffe'));
+        var newStreamer = streamer[0].toLowerCase();
+        var streamerExist = $('.streamer-container').find('*').hasClass(newStreamer);
         if (streamer) {
-            if (copy.indexOf(streamer[0]) === -1) {
+            if (!streamerExist) {
                 count -= 1; // Remove 1 to account for adding a new streamer because count only tracks the original array length from 'streamers'
                 copy = copy.concat(streamer);
                 display(streamer);
-            } else if (copy.indexOf(streamer[0]) > -1) {
+            } else {
                 alert("already added");
             }
         }
