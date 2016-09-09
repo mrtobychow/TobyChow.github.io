@@ -177,16 +177,26 @@ $(document).ready(function() {
     // Init
     display(streamers);
 
+    // Adding new streamer to existing streamers from default list
     function addStreamer(streamer) {
         var newStreamer = streamer[0].toLowerCase();
         var streamerExist = $('.streamer-container').find('*').hasClass(newStreamer);
         if (streamer) {
+            // fix .fadeOut setting display:none (which will prevent additional msgs to show)
+            $('.alert-msg').css('display', 'block');
             if (!streamerExist) {
                 count -= 1; // Remove 1 to account for adding a new streamer because count only tracks the original array length from 'streamers'
                 copy = copy.concat(streamer);
                 display(streamer);
+                // alert msg on if adding new streamer
+                $('.alert-msg').html(`<span class="label label-success alert">${newStreamer} added!</span>`)
+                    .delay(1000)
+                    .fadeOut(1000);
             } else {
-                alert("already added");
+                // alert msg if streamer exists
+                $('.alert-msg').html(`<span class="label label-warning alert">${newStreamer} already exists!</span>`)
+                    .delay(1000)
+                    .fadeOut(1000);
             }
         }
     }

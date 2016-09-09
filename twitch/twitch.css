@@ -2,6 +2,13 @@
      font-family: twitch;
      src: url(/fonts/twitchBold.ttf);
  }
+ /*prevents horizontal scrolling on mobile*/
+ 
+ html,
+ body {
+     max-width: 100%;
+     overflow-x: hidden;
+ }
  
  .twitch-banner {
      position: relative;
@@ -21,6 +28,16 @@
      min-width: 50vw;
      max-width: 30em;
      margin: 0 auto;
+ }
+ 
+ .alert-msg{
+     text-align: center;
+ }
+ .alert {
+     display: inline-block;
+     margin-top: 15px;
+     padding: 10px;
+     font-size: 1.3em;
  }
  
  .loading {
