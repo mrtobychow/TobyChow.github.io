@@ -104,7 +104,8 @@ $(document).ready(function() {
                                 <div class="previewPic">${image}</div>
                                 <div class="status">${status}</div>`);
                     })();
-                    //Appends status (online / offline /closed) to bsCol
+                    
+                    //Add status class 
                     if (status === 'Offline') {
                         $('.streamer-container').find(`.${streamer}`).addClass('offline');
                     } else if (status === 'Account closed') {
