@@ -5,18 +5,19 @@
 //TODO: ALLOW USERS TO SET ALARM LENGTH
 // BUG IF SINGLE NON ZERO NUM + (VERY QUICKLY PRESS BACKSP AND ZERO) / 
 // PRESS ENTER TO START / CLICKING ON BUTTON MAKES THE WINDOW LOSE FOCUS, NEED TO CLICK ON SCREEN TO USE SPACEBAR TO START&PAUSE AGAIN
-//	
+// Add responsive design
+// Prevent arrow func if number is hilighted
 
 
 $(document).ready(function() {
 
     var selOverride = false;
 
-    // CHANGE ALLOWED KEY INPUTS BASED ON SELECTION
+    // Prevents '0' as the first or only digit as input for hi-lighting
     $('input').select(function(evt) {
         var startIndex = evt.currentTarget.selectionStart;
         var endIndex = evt.currentTarget.selectionEnd;
-        // if selecting (highlighting) one digit
+        // start:0 end:2  represents hilighting both digits, 0:1 means hilighting the tens digit
         if ((startIndex === 0 && endIndex === 2) || (startIndex === 0 && endIndex === 1)) {
             allowedCodes = /^3[7-9]|^40|^4[9]|^5[0-7]|^8$|^32$|^9$/g;
         }
@@ -29,58 +30,56 @@ $(document).ready(function() {
 
     });
 
-    // TAB BETWEEN INPUT FIELDS (evt.preventdefault to prevent tabbing past start break minute display)
-
+    // Enables tabbing between work and break inputs
     $('input').on('keydown', function(evt) {
-        console.log(evt.which);
+        // Prevents space-bar from scrolling page (since it is used to start/pause timer)
         if (evt.which === 32) {
             evt.preventDefault();
         }
+        // 9 = 'tab' key
         if (evt.which === 9) {
-            console.log('tab pressed');
             if ($(".start-work-display").is(':focus')) {
-                console.log('breakfocus');
                 $(".start-break-display").focus();
             } else {
                 $(".start-work-display").focus();
             }
+            //evt.preventdefault to prevent tabbing past start break minute display
             evt.preventDefault();
         }
     });
-
-
 
     Init();
 
     var workTimer;
 
     // Initial work minutes / seconds
-
     var startWorkMinute = 20;
     var startWorkSeconds = 5;
 
     // Initial break minutes / seconds
-
     var startBreakMinute = 20;
     var startBreakSeconds = 5;
 
-    // PAUSE
     var isPaused = true;
 
-    // STORE ALARM DOM
-
+    // Stores alarm DOM
     var alarm = $('#alarm')[0];
 
-    // 37-40 = arrow keys / 49-57 = [0-9] / 8 = backspace / 9 = tab / 32 = spacebar / 
+    // 37-40 = arrow keys / 48-57 = [0-9] / 8 = backspace / 9 = tab / 32 = spacebar / 
     allowedCodes = /^3[7-9]|^40|^4[9]|^5[0-7]|^8$|^32$|^9$/g;
 
     var inputLen;
 
-    // RETURN NUMBER OF DIGITS IN DISPLAY TO DISABLE 0 AS THE ONLY INPUT
+    function inputLength() {
+        $("input").keyup(function() {
+            inputLen = ($(this).val().length);
+        });
+    }
 
+    //  Prevents '0' as the first or only digit as input without hi-lighting
     function checkDigit() {
-        afterInputLength();
-        // Prevents 0 is display is empty 
+        inputLength();
+        // Prevents adding '0' if display is empty 
         if ((inputLen === 0 || inputLen === undefined) && selOverride === false) {
             allowedCodes = /^3[7-9]|^40|^4[9]|^5[0-7]|^8$|^32$|^9$/g;
         } else if (selOverride === false) {
@@ -88,8 +87,7 @@ $(document).ready(function() {
         }
     }
 
-    // PREVENT NON-NUMERIC INPUTS, DOES A CHECK BEFORE INPUT IS CONFIRMED
-
+    // Checks if input is valid (non-zero as first/only digit, and no alphabet)
     function Init() {
         $("input").keydown(function(evt) {
             checkDigit();
@@ -97,17 +95,12 @@ $(document).ready(function() {
         });
     }
 
-    function afterInputLength() {
-        $("input").keyup(function() {
-            inputLen = ($(this).val().length);
-        });
-    }
-
-
+    // Only allow numbers to input
     function isNum(evt) {
         var charCode = evt.which;
+        // if keycode is identified (error checking)
         if (charCode !== 0) {
-            // Allows 0-9 and backspace
+            // Only displays character if keycode is allowed
             if (charCode.toString().match(allowedCodes) === null) {
                 evt.preventDefault();
                 console.log(
@@ -119,17 +112,15 @@ $(document).ready(function() {
         }
     }
 
-    // PLAY ALARM AUDIO FUNCTION
-
     function playAlarm() {
+        // Sets initial timestamp
         alarm.currentTime = 0;
         alarm.play();
-        setTimeout(function() { alarm.pause(); }, 4000);
+        setTimeout(function() { alarm.pause(); }, 8000);
     }
 
 
-    // ENABLE ADDING/SUBTRACTING SESSION LENGTHS WITH ARROW KEYS
-
+    // Enable arrow buttons to increment / decrement time
     function bindClick() {
         $("#add-work-min").on("click", function() {
             startWorkMinute += 1;
@@ -165,14 +156,14 @@ $(document).ready(function() {
     }
     bindClick();
 
-    // REMOVES ADD/MINUS FUNCTIONS (ARROWS DONT WORK)
 
+
+    // Remove arrow buttons' functionality (to be used when timer is running)
     function unbindClick() {
         $(".start-time").find('span').off();
     }
 
-    // START / PAUSE FUNCTIONS, PAUSECOUNT TO PREVENT BINDING CLICK FUNCTION MORE THAN ONCE (0 = PAUSED, 1 = UNPAUSED)
-
+    // Pausecount to prevent multiple bindings to arrow buttons (0 = PAUSED, 1 = UNPAUSED)
     var pauseCount = 1;
 
     function pause() {
@@ -203,7 +194,7 @@ $(document).ready(function() {
 
 
     //SPACE BAR TO TOGGLE BETWEEN START AND PAUSE BUTTONS
-    $(window).keyup(function(evt) {
+    $(document).keyup(function(evt) {
         if (evt.which === 32 && isPaused === true) {
             start();
         } else if (evt.which === 32 && isPaused === false) {
@@ -311,7 +302,6 @@ $(document).ready(function() {
     }
 
     // ALLOW USERS TO MANUALLY INPUT SESSION LENGTHS
-
     $("input").on("input", function(evt) {
         var inputType = $(this).attr('class');
         if (inputType == 'start-work-display') {
@@ -319,7 +309,7 @@ $(document).ready(function() {
             display();
         } else {
             startBreakMinute = $(this).val();
-            display();
+            display(); 
         }
         selOverride = false;
     });
