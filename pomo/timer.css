@@ -14,32 +14,20 @@ body {
     font-size: 3em;
     color: #18CAE6;
     text-align: center;
-    border: 1px solid gold;
-    height: 100vh;
+    min-height: 100vh;
 }
 
-.title {
-    border: 1px solid green;
-    flex: none;
+.title{
+    font-size: 1.3em;
 }
-
 .start-time {
     display: flex;
-    justify-content: center;
-    border: 1px solid red;
+    justify-content: space-around;
+    padding: 25px;
 }
 
-.start-work-time {
-    margin-right: 30px;
-    border: 1px solid white;
-}
-
-.start-break-time {
-    border: 1px solid white;
-}
-
-.timer {
-    border: 1px solid blue;
+.start-work-time, .start-break-time{
+    padding:25px;
 }
 
 button {
@@ -65,9 +53,6 @@ input {
 @media (max-width: 400px) {
     .start-time {
         flex-flow: column;
-    }
-    .start-work-time {
-        margin-left: 30px;
     }
     input {
         font-size: 30px;
