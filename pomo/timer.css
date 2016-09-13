@@ -30,6 +30,10 @@ body {
     padding:25px;
 }
 
+.start-work-display, .start-break-display{
+    width: 120px;
+}
+
 button {
     width: 6em;
 }
