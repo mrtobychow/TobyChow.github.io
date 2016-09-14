@@ -17,29 +17,38 @@ var quotes = {
 
 // 'Click for a quote' button
 $(".btn").click(function() {
+
     // Stores all quotes
     var quoteArr = Object.keys(quotes);
     var min = 0;
     var max = quoteArr.length;
+
     // Generates a random number from 0 to the number of quotes
     var ranNum = [Math.floor(Math.random() * (max - min) + min)];
+
     var chosenQuote = quoteArr[ranNum];
     var author  = quotes[chosenQuote];
-    //
     var currQuote = $(".quote").text();
-    console.log(currQuote);
-    //
+
+    // Prevents same quote from repeating
+    if(currQuote === chosenQuote){
+        chosenQuote = quoteArr[Math.floor(Math.random() * (max - min) + min)];
+    }
     var chosenPair = [chosenQuote, author];
     var citation = '"' + chosenQuote + '"' + " -" + author;
-    $(".well .quote b").remove();
-    $(".well .cite cite").remove();
+
+    //Remove previous quote and citations
+    $(".well .quote b").remove(); 
+    $("cite").remove(); 
+
+    //Add quote and author to 'well'
     $(".well .quote").append("<b></b>");
     $(".well b").append(chosenQuote);
     $(".well .cite").append("<cite>- </cite>");
     $(".well .cite cite").append(author);
 
      $('#tweetBtn iframe').remove();
-    // Generate new markup
+    // Update twitter button with new quote
     var tweetBtn = $('<a></a>')
         .addClass('twitter-share-button')
         .attr('href', 'http://twitter.com/share')
@@ -49,8 +58,8 @@ $(".btn").click(function() {
     
 });
 
-/* RUNS SCRIPT ONCE WHEN HTML IS LOADED SO A QUOTE IS DISPLAYED INITIALLY */
 $(document).ready(function() {
+    // Runs script once to show an initial quote
     $(".btn").click();
 
 });
