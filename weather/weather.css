@@ -3,13 +3,7 @@
 }
 
 .background-img {
-    position: absolute;
-    background-size: cover;
-    background-repeat: no-repeat;
-    bottom: 0;
-    top: 0;
-    left: 0;
-    right: 0;
+    background: center/cover no-repeat;
 }
 
 .contain {
@@ -21,6 +15,7 @@
 }
 
 .date-display {
+    text-align: center;
     font-family: 'Rokkitt', serif;
 }
 

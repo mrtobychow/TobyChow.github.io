@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    var app_ID = 'c284f8c5508846be79e1cb10000e9335';
+    var app_ID = 'c284f8c5508846be79e1cb10000e9335'; // key for api
     var lat;
     var lon;
     var city;
@@ -7,7 +7,6 @@ $(document).ready(function() {
     // tempType options: metric , imperial
     var tempType = 'metric';
     var tempUnit = '&#8451';
-    //temperature in celsius from JSON
     var temperatureC;
     var temperatureF;
     var weatherDescription;
@@ -38,7 +37,7 @@ $(document).ready(function() {
 
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
-                alert("Your browser does not support or allow geolocation!");
+                alert("Your browser does not support or allow geolocation! (Please turn off adblocks if applicable)");
             }
         });
     }
@@ -80,7 +79,7 @@ $(document).ready(function() {
         $("#update-time").empty();
         $(".date-display").empty();
         $("#update-time").append(currentHour + ':' + currentMin);
-        $(".date-display").append(currentMonth + ', ' + currentDay + ' ' + currentDate);
+        $(".date-display").append(currentDay + ', ' + currentMonth +' ' + currentDate );
     }
     $("#weather-update").click(function() {
         updateTime();
@@ -170,6 +169,7 @@ $(document).ready(function() {
         maximumAge: 0
     };
 
+    // Get IP data
     $.getJSON('http://ipinfo.io', function(data) {
         city = data.city;
         country = data.country;
@@ -178,6 +178,4 @@ $(document).ready(function() {
         lon = loc[1];
         updateTime();
     });
-
-
 });
