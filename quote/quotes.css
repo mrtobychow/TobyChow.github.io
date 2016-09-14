@@ -1,21 +1,18 @@
 body {
-    background-image: url("gameofthrones.jpg");
-    background-repeat: no-repeat;
-    background-size: 100% 100vh;
+    background: url("gameofthrones.jpg") center/cover;
 }
 
 .container {
     display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
+    flex-flow: column nowrap;
     height: 100vh;
-    border: 1px solid gold !important;
+
 }
 
 .title-container {
     text-align: center;
     margin-bottom: 10%;
-    border: 1px solid red !important;
+    margin-top: 5%;
 }
 
 .title-container .title {
@@ -28,12 +25,31 @@ body {
 
 .quote-container {
     font-size: 24pt;
-    border: 1px solid blue !important;
 }
 
 .quote-container .well {
     height: 40vh;
     opacity: 0.8;
+}
+
+/*Left quote icon*/
+.quote:before{
+    content:"\f10d";
+    font-family: FontAwesome;
+    margin-right:10px;
+}
+
+/*Right quote icon*/
+.quote:after{
+    content:"\f10e";
+    font-family: FontAwesome;
+    margin-left: 10px;
+}
+
+.cite{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content:flex-end;
 }
 
 .buttons {

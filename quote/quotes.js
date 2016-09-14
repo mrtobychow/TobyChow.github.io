@@ -1,7 +1,7 @@
 /* Further Improvements : No repeat quotes, Seperate quotes for each houses, Optimize code
 
 /* COLLECTION OF QUOTES */
-var Quotes = {
+var quotes = {
     'Let me give you some advice bastard Never forget what you areThe rest of the world will not. Wear it like armor, and it can never be used to hurt you': 'Tyrion Lannister',
     'When you play the game of thrones, you win or you die. There is no middle ground.': 'Cersi Lannister',
     "Power resides where men believe it resides. It's a trick, a shadow on the wall. And a very small man can cast a very large shadow.": 'Varys',
@@ -15,24 +15,30 @@ var Quotes = {
     "Winter is coming.": "Eddard Stark"
 };
 
+// 'Click for a quote' button
 $(".btn").click(function() {
-    var quoteArr = Object.keys(Quotes);
+    // Stores all quotes
+    var quoteArr = Object.keys(quotes);
     var min = 0;
     var max = quoteArr.length;
+    // Generates a random number from 0 to the number of quotes
     var ranNum = [Math.floor(Math.random() * (max - min) + min)];
     var chosenQuote = quoteArr[ranNum];
-    var chosenPair = [chosenQuote, Quotes[chosenQuote]];
-    var quote = chosenPair[0];
-    var author = chosenPair[1];
-    var citation = '"' + quote + '"' + " -" + author;
+    var author  = quotes[chosenQuote];
+    //
+    var currQuote = $(".quote").text();
+    console.log(currQuote);
+    //
+    var chosenPair = [chosenQuote, author];
+    var citation = '"' + chosenQuote + '"' + " -" + author;
     $(".well .quote b").remove();
     $(".well .cite cite").remove();
     $(".well .quote").append("<b></b>");
-    $(".well b").append(quote);
+    $(".well b").append(chosenQuote);
     $(".well .cite").append("<cite>- </cite>");
     $(".well .cite cite").append(author);
 
-    $('#tweetBtn iframe').remove();
+     $('#tweetBtn iframe').remove();
     // Generate new markup
     var tweetBtn = $('<a></a>')
         .addClass('twitter-share-button')
@@ -40,9 +46,11 @@ $(".btn").click(function() {
         .attr('data-text', citation);
     $('#tweetBtn').append(tweetBtn);
     twttr.widgets.load();
+    
 });
 
 /* RUNS SCRIPT ONCE WHEN HTML IS LOADED SO A QUOTE IS DISPLAYED INITIALLY */
 $(document).ready(function() {
     $(".btn").click();
+
 });
