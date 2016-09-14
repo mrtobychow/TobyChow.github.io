@@ -31,8 +31,8 @@ $(document).ready(function() {
                 }
                 weatherDescription = json.weather[0].description;
                 weatherIcon = json.weather[0].icon;
-                $("#location-text").append(city + ', ' + country);
-                $("#weather-text").append('<span id="temp-display">' + temperature + '</span>' + '<span id="tempUnit">' + tempUnit + '</span>' + ' , ' + weatherDescription + "<img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'>");
+                $("#location-text").text(city + ', ' + country);
+                $("#weather-text").html('<span id="temp-display">' + temperature + '</span>' + '<span id="tempUnit">' + tempUnit + '</span>' + ' , ' + weatherDescription + "<img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'>");
                 changeBackground();
 
             },
@@ -74,12 +74,8 @@ $(document).ready(function() {
         var currentDate = currentTimeStamp.getDate();
         var currentHour = currentTimeStamp.getHours();
         var currentMin = currentTimeStamp.getMinutes();
-        $("#location-text").empty();
-        $("#weather-text").empty();
-        $("#update-time").empty();
-        $(".date-display").empty();
-        $("#update-time").append(currentHour + ':' + currentMin);
-        $(".date-display").append(currentDay + ', ' + currentMonth +' ' + currentDate );
+        $("#update-time").text(currentHour + ':' + currentMin);
+        $(".date-display").text(currentDay + ', ' + currentMonth +' ' + currentDate );
     }
     $("#weather-update").click(function() {
         updateTime();
