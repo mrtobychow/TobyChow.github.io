@@ -74,6 +74,7 @@ $(document).ready(function() {
         var currentDate = currentTimeStamp.getDate();
         var currentHour = currentTimeStamp.getHours();
         var currentMin = currentTimeStamp.getMinutes();
+        // Last updated time
         $("#update-time").text(currentHour + ':' + currentMin);
         $(".date-display").text(currentDay + ', ' + currentMonth +' ' + currentDate );
     }

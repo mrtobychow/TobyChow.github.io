@@ -11,6 +11,27 @@
 
 $(document).ready(function() {
 
+    var workTimer;
+
+    // Initial work minutes / seconds
+    var startWorkMinute = 25;
+    var startWorkSeconds = 0;
+
+    // Initial break minutes / seconds
+    var startBreakMinute = 5;
+    var startBreakSeconds = 0;
+
+    var isPaused = true;
+
+    // Stores alarm DOM
+    var alarm = $('#alarm')[0];
+
+    // 37-40 = arrow keys / 48-57 = [0-9] / 8 = backspace / 9 = tab / 32 = spacebar / 
+    var allowedCodes = /^3[7-9]|^40|^4[9]|^5[0-7]|^8$|^32$|^9$/g;
+
+    var inputLen;
+
+    // Track if '0' is allowed as an input 
     var selOverride = false;
 
     // Prevents '0' as the first or only digit as input for hi-lighting
@@ -22,12 +43,6 @@ $(document).ready(function() {
             allowedCodes = /^3[7-9]|^40|^4[9]|^5[0-7]|^8$|^32$|^9$/g;
         }
         selOverride = true;
-        console.log('seperate');
-        console.log($(this).val().length);
-        console.log(evt);
-        console.log(evt.currentTarget.selectionStart);
-        console.log(evt.currentTarget.selectionEnd);
-
     });
 
     // Enables tabbing between work and break inputs
@@ -50,25 +65,6 @@ $(document).ready(function() {
 
     Init();
 
-    var workTimer;
-
-    // Initial work minutes / seconds
-    var startWorkMinute = 20;
-    var startWorkSeconds = 5;
-
-    // Initial break minutes / seconds
-    var startBreakMinute = 20;
-    var startBreakSeconds = 5;
-
-    var isPaused = true;
-
-    // Stores alarm DOM
-    var alarm = $('#alarm')[0];
-
-    // 37-40 = arrow keys / 48-57 = [0-9] / 8 = backspace / 9 = tab / 32 = spacebar / 
-    allowedCodes = /^3[7-9]|^40|^4[9]|^5[0-7]|^8$|^32$|^9$/g;
-
-    var inputLen;
 
     function inputLength() {
         $("input").keyup(function() {
@@ -87,14 +83,6 @@ $(document).ready(function() {
         }
     }
 
-    // Checks if input is valid (non-zero as first/only digit, and no alphabet)
-    function Init() {
-        $("input").keydown(function(evt) {
-            checkDigit();
-            isNum(evt);
-        });
-    }
-
     // Only allow numbers to input
     function isNum(evt) {
         var charCode = evt.which;
@@ -110,6 +98,14 @@ $(document).ready(function() {
                 startWorkMinute = $(".start-work-display").val();
             }
         }
+    }
+
+    // Checks if input is valid (non-zero as first/only digit, and no alphabet)
+    function Init() {
+        $("input").keydown(function(evt) {
+            checkDigit();
+            isNum(evt);
+        });
     }
 
     function playAlarm() {
@@ -155,8 +151,6 @@ $(document).ready(function() {
         });
     }
     bindClick();
-
-
 
     // Remove arrow buttons' functionality (to be used when timer is running)
     function unbindClick() {

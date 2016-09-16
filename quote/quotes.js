@@ -1,5 +1,4 @@
 /* Further Improvements : No repeat quotes, Seperate quotes for each houses, Optimize code
-
 /* COLLECTION OF QUOTES */
 var quotes = {
     'Let me give you some advice bastard Never forget what you areThe rest of the world will not. Wear it like armor, and it can never be used to hurt you': 'Tyrion Lannister',
