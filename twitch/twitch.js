@@ -24,6 +24,8 @@ $(document).ready(function() {
     // track number of streamers that are loaded and ready to be displayed
     var count = 0;
 
+    var clientID = 'oqovo123t1rrdi3m1dyfx4lil5qf3d0';
+
     // Get twitch API info and displays information
     function twitchAPI(query) {
         // Create promise container to ensure streamers displayed in the same order as the 'streamers' array
@@ -34,11 +36,13 @@ $(document).ready(function() {
             }
             //Call twitch API
             $.when(
+                
                 $.ajax({
-                    url: 'https://api.twitch.tv/kraken/channels/' + query,
+                    url: `https://api.twitch.tv/kraken/channels/${query}?client_id=${clientID}`,
                     dataType: 'jsonp',
                     type: 'GET',
                     success: function(data) {
+                        console.log(data);
                         streamLink = '<a target ="_blank" href="https://www.twitch.tv/' + query + '">' + query + '</a>';
                         status = data.status;
                         channelLogo = data.logo || null;
@@ -46,7 +50,7 @@ $(document).ready(function() {
                 }),
 
                 $.ajax({
-                    url: 'https://api.twitch.tv/kraken/streams/' + query,
+                    url: `https://api.twitch.tv/kraken/streams/${query}?client_id=${clientID}`,
                     dataType: 'jsonp',
                     type: 'GET',
                     success: function(data) {
