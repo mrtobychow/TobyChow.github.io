@@ -1,0 +1,70 @@
+body {
+    background: url("gameofthrones.jpg") (center / cover);
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+    height: 100vh;
+
+    .title-container {
+        text-align: center;
+        margin-bottom: 10%;
+        margin-top: 5%;
+
+        .title {
+            font-size: 36pt;
+        }
+
+        .sub-title {
+            font-size: 24pt;
+        }
+    }
+
+    .quote-container {
+        font-size: 24pt;
+
+        .well {
+            min-height: 40vh;
+            opacity: 0.8;
+        }
+
+        /*Left quote icon*/
+        .quote {
+            &:before {
+                content: "\f10d";
+                font-family: FontAwesome;
+                margin-right: 10px;
+            }
+
+            /*Right quote icon*/
+            &:after {
+                content: "\f10e";
+                font-family: FontAwesome;
+                margin-left: 10px;
+            }
+
+            .cite {
+                display: flex;
+                flex-flow: row nowrap;
+                justify-content: flex-end;
+            }
+        }
+    }
+
+    .buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .quote-btn {
+            margin-left: 2em;
+        }
+    }
+}
+
+@media (max-width: 728px) {
+    .quote-container {
+        font-size: 15pt !important;
+    }
+}

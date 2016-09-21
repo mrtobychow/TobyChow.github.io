@@ -1,0 +1,39 @@
+.background-img {
+    background: center/cover no-repeat;
+}
+
+.contain {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    .date-display {
+        text-align: center;
+        font-family: 'Rokkitt', serif;
+    }
+
+    #date-underline {
+        display: block;
+        border: 1px solid white;
+    }
+
+    .location-display,
+    .weather-display,
+    .time-display {
+        font: bold;
+        width: 100vw;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    .display {
+        font-family: 'Passion One', cursive;
+    }
+
+    #location-text,
+    #weather-text {
+        padding-top: 8px;
+    }
+}

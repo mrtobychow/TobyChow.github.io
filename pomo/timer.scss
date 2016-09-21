@@ -1,0 +1,69 @@
+
+body {
+    background-color: black;
+}
+
+ input {
+        background-color: black;
+        border: 1px solid #18CAE6;
+        width: 2em;
+        text-align: center;
+}
+
+.contain {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-flow: column wrap;
+    flex-flow: column wrap;
+    -ms-flex-pack: center;
+    justify-content: center;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3em;
+    color: #18CAE6;
+    text-align: center;
+    min-height: 100vh;
+
+    .title{
+    font-size: 1.3em;
+    }
+
+    // Time input displays
+    .start-time {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    padding: 25px;
+    }
+
+        .start-work-time, .start-break-time{
+            padding:25px;
+        }
+        .start-work-display, .start-break-display{
+            width: 120px;
+        }
+    // End of time inputs
+
+    button {
+        width: 6em;
+    }
+}
+
+@media (max-width: 445px) {
+    .glyphicon {
+        font-size: 30px;
+    }
+    p {
+        font-size: 35px;
+    }
+}
+
+@media (max-width: 400px) {
+    .start-time {
+        -ms-flex-flow: column;
+        flex-flow: column;
+    }
+    input {
+        font-size: 30px;
+    }
+}
