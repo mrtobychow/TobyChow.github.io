@@ -1,7 +1,9 @@
+/*jshint esversion: 6 */
 $(document).ready(function() {
 
     var query;
 
+    // Get Wikipedia's API
     function wikiData(query) {
         $.ajax({
             url: "http://en.wikipedia.org/w/api.php?action=query&prop=extracts&exlimit=max&format=json&exsentences=1&exintro=&explaintext=&generator=search&gsrlimit=10&gsrsearch=" + query,
@@ -16,10 +18,15 @@ $(document).ready(function() {
                 for (var key in result) {
                     var pageInfo = result[key];
                     //Creates individual boxes for each title and corresponding description
-                    $('.content').append('<div class="panel panel-info col-md-6"><div class="panel-heading"><h3 class="panel-title">' +
-                        '<a target="_blank" href="https://en.wikipedia.org/?curid=' +
-                        pageInfo.pageid + '">' + pageInfo.title + '</a>' +
-                        '</h3></div><div class="panel-body">' + pageInfo.extract + '</div></div>');
+                    $('.content').append(
+                        `<div class="panel panel-info col-md-6">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">
+                                    <a target="_blank" href="https://en.wikipedia.org/?curid=${pageInfo.pageid}">${pageInfo.title}</a>
+                                </h3>
+                            </div>
+                            <div class="panel-body">${pageInfo.extract}</div>
+                        </div>`);
                 }
             }
         });
@@ -54,7 +61,7 @@ $(document).ready(function() {
         }
     });
 
-    //Clears 'Recent Search' on recent search X button 
+    //Clears 'Recent Search' when 'x' on recent search btn clicked 
     $('.recent-btn').on('click', function() {
         $('.recent-search-result').remove();
     });
@@ -66,7 +73,7 @@ $(document).ready(function() {
         wikiData(query);
     });
 
-    //Hover on '.recent-search-result' (required this method for dynamic elements)
+    //Hover on '.recent-search-result' (requires this method for dynamic elements)
     $(document).on({
         mouseenter: function() {
             $(this).css({

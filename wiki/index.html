@@ -20,22 +20,21 @@
 <body>
     <!-- CODE BELOW -->
     <div class="container">
-        <!-- Mobile Recent Searches -->
         <div class="row top-btn">
-            <div class="btn-group mobile">
+            <!-- Random Button -->
+            <div class="col-xs-6 col-md-12 text-center random-button">
+                <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
+                    <button class="btn btn-default btn-link random" type="submit">Random Page
+                    </button>
+                </a>
+            </div>
+            <!-- Recent search bar on mobile  -->
+            <div class="col-xs-6 btn-group mobile">
                 <button type="button" class="text-left btn btn-default dropdown-toggle recent-search" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Recent Search <i class="fa fa-caret-down" aria-hidden="true"></i>
                 </button>
                 <ul class="dropdown-menu">
                 </ul>
-            </div>
-            <!-- Random Button -->
-            <div class="col-xs-6
- col-md-12 text-center random-button">
-                <a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">
-                    <button class="btn btn-default btn-link random" type="submit">Random Page
-                    </button>
-                </a>
             </div>
         </div>
         <!-- Search Bar -->
@@ -56,8 +55,8 @@
             </span>
         </div>
         <br>
-        <div class="row">
-            <!-- Recent Searches -->
+        <div class="row main">
+            <!-- Recent search bar on web -->
             <div class="list-group recent-search col-md-3 web">
                 <li class="list-group-item list-group-item-success">
                     <button class="btn btn-default btn-xs recent-btn" type="button">

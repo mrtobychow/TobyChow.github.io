@@ -1,14 +1,14 @@
-* {
-    box-sizing: border-box;
-}
 
 body {
     background-color: black;
 }
 
 .contain {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-flow: column wrap;
     flex-flow: column wrap;
+    -ms-flex-pack: center;
     justify-content: center;
     font-family: 'Orbitron', sans-serif;
     font-size: 3em;
@@ -21,7 +21,9 @@ body {
     font-size: 1.3em;
 }
 .start-time {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
     padding: 25px;
 }
@@ -56,6 +58,7 @@ input {
 
 @media (max-width: 400px) {
     .start-time {
+        -ms-flex-flow: column;
         flex-flow: column;
     }
     input {

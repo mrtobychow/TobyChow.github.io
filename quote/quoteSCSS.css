@@ -1,0 +1,47 @@
+/*Compiled from quote.scss*/
+
+body {
+  background: url("gameofthrones.jpg") center/cover; }
+
+.container {
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh; }
+  .container .title-container {
+    text-align: center;
+    margin-bottom: 10%;
+    margin-top: 5%; }
+    .container .title-container .title {
+      font-size: 36pt; }
+    .container .title-container .sub-title {
+      font-size: 24pt; }
+  .container .quote-container {
+    font-size: 24pt;
+    /*Left quote icon*/ }
+    .container .quote-container .well {
+      min-height: 40vh;
+      opacity: 0.8; }
+    .container .quote-container .quote {
+      /*Right quote icon*/ }
+      .container .quote-container .quote:before {
+        content: "\f10d";
+        font-family: FontAwesome;
+        margin-right: 10px; }
+      .container .quote-container .quote:after {
+        content: "\f10e";
+        font-family: FontAwesome;
+        margin-left: 10px; }
+      .container .quote-container .quote .cite {
+        display: flex;
+        flex-flow: row nowrap;
+        justify-content: flex-end; }
+  .container .buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .container .buttons .quote-btn {
+      margin-left: 2em; }
+
+@media (max-width: 728px) {
+  .quote-container {
+    font-size: 15pt !important; } }

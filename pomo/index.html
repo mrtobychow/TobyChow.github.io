@@ -10,15 +10,18 @@
     <!-- FONT AWESOME LIBRARY -->
     <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"> -->
     <!-- CSS FILE LINK -->
-    <link rel="stylesheet" type="text/css" href="timer.css">
+    <link rel="stylesheet" href="timer.css">
     <!-- GOOGLE FONTS -->
-    <link href='https://fonts.googleapis.com/css?family=Orbitron:500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron:500' rel='stylesheet'>
 </head>
 
 <body>
     <!-- CODE BELOW -->
     <div class="contain">
+        <!-- Title -->
         <div class="title">Pomodoro Clock</div>
+
+        <!-- Timer displays -->
         <div class="start-time">
             <div class="start-work-time">
                 <p>Work Session</p>
@@ -37,18 +40,22 @@
                 </div>
             </div>
         </div>
+
+        <!-- Countdown timer -->
         <div class="timer">
             <p id="status">Work Time!</p>
             <span id="work-minutes-display"></span>:<span id="work-seconds-display"></span>
             <hr>
-            <div class="buttons">
+        </div>
+
+        <!-- Start / pause / reset buttons -->
+        <div class="buttons">
                 <button id="start" type="button" class="btn btn-info">Start</button>
                 <button id="pause" type="button" class="btn btn-info">Pause</button>
                 <br>
                 <button id="reset" type="button" class="btn btn-info">Reset</button>
                 <br>
                 <audio id="alarm" src="alarm.mp3" volume="0.0" loop="true" controls></audio>
-            </div>
         </div>
     </div>
     <!-- CODE ABOVE -->
