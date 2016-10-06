@@ -5,143 +5,76 @@
     <meta charset="utf-8">
     <title>Basic Bootstrap Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-    <!-- Optional Bootstrap theme -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
     <!-- FONT AWESOME LIBRARY -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     <!-- CSS FILE LINK -->
-    <link rel="stylesheet" type="text/css" href="PersonalProfile.css">
+    <link rel="stylesheet" type="text/css" href="personalprofile.css">
 </head>
 
 <body>
     <!-- CODE BELOW -->
-    <div class="container-fluid">
-        <!-- NAVIGATION BAR -->
-        <nav role="navigation" class="navbar navbar-default navbar-fixed-top">
-            <div class="navbar-header">
-                <button type="button" data-target="#coltar" data-toggle="collapse" class="navbar-toggle">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="#home" class="navbar-brand">Home <span class="fa fa-home"></span></a>
-            </div>
-            <!-- Toggled Contents -->
-            <div id="coltar" class="collapse navbar-collapse">
-                <a href="#" class="navbar-brand dropdown-toggle" data-toggle="dropdown">Social Media<b class="caret"></b></a>
-                <ul class="menu dropdown-menu">
-                    <li><a id="facebook" href="#" class="navbar-brand">Facebook</a></li>
-                    <li><a id="twitter" href="#" class="navbar-brand">Twitter</a></li>
-                    <li><a id="instagram" href="#" class="navbar-brand">Instagram</a></li>
-                    <li><a id="github" href="#" class="navbar-brand">Github</a></li>
-                </ul>
-                <a href="#contact" class="navbar-brand navbar-right">Contact <span class="glyphicon glyphicon-user"></span></a>
-            </div>
-        </nav>
-        <!-- JUMBOTRON -->
-        <div id="home" class="jumbotron">
-            <div class="container">
-                <h1 class="text-center">My Projects</h1>
-                <!-- BUTTONS -->
-                <div class="row">
-                    <div class="col-md-3 col-sm-2 text-center">
-                        <button type="button" class="btn btn-info btn-lg">
-                            Facebook <span class="fa fa-facebook-official"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-3 col-sm-2 text-center">
-                        <button type="button" class="btn btn-info btn-lg">
-                            Twitter <span class="fa fa-twitter"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-3 col-sm-2 text-center">
-                        <button type="button" class="btn btn-info btn-lg">
-                            Instagram <span class="fa fa-instagram"></span>
-                        </button>
-                    </div>
-                    <div class="col-md-3 col-sm-2 text-center">
-                        <button type="button" class="btn btn-info btn-lg">
-                            Github <span class="fa fa-github"></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+    <div class="intro">
+        <div class="name">
+            Toby Chow
         </div>
-        <!-- THUMBNAILS -->
-        <div id="profilio" class="row">
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <a href="#"><img src="http://placehold.it/150x150"></a>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <a href="#"><img src="http://placehold.it/150x150"></a>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <a href="#">
-                        <a href=""><img src="http://placehold.it/150x150"></a>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <a href="#">
-                        <a href=""><img src="http://placehold.it/150x150"></a>
-                    </a>
-                </div>
-            </div>
+        <div class="aim">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga sit debitis, expedita a repudiandae ab harum labore reprehenderit temporibus, impedit quaerat aut, et voluptate veniam nostrum ex consequatur, deleniti sint.
         </div>
-        <div class="row">
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <a href="#"><img src="http://placehold.it/150x150"></a>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <a href="#"><img src="http://placehold.it/150x150"></a>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <a href="#">
-                        <a href=""><img src="http://placehold.it/150x150"></a>
-                    </a>
-                </div>
-            </div>
-            <div class="col-xs-6 col-md-3">
-                <div class="thumbnail">
-                    <a href="#">
-                        <a href=""><img src="http://placehold.it/150x150"></a>
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- ABOUT -->
-        <div id="about" class="container">
-            <h1>About Me</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="skill">
+            <div class="sass-icon"></div>
+            <div class="flexbox-icon"></div>
+            <div class="bootstrap-icon"></div>
+            <div class="html-icon"></div>
+            <div class="css-icon"></div>
+            <div class="js-icon"></div>
+            <div class="jquery-icon"></div>
+            <div class="git-icon"></div>
+            <div class="gulp-icon"></div>
         </div>
     </div>
-    <!-- FOOTER -->
-    <footer id="contact">
-        <div class="container">
-            <p class="pull-right">MyEmail@email.com</p>
-            <p class="pull-left">My Name</p>
+    <!-- Carousel -->
+    <h1 class="title">Projects</h1>
+    <div class="carousel-container">
+        <!-- preview left -->
+        <span class="slot-0"><img data-img="0" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=300%C3%97300&w=300&h=300&fm=png" alt=""></span>
+        <span class="slot-1"><img data-img="1" src="http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png" alt=""></span>
+        <div class="placeholder-left"></div>
+        <div class="test"></div>
+        <!-- main display -->
+        <div class="carousel">
+            <!-- left arrow -->
+            <div class="left-arrow-container">
+                <div class="left-arrow"><i class="fa fa-arrow-left" aria-hidden="true"></i></div>
+            </div>
+            <!-- main img -->
+            <div class="slot-2 curr-img-container">
+                <img class="img-2 active" data-img="2" src="http://ingridwu.dmmdmcfatter.com/wp-content/uploads/2015/01/placeholder.png">
+                <div class="nav-dots">
+                    <div class="dot" data-dot="0"></div>
+                    <div class="dot" data-dot="1"></div>
+                    <div class="active-dot dot" data-dot="2"></div>
+                    <div class="dot" data-dot="3"></div>
+                    <div class="dot" data-dot="4"></div>
+                </div>
+            </div>
+            <!-- right arrow -->
+            <div class="right-arrow-container">
+                <div class="right-arrow"><i class="fa fa-arrow-right" aria-hidden="true"></i></div>
+            </div>
         </div>
-    </footer>
+        <!-- preview right -->
+        <span class="slot-3"><img data-img="3" src="https://getuikit.com/docs/images/placeholder_600x400.svg" alt="" ></span>
+        <span class="slot-4"><img data-img="4" src="https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png" alt=""></span>
+    </div>
     <!-- CODE ABOVE -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="PersonalProfile.js"></script>
-    <!-- livereload script-->
-    <script>
-    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-    </script>
 </body>
 
 </html>
