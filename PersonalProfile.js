@@ -1,11 +1,13 @@
 /* jshint esversion:6 */
 
 // Carousel.js
+// TODO: ADD LEFT/RIGHT ARROW KEYS FUNCTION TO SLIDE CAROUSEL
 // data-img tracking the slot that the img is in now from original (ex: img-2 with data-img 0 = img-2 is at slot0)
 $(window).load(function() {
 
     var mainDot = '2';
     var speed = 400;
+
     // Left arrow is clicked
     $(".right-arrow").on('click', function(event) {
         var mainWidth = $(".curr-img-container").width();
@@ -85,7 +87,15 @@ $(window).load(function() {
             mainDot++;
             if (mainDot > 4) { mainDot = 0; }
             $(`[data-dot='${mainDot}']`).addClass('active-dot');
+
+            // Change img-title and caption
+            nextTitle = $(`.slot-${mainDot}  .img-title`).text();
+            nextCaption = $(`.slot-${mainDot}  .caption`).text();
+            $(".main-overlay > .img-title-display").text(nextTitle);
+            $(".main-overlay > .caption-display").text(nextCaption);
         }
+
+
     });
     ////////////////////////////////////////// right arrow
     var increment = true;
@@ -174,7 +184,11 @@ $(window).load(function() {
             mainDot--;
             if (mainDot < 0) { mainDot = 4; }
             $(`[data-dot='${mainDot}']`).addClass('active-dot');
-            console.log(mainDot);
+            // Change img-title and caption
+            nextTitle = $(`.slot-${mainDot}  .img-title`).text();
+            nextCaption = $(`.slot-${mainDot}  .caption`).text();
+            $(".main-overlay > .img-title-display").text(nextTitle);
+            $(".main-overlay > .caption-display").text(nextCaption);
         }
     });
     // fix positioning on windows resize
@@ -182,6 +196,13 @@ $(window).load(function() {
         increment = false;
         $(".right-arrow").click();
         increment = true;
+            var width = $(".slot-2").width();
+    var height = $(".slot-2").height();
+    console.log(width,height);
+    $(".overlay").css({
+        width: width,
+        height: height
+    });
     };
 
 
@@ -228,5 +249,27 @@ $(window).load(function() {
             }
         }
         speed = 400;
+    });
+
+    // Overlay
+
+    var width = $(".slot-2").width();
+    var height = $(".slot-2").height();
+    console.log(width,height);
+    $(".main-overlay").css({
+        width: width,
+        height: height
+    });
+
+});
+
+// Display initial message
+$(document).ready(function() {
+        $(".main-overlay > .img-title-display").text(function(){
+        return $(".slot-2 > .img-title").text();
+    });
+
+        $(".main-overlay > .caption-display").text(function(){
+        return $(".slot-2 > .caption").text();
     });
 });
