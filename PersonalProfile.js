@@ -91,8 +91,8 @@ $(window).load(function() {
             // Change img-title and caption
             nextTitle = $(`.slot-${mainDot}  .img-title`).text();
             nextCaption = $(`.slot-${mainDot}  .caption`).text();
-            $(".main-overlay > .img-title-display").text(nextTitle);
-            $(".main-overlay > .caption-display").text(nextCaption);
+            $(".main-overlay  .img-title-display").text(nextTitle);
+            $(".main-overlay  .caption-display").text(nextCaption);
         }
 
 
@@ -187,8 +187,8 @@ $(window).load(function() {
             // Change img-title and caption
             nextTitle = $(`.slot-${mainDot}  .img-title`).text();
             nextCaption = $(`.slot-${mainDot}  .caption`).text();
-            $(".main-overlay > .img-title-display").text(nextTitle);
-            $(".main-overlay > .caption-display").text(nextCaption);
+            $(".main-overlay  .img-title-display").text(nextTitle);
+            $(".main-overlay  .caption-display").text(nextCaption);
         }
     });
     // fix positioning on windows resize
@@ -196,13 +196,13 @@ $(window).load(function() {
         increment = false;
         $(".right-arrow").click();
         increment = true;
-            var width = $(".slot-2").width();
-    var height = $(".slot-2").height();
-    console.log(width,height);
-    $(".overlay").css({
-        width: width,
-        height: height
-    });
+        var width = $(".slot-2").width();
+        var height = $(".slot-2").height();
+        console.log(width, height);
+        $(".main-overlay").css({
+            width: width,
+            height: height
+        });
     };
 
 
@@ -213,6 +213,7 @@ $(window).load(function() {
         var clickedDot = +this.dataset.dot;
         var start = +mainDot;
         speed = 200;
+
         function distanceCheck(direction) {
             while (start !== clickedDot) {
 
@@ -255,7 +256,7 @@ $(window).load(function() {
 
     var width = $(".slot-2").width();
     var height = $(".slot-2").height();
-    console.log(width,height);
+    console.log(width, height);
     $(".main-overlay").css({
         width: width,
         height: height
@@ -265,11 +266,11 @@ $(window).load(function() {
 
 // Display initial message
 $(document).ready(function() {
-        $(".main-overlay > .img-title-display").text(function(){
+    $(".main-overlay  .img-title-display").text(function() {
         return $(".slot-2 > .img-title").text();
     });
 
-        $(".main-overlay > .caption-display").text(function(){
+    $(".main-overlay  .caption-display").text(function() {
         return $(".slot-2 > .caption").text();
     });
 });

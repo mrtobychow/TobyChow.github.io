@@ -1,10 +1,10 @@
 @mixin img-info {
     width: 100%;
     text-align: center;
-    color:white;
+    color: white;
     background: rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    display:block;
+    display: block;
 }
 
 body {
@@ -49,7 +49,7 @@ body {
     justify-content: space-between;
     align-items: center;
     border: 1px solid red;
-	// Side preview
+    // Side preview
     [class^="slot-"] {
         display: flex;
         flex: 1 1 20%;
@@ -57,17 +57,15 @@ body {
         margin: 0 5px;
         /*make sure to account for margins in offset calc*/
         .img-title,
-        .caption{
-        	display:none;
+        .caption {
+            display: none;
         }
     }
-
     img {
         background: cover/center;
         width: 100%;
         height: 100%;
     }
-
     // Main carousel
     .carousel {
         position: static;
@@ -80,7 +78,7 @@ body {
         background-color: grey;
         flex: 1 1 70%;
         align-items: center;
-        .fa {
+        .arrow {
             font-size: 30pt;
         }
         .curr-img-container {
@@ -99,33 +97,54 @@ body {
                 align-items: center;
                 position: absolute;
                 height: 100px;
-                .img-title-display {
+                .header {
                     @include img-info;
                 }
-                .caption-display {
-                    @include img-info;
-                    margin-bottom: 40px;
-                }
-            }
-            .nav-dots {
-                display: flex;
-                flex-flow: row nowrap;
-                position: absolute;
-                z-index: 999;
-                padding-bottom: 20px;
-                .dot {
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    margin: 0 10px;
-                    background: black;
-                }
-                .active-dot {
-                    width: 10px;
-                    height: 10px;
-                    border-radius: 50%;
-                    margin: 0 10px;
-                    background: white;
+                .footer {
+                    width: 100%;
+                    z-index: 9999;
+                    .caption-display {
+                        @include img-info;
+                        margin-bottom: 10px;
+                    }
+                    .nav-bar {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: space-between;
+                        align-items: center;
+                        .left-icons {
+                            .github-icon {
+                            	margin-left:10px;
+                            	color:black;
+                                font-size: 20pt;
+                            }
+                        }
+                        .nav-dots {
+                            display: flex;
+                            flex-flow: row nowrap;
+                            z-index: 9999;
+                            .dot {
+                                width: 12px;
+                                height: 12px;
+                                border-radius: 50%;
+                                margin: 0 10px;
+                                background: black;
+                            }
+                            .active-dot {
+                                width: 12px;
+                                height: 12px;
+                                border-radius: 50%;
+                                margin: 0 10px;
+                                background: white;
+                            }
+                        }
+                        .right-icons {
+                            .info-icon {
+                            	margin-right:10px;
+                                font-size: 20pt;
+                            }
+                        }
+                    }
                 }
             }
         }
