@@ -191,20 +191,6 @@ $(window).load(function() {
             $(".main-overlay  .caption-display").text(nextCaption);
         }
     });
-    // fix positioning on windows resize
-    window.onresize = function() {
-        increment = false;
-        $(".right-arrow").click();
-        increment = true;
-        var width = $(".slot-2").width();
-        var height = $(".slot-2").height();
-        console.log(width, height);
-        $(".main-overlay").css({
-            width: width,
-            height: height
-        });
-    };
-
 
     // Dots function
     $(".dot").on('click', function(event) {
@@ -262,6 +248,23 @@ $(window).load(function() {
         height: height
     });
 
+    // fix positioning on windows resize
+    window.onresize = function() {
+        increment = false;
+        $(".right-arrow").click();
+        increment = true;
+        //main display
+        var width = $(".slot-2").width();
+        var height = $(".slot-2").height();
+        //overlay
+        $(".main-overlay").css({
+            width: width,
+            height: height
+        });
+    };
+
+
+
 });
 
 // Display initial message
@@ -272,5 +275,13 @@ $(document).ready(function() {
 
     $(".main-overlay  .caption-display").text(function() {
         return $(".slot-2 > .caption").text();
+    });
+
+    // Info-icon button
+
+    $(".info-icon").on('click', function(event) {
+        $(this).toggleClass('active');
+        $(".info").slideToggle();
+        /* Act on the event */
     });
 });
