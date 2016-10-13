@@ -1,3 +1,8 @@
+@font-face {
+    font-family: bit;
+    src: url("./assets/fonts/8bit.ttf")
+}
+
 @mixin img-info {
     width: 100%;
     text-align: center;
@@ -8,9 +13,8 @@
 }
 
 body {
-     overflow-x: hidden;
+    overflow-x: hidden;
 }
-
 
 .title {
     text-align: center;
@@ -18,28 +22,47 @@ body {
 
 // Header
 .intro {
-    min-height: 200px;
-    background-color: #C74444;
-    .name {
-        text-align: center;
-        font: {
-            size: 36pt;
-            weight: bold;
+    position: relative;
+    height: 100vh;
+    text-align: center;
+    // background-color: #C74444;
+    .background-image {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: center/cover no-repeat url("http://www.carlingview.ca/images/home-toronto.jpg");
+        filter: blur(4px);
+    }
+    .content {
+        position: relative;
+        padding-top:20px;
+        .hello {
+            color: #6cccfe;
+            font: {
+                family: bit;
+                size: 30pt;
+            }
         }
-        ;
-    }
-    .aim {
-        text-align: center;
-    }
-    .skill {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        [class*="-icon"] {
-            width: 50px;
-            height: 50px;
-            background-color: grey;
-            border-radius: 50%;
+        .name {
+            font: {
+                size: 36pt;
+                weight: bold;
+            }
+            border:1px solid white;
+        }
+        .aim {
+            text-align: center;
+        }
+        .skill {
+            margin-top: 2em;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            [class*="-icon"] > * {
+                width: 50px;
+                height: 50px;
+                border-radius: 20%;
+            }
         }
     }
 }
@@ -51,6 +74,7 @@ body {
     justify-content: space-between;
     align-items: center;
     border: 1px solid red;
+    
     // Side preview
     [class^="slot-"] {
         display: flex;
@@ -82,6 +106,9 @@ body {
         align-items: center;
         .arrow {
             font-size: 30pt;
+            &:hover {
+                cursor: pointer;
+            }
         }
         .curr-img-container {
             /*Position dots*/
@@ -116,8 +143,8 @@ body {
                         align-items: center;
                         .left-icons {
                             .github-icon {
-                            	margin-left:10px;
-                            	color:black;
+                                margin-left: 10px;
+                                color: black;
                                 font-size: 20pt;
                             }
                         }
@@ -131,6 +158,9 @@ body {
                                 border-radius: 50%;
                                 margin: 0 10px;
                                 background: black;
+                                &:hover {
+                                    cursor: pointer;
+                                }
                             }
                             .active-dot {
                                 width: 12px;
@@ -142,13 +172,13 @@ body {
                         }
                         .right-icons {
                             .info-icon {
-                            	margin-right:10px;
+                                margin-right: 10px;
                                 font-size: 20pt;
-                                &.active{
-                                    color:blue;
+                                &.active {
+                                    color: blue;
                                 }
-                                &:hover{
-                                    cursor:pointer;
+                                &:hover {
+                                    cursor: pointer;
                                 }
                             }
                         }
@@ -159,6 +189,33 @@ body {
     }
 }
 
-.info{
-    display:none;
+// More info
+.info {
+    display: none;
+}
+
+// Learning
+.learning {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: center/cover no-repeat url("http://derby.graphics/images/1074.jpg");
+    .to-do-list,
+    .resources {
+        width: 25vw;
+        height: 75vh;
+        background-color: rgba(255, 255, 165, 1);
+        border: 1px solid blue;
+    }
+}
+
+// Contact
+
+.contact{
+    height: 100vh;
+
 }

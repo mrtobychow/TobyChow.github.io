@@ -94,8 +94,6 @@ $(window).load(function() {
             $(".main-overlay  .img-title-display").text(nextTitle);
             $(".main-overlay  .caption-display").text(nextCaption);
         }
-
-
     });
     ////////////////////////////////////////// right arrow
     var increment = true;
@@ -253,7 +251,7 @@ $(window).load(function() {
         increment = false;
         $(".right-arrow").click();
         increment = true;
-        //main display
+        //main display size
         var width = $(".slot-2").width();
         var height = $(".slot-2").height();
         //overlay
@@ -262,9 +260,6 @@ $(window).load(function() {
             height: height
         });
     };
-
-
-
 });
 
 // Display initial message
@@ -278,7 +273,6 @@ $(document).ready(function() {
     });
 
     // Info-icon button
-
     $(".info-icon").on('click', function(event) {
         $(this).toggleClass('active');
         $(".info").slideToggle();
