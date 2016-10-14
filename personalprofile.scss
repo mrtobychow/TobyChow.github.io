@@ -35,7 +35,19 @@ body {
     }
     .content {
         position: relative;
-        padding-top:20px;
+        padding-top: 20px;
+        .nav-bar-container {
+            display: flex;
+            justify-content: flex-end;
+            border: 1px solid red;
+            .nav-bar {
+                margin-right: 2em;
+                li {
+                    display: inline;
+                    list-style-type: none;
+                }
+            }
+        }
         .hello {
             color: #6cccfe;
             font: {
@@ -68,117 +80,119 @@ body {
 }
 
 // Carousel
-.carousel-container {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid red;
-    
-    // Side preview
-    [class^="slot-"] {
-        display: flex;
-        flex: 1 1 20%;
-        height: 150px;
-        margin: 0 5px;
-        /*make sure to account for margins in offset calc*/
-        .img-title,
-        .caption {
-            display: none;
-        }
-    }
-    img {
-        background: cover/center;
-        width: 100%;
-        height: 100%;
-    }
-    // Main carousel
-    .carousel {
-        position: static;
+.projects {
+    min-height: 100vh;
+    border: 1px solid;
+    .carousel-container {
         display: flex;
         flex-flow: row nowrap;
-        /*distributes arrows to either sides*/
         justify-content: space-between;
-        width: 50vw;
-        height: 50vh;
-        background-color: grey;
-        flex: 1 1 70%;
         align-items: center;
-        .arrow {
-            font-size: 30pt;
-            &:hover {
-                cursor: pointer;
+        // Side preview
+        [class^="slot-"] {
+            display: flex;
+            flex: 1 1 20%;
+            height: 150px;
+            margin: 0 5px;
+            /*make sure to account for margins in offset calc*/
+            .img-title,
+            .caption {
+                display: none;
             }
         }
-        .curr-img-container {
-            /*Position dots*/
-            display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
-            justify-content: flex-end;
-            /**/
+        img {
+            background: cover/center;
             width: 100%;
             height: 100%;
-            .main-overlay {
+        }
+        // Main carousel
+        .carousel {
+            position: static;
+            display: flex;
+            flex-flow: row nowrap;
+            /*distributes arrows to either sides*/
+            justify-content: space-between;
+            width: 50vw;
+            height: 50vh;
+            background-color: grey;
+            flex: 1 1 70%;
+            align-items: center;
+            .arrow {
+                font-size: 30pt;
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .curr-img-container {
+                /*Position dots*/
                 display: flex;
                 flex-flow: column nowrap;
-                justify-content: space-between;
                 align-items: center;
-                position: absolute;
-                height: 100px;
-                .header {
-                    @include img-info;
-                }
-                .footer {
-                    width: 100%;
-                    z-index: 9999;
-                    .caption-display {
+                justify-content: flex-end;
+                /**/
+                width: 100%;
+                height: 100%;
+                .main-overlay {
+                    display: flex;
+                    flex-flow: column nowrap;
+                    justify-content: space-between;
+                    align-items: center;
+                    position: absolute;
+                    height: 100px;
+                    .header {
                         @include img-info;
-                        margin-bottom: 10px;
                     }
-                    .nav-bar {
-                        display: flex;
-                        flex-flow: row nowrap;
-                        justify-content: space-between;
-                        align-items: center;
-                        .left-icons {
-                            .github-icon {
-                                margin-left: 10px;
-                                color: black;
-                                font-size: 20pt;
-                            }
+                    .footer {
+                        width: 100%;
+                        z-index: 9999;
+                        .caption-display {
+                            @include img-info;
+                            margin-bottom: 10px;
                         }
-                        .nav-dots {
+                        .nav-bar {
                             display: flex;
                             flex-flow: row nowrap;
-                            z-index: 9999;
-                            .dot {
-                                width: 12px;
-                                height: 12px;
-                                border-radius: 50%;
-                                margin: 0 10px;
-                                background: black;
-                                &:hover {
-                                    cursor: pointer;
+                            justify-content: space-between;
+                            align-items: center;
+                            .left-icons {
+                                .github-icon {
+                                    margin-left: 10px;
+                                    color: black;
+                                    font-size: 20pt;
                                 }
                             }
-                            .active-dot {
-                                width: 12px;
-                                height: 12px;
-                                border-radius: 50%;
-                                margin: 0 10px;
-                                background: white;
-                            }
-                        }
-                        .right-icons {
-                            .info-icon {
-                                margin-right: 10px;
-                                font-size: 20pt;
-                                &.active {
-                                    color: blue;
+                            .nav-dots {
+                                display: flex;
+                                flex-flow: row nowrap;
+                                z-index: 9999;
+                                .dot {
+                                    width: 12px;
+                                    height: 12px;
+                                    border-radius: 50%;
+                                    margin: 0 10px;
+                                    background: black;
+                                    &:hover {
+                                        cursor: pointer;
+                                    }
                                 }
-                                &:hover {
-                                    cursor: pointer;
+                                .active-dot {
+                                    width: 12px;
+                                    height: 12px;
+                                    border-radius: 50%;
+                                    margin: 0 10px;
+                                    background: white;
+                                }
+                            }
+                            .right-icons {
+                                .info-icon {
+                                    margin-right: 10px;
+                                    font-size: 20pt;
+                                    &.active {
+                                        color: blue;
+                                    }
+                                    &:hover {
+                                        cursor: pointer;
+                                    }
                                 }
                             }
                         }
@@ -186,12 +200,12 @@ body {
                 }
             }
         }
-    }
-}
 
-// More info
-.info {
-    display: none;
+    }
+    .info {
+        display: none;
+        border: 1px solid blue;
+    }
 }
 
 // Learning
@@ -206,7 +220,7 @@ body {
     background: center/cover no-repeat url("http://derby.graphics/images/1074.jpg");
     .to-do-list,
     .resources {
-        width: 25vw;
+        min-width: 250px;
         height: 75vh;
         background-color: rgba(255, 255, 165, 1);
         border: 1px solid blue;
@@ -214,8 +228,6 @@ body {
 }
 
 // Contact
-
-.contact{
+.contact {
     height: 100vh;
-
 }
