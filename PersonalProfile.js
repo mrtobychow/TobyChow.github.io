@@ -5,6 +5,10 @@
 // data-img tracking the slot that the img is in now from original (ex: img-2 with data-img 0 = img-2 is at slot0)
 $(window).load(function() {
 
+    var screenWidth = $(window).width();
+    var mobile = screenWidth<=500;
+    console.log(screenWidth,mobile);
+
     var mainDot = '2';
     var speed = 400;
 
@@ -240,7 +244,6 @@ $(window).load(function() {
 
     var width = $(".slot-2").width();
     var height = $(".slot-2").height();
-    console.log(width, height);
     $(".main-overlay").css({
         width: width,
         height: height
@@ -248,9 +251,11 @@ $(window).load(function() {
 
     // fix positioning on windows resize
     window.onresize = function() {
+        if(!mobile){
         increment = false;
         $(".right-arrow").click();
         increment = true;
+            }
         //main display size
         var width = $(".slot-2").width();
         var height = $(".slot-2").height();
@@ -259,6 +264,7 @@ $(window).load(function() {
             width: width,
             height: height
         });
+
     };
 });
 

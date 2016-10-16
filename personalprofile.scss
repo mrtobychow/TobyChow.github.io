@@ -132,6 +132,7 @@ body {
                 /**/
                 width: 100%;
                 height: 100%;
+                overflow-x:hidden;
                 .main-overlay {
                     display: flex;
                     flex-flow: column nowrap;
@@ -139,6 +140,7 @@ body {
                     align-items: center;
                     position: absolute;
                     height: 100px;
+                    overflow-x:hidden;
                     .header {
                         @include img-info;
                     }
@@ -198,9 +200,20 @@ body {
                         }
                     }
                 }
+                &:after{
+                    content:"";
+                    width:300px;
+                    height: 300px;
+                    background: -600px -10px url("./assets/images/quote.png");
+                    overflow-x:hidden;
+                }
             }
         }
-
+        @media (max-width:1000px) {
+            .mobile {
+                display: none;
+            }
+        }
     }
     .info {
         display: none;
@@ -216,7 +229,7 @@ body {
     align-items: center;
     position: relative;
     width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background: center/cover no-repeat url("http://derby.graphics/images/1074.jpg");
     .to-do-list,
     .resources {
