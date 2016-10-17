@@ -1,3 +1,7 @@
+@font-face {
+  font-family: bit;
+  src: url("./assets/fonts/8bit.ttf"); }
+
 body {
   overflow-x: hidden; }
 
@@ -5,76 +9,178 @@ body {
   text-align: center; }
 
 .intro {
-  background-color: #C74444; }
-  .intro .name {
-    text-align: center;
-    font-size: 36pt;
-    font-weight: bold; }
-  .intro .aim {
-    text-align: center; }
-  .intro .skill {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-around; }
-    .intro .skill [class*="-icon"] {
-      width: 50px;
-      height: 50px;
-      background-color: grey;
-      border-radius: 50%; }
-
-.carousel-container {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center; }
-  .carousel-container [class^="slot-"] {
-    display: flex;
-    flex: 1 1 20%;
-    height: 150px;
-    margin: 0 5px;
-    /*make sure to account for margins in offset calc*/ }
-  .carousel-container img {
-    background: cover/center;
+  position: relative;
+  height: 100vh;
+  text-align: center; }
+  .intro .background-image {
+    position: absolute;
     width: 100%;
-    height: 100%; }
-  .carousel-container .carousel {
-    position: static;
+    height: 100%;
+    background: center/cover no-repeat url("http://www.carlingview.ca/images/home-toronto.jpg");
+    filter: blur(4px); }
+  .intro .content {
+    position: relative;
+    padding-top: 20px; }
+    .intro .content .nav-bar-container {
+      display: flex;
+      justify-content: flex-end;
+      border: 1px solid red; }
+      .intro .content .nav-bar-container .nav-bar {
+        margin-right: 2em; }
+        .intro .content .nav-bar-container .nav-bar li {
+          display: inline;
+          list-style-type: none; }
+    .intro .content .hello {
+      color: #6cccfe;
+      font-family: bit;
+      font-size: 30pt; }
+    .intro .content .name {
+      font-size: 36pt;
+      font-weight: bold;
+      border: 1px solid white; }
+    .intro .content .aim {
+      text-align: center; }
+    .intro .content .skill {
+      margin-top: 2em;
+      display: flex;
+      flex-flow: row wrap;
+      justify-content: space-around; }
+      .intro .content .skill [class*="-icon"] > * {
+        width: 50px;
+        height: 50px;
+        border-radius: 20%; }
+
+.projects {
+  min-height: 100vh;
+  border: 1px solid; }
+  .projects .carousel-container {
     display: flex;
     flex-flow: row nowrap;
-    /*distributes arrows to either sides*/
     justify-content: space-between;
-    width: 50vw;
-    height: 50vh;
-    background-color: grey;
-    flex: 1 1 70%;
     align-items: center; }
-    .carousel-container .carousel .fa {
-      font-size: 30pt; }
-    .carousel-container .carousel .curr-img-container {
-      /*Position dots*/
+    .projects .carousel-container [class^="slot-"] {
       display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-      justify-content: flex-end;
-      /**/
-      position: static;
+      flex: 1 1 20%;
+      height: 150px;
+      margin: 0 5px;
+      /*make sure to account for margins in offset calc*/ }
+      .projects .carousel-container [class^="slot-"] .img-title,
+      .projects .carousel-container [class^="slot-"] .caption {
+        display: none; }
+    .projects .carousel-container img {
+      background: cover/center;
       width: 100%;
-      height: 100% !important; }
-    .carousel-container .carousel .nav-dots {
+      height: 100%; }
+    .projects .carousel-container .carousel {
+      position: static;
       display: flex;
       flex-flow: row nowrap;
-      position: absolute;
-      z-index: 999;
-      padding-bottom: 20px; }
-      .carousel-container .carousel .nav-dots .dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        margin: 0 10px;
-        background: black; }
-      .carousel-container .carousel .nav-dots .active-dot {
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        margin: 0 10px;
-        background: white; }
+      /*distributes arrows to either sides*/
+      justify-content: space-between;
+      width: 50vw;
+      height: 50vh;
+      background-color: grey;
+      flex: 1 1 70%;
+      align-items: center; }
+      .projects .carousel-container .carousel .arrow {
+        font-size: 30pt; }
+        .projects .carousel-container .carousel .arrow:hover {
+          cursor: pointer; }
+      .projects .carousel-container .carousel .curr-img-container {
+        /*Position dots*/
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        justify-content: flex-end;
+        /**/
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden; }
+        .projects .carousel-container .carousel .curr-img-container .main-overlay {
+          display: flex;
+          flex-flow: column nowrap;
+          justify-content: space-between;
+          align-items: center;
+          position: absolute;
+          height: 100px;
+          overflow-x: hidden; }
+          .projects .carousel-container .carousel .curr-img-container .main-overlay .header {
+            width: 100%;
+            text-align: center;
+            color: white;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: block; }
+          .projects .carousel-container .carousel .curr-img-container .main-overlay .footer {
+            width: 100%;
+            z-index: 9999; }
+            .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .caption-display {
+              width: 100%;
+              text-align: center;
+              color: white;
+              background: rgba(0, 0, 0, 0.5);
+              z-index: 9999;
+              display: block;
+              margin-bottom: 10px; }
+            .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar {
+              display: flex;
+              flex-flow: row nowrap;
+              justify-content: space-between;
+              align-items: center; }
+              .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .left-icons .github-icon {
+                margin-left: 10px;
+                color: black;
+                font-size: 20pt; }
+              .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .nav-dots {
+                display: flex;
+                flex-flow: row nowrap;
+                z-index: 9999; }
+                .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .nav-dots .dot {
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  margin: 0 10px;
+                  background: black; }
+                  .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .nav-dots .dot:hover {
+                    cursor: pointer; }
+                .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .nav-dots .active-dot {
+                  width: 12px;
+                  height: 12px;
+                  border-radius: 50%;
+                  margin: 0 10px;
+                  background: white; }
+              .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .right-icons .info-icon {
+                margin-right: 10px;
+                font-size: 20pt; }
+                .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .right-icons .info-icon.active {
+                  color: blue; }
+                .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .right-icons .info-icon:hover {
+                  cursor: pointer; }
+        .projects .carousel-container .carousel .curr-img-container .mobile {
+          width: 500px;
+          height: 100%;
+          background: url("./assets/images/quote.png");
+          background-position: -1000px;
+          overflow-x: hidden; }
+    @media (max-width: 1000px) {
+      .projects .carousel-container .web {
+        display: none; } }
+  .projects .info {
+    display: none;
+    border: 1px solid blue; }
+
+.learning {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: center;
+  position: relative;
+  width: 100vw;
+  min-height: 100vh;
+  background: center/cover no-repeat url("http://derby.graphics/images/1074.jpg"); }
+  .learning .to-do-list,
+  .learning .resources {
+    min-width: 250px;
+    height: 75vh;
+    background-color: #ffffa5;
+    border: 1px solid blue; }
