@@ -1,283 +1,291 @@
-@font-face {
-    font-family: bit;
-    src: url("./assets/fonts/8bit.ttf")
-}
-
-@mixin img-info {
-    width: 100%;
-    text-align: center;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-    display: block;
-}
-
-$mobile: 500px;
-body {
-    overflow-x: hidden;
-}
-
-.title {
-    font-family: 'Questrial', sans-serif;
-    text-align: center;
-}
-
-// Header
-.intro {
-    position: relative;
-    height: 100vh;
-    text-align: center;
-    // background-color: #C74444;
-    .background-image {
-        position: absolute;
+    @font-face {
+        font-family: bit;
+        src: url("./assets/fonts/8bit.ttf")
+    }
+    
+    @mixin img-info {
         width: 100%;
-        height: 100%;
-        background: center/cover no-repeat url("http://www.carlingview.ca/images/home-toronto.jpg");
-        filter: blur(4px);
+        text-align: center;
+        color: white;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        display: block;
     }
-    .content {
+    
+    $mobile: 500px;
+    body {
+        overflow-x: hidden;
+    }
+    
+    .title {
+        font-family: 'Questrial', sans-serif;
+        text-align: center;
+    }
+    
+    // Header
+    .intro {
         position: relative;
-        .nav-bar {
-            display: flex;
-            justify-content: flex-end;
-            background-color: rgba(255, 255, 255, 0.35);
-            // remove default css styling from ul
-            margin: 0;
-            padding: 0;
-            @media(max-width: $mobile) {
-                justify-content: center;
-            }
-            a {
-                text-decoration:none;
-                li {
-                    margin: 0 10px;
-                    position: relative;
-                    font: {
-                        family: 'Questrial', sans-serif;
-                        size: 1.3em;
-                    }
-                    color:black;
-                    list-style-type: none;
-                    letter-spacing: 0.3em;
-                    @media(max-width:$mobile) {
-                        letter-spacing: 0;
-                        border: unset;
-                        border-bottom: 2px solid white;
-                    }
-                    &:before {
-                        content: "";
-                        position: absolute;
-                        width: 0;
-                        height: 2px;
-                        bottom: 0;
-                        left: 0;
-                        background-color: white;
-                        visibility: hidden;
-                        // transform:scaleX(0); for scaling from middle
-                        transition: all 0.3s ease-in-out 0s;
-                    }
-                    &:hover {
-                        cursor: pointer;
-                        color: black;
-                        &:before {
-                            visibility: visible;
-                            width: 100%;
-                        }
-                    }
-                }
-            }
-        }
-        .hello {
-            color: #6cccfe;
-            font: {
-                family: bit;
-                size: 30pt;
-            }
-        }
-        .name {
-            font: {
-                size: 36pt;
-                weight: bold;
-            }
-            border:1px solid white;
-        }
-        .aim {
-            text-align: center;
-        }
-        .skill {
-            margin-top: 2em;
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-around;
-            [class*="-icon"] > * {
-                width: 50px;
-                height: 50px;
-                border-radius: 20%;
-            }
-        }
-    }
-}
-
-// Carousel
-.projects {
-    min-height: 100vh;
-    border: 1px solid;
-    .carousel-container {
-        display: flex;
-        flex-flow: row nowrap;
-        justify-content: space-between;
-        align-items: center;
-        // Side preview
-        [class^="slot-"] {
-            display: flex;
-            flex: 1 1 20%;
-            height: 150px;
-            margin: 0 5px;
-            /*make sure to account for margins in offset calc*/
-            .img-title,
-            .caption {
-                display: none;
-            }
-        }
-        img {
-            background: cover/center;
+        height: 100vh;
+        text-align: center;
+        // background-color: #C74444;
+        .background-image {
+            position: absolute;
             width: 100%;
             height: 100%;
+            background: center/cover no-repeat url("http://www.carlingview.ca/images/home-toronto.jpg");
+            filter: blur(4px);
         }
-        // Main carousel
-        .carousel {
-            position: static;
+        .content {
+            position: relative;
+            .nav-bar {
+                display: flex;
+                justify-content: flex-end;
+                background-color: rgba(255, 255, 255, 0.35);
+                // remove default css styling from ul
+                margin: 0;
+                padding: 0;
+                @media(max-width: $mobile) {
+                    justify-content: center;
+                }
+                a {
+                    text-decoration: none;
+                    li {
+                        margin: 0 10px;
+                        position: relative;
+                        font: {
+                            family: 'Questrial', sans-serif;
+                            size: 1.3em;
+                        }
+                        color:black;
+                        list-style-type: none;
+                        letter-spacing: 0.3em;
+                        @media(max-width:$mobile) {
+                            letter-spacing: 0;
+                            border: unset;
+                            border-bottom: 2px solid white;
+                        }
+                        &:before {
+                            content: "";
+                            position: absolute;
+                            width: 0;
+                            height: 2px;
+                            bottom: 0;
+                            left: 0;
+                            background-color: white;
+                            visibility: hidden;
+                            // transform:scaleX(0); for scaling from middle
+                            transition: all 0.3s ease-in-out 0s;
+                        }
+                        &:hover {
+                            cursor: pointer;
+                            color: black;
+                            &:before {
+                                visibility: visible;
+                                width: 100%;
+                            }
+                        }
+                    }
+                }
+            }
+            .hello {
+                color: #6cccfe;
+                font: {
+                    family: bit;
+                    size: 30pt;
+                }
+            }
+            .name {
+                font: {
+                    size: 36pt;
+                    weight: bold;
+                }
+                border:1px solid white;
+            }
+            .aim {
+                text-align: center;
+            }
+            .skill {
+                display: flex;
+                flex-flow: row wrap;
+                justify-content: space-around;
+                margin-top: 2em;
+                [class*="-icon"] > * {
+                    width: 50px;
+                    height: 50px;
+                    border-radius: 20%;
+                }
+                @media(max-width: $mobile) {
+                    .html-icon,
+                    .css-icon,
+                    .js-icon {
+                        flex: 1 1 33%;
+                        order: -1;
+                    }
+                }
+            }
+        }
+    }
+    
+    // Carousel
+    .projects {
+        min-height: 100vh;
+        border: 1px solid;
+        .carousel-container {
             display: flex;
             flex-flow: row nowrap;
-            /*distributes arrows to either sides*/
             justify-content: space-between;
-            width: 50vw;
-            height: 50vh;
-            background-color: grey;
-            flex: 1 1 70%;
             align-items: center;
-            .arrow {
-                font-size: 30pt;
-                &:hover {
-                    cursor: pointer;
+            // Side preview
+            [class^="slot-"] {
+                display: flex;
+                flex: 1 1 20%;
+                height: 150px;
+                margin: 0 5px;
+                /*make sure to account for margins in offset calc*/
+                .img-title,
+                .caption {
+                    display: none;
                 }
             }
-            .curr-img-container {
-                /*Position dots*/
-                display: flex;
-                flex-flow: column nowrap;
-                align-items: center;
-                justify-content: flex-end;
-                /**/
+            img {
+                background: cover/center;
                 width: 100%;
                 height: 100%;
-                overflow-x: hidden;
-                .main-overlay {
+            }
+            // Main carousel
+            .carousel {
+                position: static;
+                display: flex;
+                flex-flow: row nowrap;
+                /*distributes arrows to either sides*/
+                justify-content: space-between;
+                width: 50vw;
+                height: 50vh;
+                background-color: grey;
+                flex: 1 1 70%;
+                align-items: center;
+                .arrow {
+                    font-size: 30pt;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+                .curr-img-container {
+                    /*Position dots*/
                     display: flex;
                     flex-flow: column nowrap;
-                    justify-content: space-between;
                     align-items: center;
-                    position: absolute;
-                    height: 100px;
+                    justify-content: flex-end;
+                    /**/
+                    width: 100%;
+                    height: 100%;
                     overflow-x: hidden;
-                    .header {
-                        @include img-info;
-                    }
-                    .footer {
-                        width: 100%;
-                        z-index: 9999;
-                        .caption-display {
+                    .main-overlay {
+                        display: flex;
+                        flex-flow: column nowrap;
+                        justify-content: space-between;
+                        align-items: center;
+                        position: absolute;
+                        height: 100px;
+                        overflow-x: hidden;
+                        .header {
                             @include img-info;
-                            margin-bottom: 10px;
                         }
-                        .nav-bar {
-                            display: flex;
-                            flex-flow: row nowrap;
-                            justify-content: space-between;
-                            align-items: center;
-                            .left-icons {
-                                .github-icon {
-                                    margin-left: 10px;
-                                    color: black;
-                                    font-size: 20pt;
-                                }
+                        .footer {
+                            width: 100%;
+                            z-index: 9999;
+                            .caption-display {
+                                @include img-info;
+                                margin-bottom: 10px;
                             }
-                            .nav-dots {
+                            .nav-bar {
                                 display: flex;
                                 flex-flow: row nowrap;
-                                z-index: 9999;
-                                .dot {
-                                    width: 12px;
-                                    height: 12px;
-                                    border-radius: 50%;
-                                    margin: 0 10px;
-                                    background: black;
-                                    &:hover {
-                                        cursor: pointer;
+                                justify-content: space-between;
+                                align-items: center;
+                                .left-icons {
+                                    .github-icon {
+                                        margin-left: 10px;
+                                        color: black;
+                                        font-size: 20pt;
                                     }
                                 }
-                                .active-dot {
-                                    width: 12px;
-                                    height: 12px;
-                                    border-radius: 50%;
-                                    margin: 0 10px;
-                                    background: white;
-                                }
-                            }
-                            .right-icons {
-                                .info-icon {
-                                    margin-right: 10px;
-                                    font-size: 20pt;
-                                    &.active {
-                                        color: blue;
+                                .nav-dots {
+                                    display: flex;
+                                    flex-flow: row nowrap;
+                                    z-index: 9999;
+                                    .dot {
+                                        width: 12px;
+                                        height: 12px;
+                                        border-radius: 50%;
+                                        margin: 0 10px;
+                                        background: black;
+                                        &:hover {
+                                            cursor: pointer;
+                                        }
                                     }
-                                    &:hover {
-                                        cursor: pointer;
+                                    .active-dot {
+                                        width: 12px;
+                                        height: 12px;
+                                        border-radius: 50%;
+                                        margin: 0 10px;
+                                        background: white;
+                                    }
+                                }
+                                .right-icons {
+                                    .info-icon {
+                                        margin-right: 10px;
+                                        font-size: 20pt;
+                                        &.active {
+                                            color: blue;
+                                        }
+                                        &:hover {
+                                            cursor: pointer;
+                                        }
                                     }
                                 }
                             }
                         }
                     }
+                    .mobile {
+                        width: 500px;
+                        height: 100%;
+                        background: url("./assets/images/quote.png");
+                        background-position: -1000px;
+                        overflow: hidden;
+                    }
                 }
-                .mobile {
-                    width: 500px;
-                    height: 100%;
-                    background: url("./assets/images/quote.png");
-                    background-position: -1000px;
-                    overflow: hidden;
+            }
+            @media (max-width:1000px) {
+                .web {
+                    display: none;
                 }
             }
         }
-        @media (max-width:1000px) {
-            .web {
-                display: none;
-            }
+        .info {
+            display: none;
+            border: 1px solid blue;
         }
     }
-    .info {
-        display: none;
-        border: 1px solid blue;
+    
+    // Learning
+    .learning {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        width: 100vw;
+        min-height: 100vh;
+        background: center/cover no-repeat url("http://derby.graphics/images/1074.jpg");
+        .to-do-list,
+        .resources {
+            min-width: 250px;
+            height: 75vh;
+            background-color: rgba(255, 255, 165, 1);
+            border: 1px solid blue;
+        }
     }
-}
-
-// Learning
-.learning {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-around;
-    align-items: center;
-    position: relative;
-    width: 100vw;
-    min-height: 100vh;
-    background: center/cover no-repeat url("http://derby.graphics/images/1074.jpg");
-    .to-do-list,
-    .resources {
-        min-width: 250px;
-        height: 75vh;
-        background-color: rgba(255, 255, 165, 1);
-        border: 1px solid blue;
-    }
-}
-
-// Contact
-.contact {}
+    
+    // Contact
+    .contact {}

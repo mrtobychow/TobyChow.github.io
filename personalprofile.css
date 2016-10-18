@@ -72,14 +72,20 @@ body {
     .intro .content .aim {
       text-align: center; }
     .intro .content .skill {
-      margin-top: 2em;
       display: flex;
       flex-flow: row wrap;
-      justify-content: space-around; }
+      justify-content: space-around;
+      margin-top: 2em; }
       .intro .content .skill [class*="-icon"] > * {
         width: 50px;
         height: 50px;
         border-radius: 20%; }
+      @media (max-width: 500px) {
+        .intro .content .skill .html-icon,
+        .intro .content .skill .css-icon,
+        .intro .content .skill .js-icon {
+          flex: 1 1 33%;
+          order: -1; } }
 
 .projects {
   min-height: 100vh;
