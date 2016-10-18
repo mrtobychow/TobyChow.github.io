@@ -12,11 +12,13 @@
     display: block;
 }
 
+$mobile: 500px;
 body {
     overflow-x: hidden;
 }
 
 .title {
+    font-family: 'Questrial', sans-serif;
     text-align: center;
 }
 
@@ -35,16 +37,53 @@ body {
     }
     .content {
         position: relative;
-        padding-top: 20px;
-        .nav-bar-container {
+        .nav-bar {
             display: flex;
             justify-content: flex-end;
-            border: 1px solid red;
-            .nav-bar {
-                margin-right: 2em;
+            background-color: rgba(255, 255, 255, 0.35);
+            // remove default css styling from ul
+            margin: 0;
+            padding: 0;
+            @media(max-width: $mobile) {
+                justify-content: center;
+            }
+            a {
+                text-decoration:none;
                 li {
-                    display: inline;
+                    margin: 0 10px;
+                    position: relative;
+                    font: {
+                        family: 'Questrial', sans-serif;
+                        size: 1.3em;
+                    }
+                    color:black;
                     list-style-type: none;
+                    letter-spacing: 0.3em;
+                    @media(max-width:$mobile) {
+                        letter-spacing: 0;
+                        border: unset;
+                        border-bottom: 2px solid white;
+                    }
+                    &:before {
+                        content: "";
+                        position: absolute;
+                        width: 0;
+                        height: 2px;
+                        bottom: 0;
+                        left: 0;
+                        background-color: white;
+                        visibility: hidden;
+                        // transform:scaleX(0); for scaling from middle
+                        transition: all 0.3s ease-in-out 0s;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        color: black;
+                        &:before {
+                            visibility: visible;
+                            width: 100%;
+                        }
+                    }
                 }
             }
         }
@@ -203,9 +242,9 @@ body {
                 .mobile {
                     width: 500px;
                     height: 100%;
-                    background:url("./assets/images/quote.png");
+                    background: url("./assets/images/quote.png");
                     background-position: -1000px;
-                    overflow-x: hidden;
+                    overflow: hidden;
                 }
             }
         }
@@ -241,6 +280,4 @@ body {
 }
 
 // Contact
-.contact {
-
-}
+.contact {}

@@ -6,7 +6,7 @@
 $(window).load(function() {
 
     var screenWidth = $(window).width();
-    var mobile = screenWidth <= 500;
+    var mobile = screenWidth <= 1000;
     var mainDot = '2';
     var speed = 400;
     if (mobile) {
