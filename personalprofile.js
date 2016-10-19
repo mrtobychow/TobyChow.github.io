@@ -14,6 +14,7 @@ $(window).load(function() {
     }
     // Left arrow is clicked
     $(".right-arrow").on('click', function(event) {
+        // Arrow function on mobile
         if (mobile) {
             var imgSize = 500; // individual img size in px
             var numImg = 5;

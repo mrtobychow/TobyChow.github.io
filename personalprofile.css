@@ -3,6 +3,7 @@
   src: url("./assets/fonts/8bit.ttf"); }
 
 body {
+  font-family: 'Lato', sans-serif;
   overflow-x: hidden; }
 
 .title {
@@ -118,7 +119,8 @@ body {
       height: 50vh;
       background-color: grey;
       flex: 1 1 70%;
-      align-items: center; }
+      align-items: center;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), white 50%, rgba(0, 0, 0, 0.5)); }
       .projects .carousel-container .carousel .arrow {
         font-size: 30pt; }
         .projects .carousel-container .carousel .arrow:hover {
@@ -139,7 +141,6 @@ body {
           justify-content: space-between;
           align-items: center;
           position: absolute;
-          height: 100px;
           overflow-x: hidden; }
           .projects .carousel-container .carousel .curr-img-container .main-overlay .header {
             width: 100%;
@@ -167,7 +168,7 @@ body {
               .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .left-icons .github-icon {
                 margin-left: 10px;
                 color: black;
-                font-size: 20pt; }
+                font-size: 25pt; }
               .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .nav-dots {
                 display: flex;
                 flex-flow: row nowrap;
@@ -188,7 +189,7 @@ body {
                   background: white; }
               .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .right-icons .info-icon {
                 margin-right: 10px;
-                font-size: 20pt; }
+                font-size: 25pt; }
                 .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .right-icons .info-icon.active {
                   color: blue; }
                 .projects .carousel-container .carousel .curr-img-container .main-overlay .footer .nav-bar .right-icons .info-icon:hover {
