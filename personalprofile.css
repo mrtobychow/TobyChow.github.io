@@ -24,13 +24,13 @@ body {
     position: relative; }
     .intro .content .nav-bar {
       display: flex;
-      justify-content: flex-end;
+      justify-content: center;
       background-color: rgba(255, 255, 255, 0.35);
       margin: 0;
       padding: 0; }
-      @media (max-width: 500px) {
+      @media (min-width: 1000px) {
         .intro .content .nav-bar {
-          justify-content: center; } }
+          justify-content: flex-end; } }
       .intro .content .nav-bar a {
         text-decoration: none; }
         .intro .content .nav-bar a li {
@@ -40,28 +40,28 @@ body {
           font-size: 1.3em;
           color: black;
           list-style-type: none;
-          letter-spacing: 0.3em; }
-          @media (max-width: 500px) {
+          letter-spacing: 0;
+          border-bottom: 2px solid white; }
+          @media (min-width: 1000px) {
             .intro .content .nav-bar a li {
-              letter-spacing: 0;
-              border: unset;
-              border-bottom: 2px solid white; } }
-          .intro .content .nav-bar a li:before {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: white;
-            visibility: hidden;
-            transition: all 0.3s ease-in-out 0s; }
-          .intro .content .nav-bar a li:hover {
-            cursor: pointer;
-            color: black; }
-            .intro .content .nav-bar a li:hover:before {
-              visibility: visible;
-              width: 100%; }
+              letter-spacing: 0.3em;
+              border: unset; }
+              .intro .content .nav-bar a li:before {
+                content: "";
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: 0;
+                left: 0;
+                background-color: white;
+                visibility: hidden;
+                transition: all 0.3s ease-in-out 0s; }
+              .intro .content .nav-bar a li:hover {
+                cursor: pointer;
+                color: black; }
+                .intro .content .nav-bar a li:hover:before {
+                  visibility: visible;
+                  width: 100%; } }
     .intro .content .hello {
       color: #6cccfe;
       font-family: bit;
@@ -81,12 +81,17 @@ body {
         width: 50px;
         height: 50px;
         border-radius: 20%; }
-      @media (max-width: 500px) {
-        .intro .content .skill .html-icon,
-        .intro .content .skill .css-icon,
-        .intro .content .skill .js-icon {
-          flex: 1 1 33%;
-          order: -1; } }
+      .intro .content .skill .html-icon,
+      .intro .content .skill .css-icon,
+      .intro .content .skill .js-icon {
+        flex: 1 1 33%;
+        order: -1; }
+        @media (min-width: 1000px) {
+          .intro .content .skill .html-icon,
+          .intro .content .skill .css-icon,
+          .intro .content .skill .js-icon {
+            flex: unset;
+            order: 0; } }
 
 .projects {
   min-height: 100vh;
@@ -200,9 +205,11 @@ body {
           background: url("./assets/images/quote.png");
           background-position: -1000px;
           overflow: hidden; }
-    @media (max-width: 1000px) {
-      .projects .carousel-container .web {
-        display: none; } }
+    .projects .carousel-container .web {
+      display: none; }
+      @media (min-width: 1000px) {
+        .projects .carousel-container .web {
+          display: inline; } }
   .projects .info {
     display: none;
     border: 1px solid blue; }
