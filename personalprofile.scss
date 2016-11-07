@@ -138,6 +138,8 @@
             flex-flow: row nowrap;
             justify-content: space-between;
             align-items: center;
+     
+            border:1px solid red;
             // Side preview
             [class^="slot-"] {
                 display: flex;
@@ -164,7 +166,6 @@
                 justify-content: space-between;
                 width: 50vw;
                 height: 50vh;
-                background-color: grey;
                 flex: 1 1 70%;
                 align-items: center;
                 background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), white 50%, rgba(0, 0, 0, 0.5));
