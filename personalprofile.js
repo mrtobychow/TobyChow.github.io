@@ -4,10 +4,15 @@ $(document).ready(function() {
     var speed = 300; // speed of animation
     var tablet = 768; // tablet px size
 
-    // Displays initial title and caption of main display from slot 2
+    // Displays initial title,caption, and links of main display from slot 2
     (function displayMainText() {
         $('.slot2 .display-title').text($('.slot2 .title').text());
         $('.slot2 .display-caption').text($('.slot2 .caption').text());
+        //display github and site link of main display
+            var slot2Github = $('.slot2 .github-link').attr('href');
+            var slot2Site = $('.slot2 .site-link').attr('href');
+            $('.main-content .display-github-link').attr('href', slot2Github);
+            $('.main-content .display-site-link').attr('href', slot2Site);
     })();
 
     // Info display fnc for tablet only
@@ -99,20 +104,33 @@ $(document).ready(function() {
                 activeDotData = 4;
             }
             $(`[data-dot=${activeDotData}]`).addClass('active-dot');
+
             // Get title and caption from parent of img's original slot
             var newTitle = $(`.slot1 .title`).text(); // slot1 to get text that would be GOING to slot2
             var newCaption = $(`.slot1 .caption`).text();
+
             // insert new title / caption into slot 2
             $('.main-content .display-title').text(newTitle);
             $('.main-content .display-caption').text(newCaption);
+
             // Get info of next slide going into main display
             var newInfo = $('.slot1 .info').text();
+
             // Updates main display info
             $('.info-display').text(newInfo);
+
+            // Get next slide's new github and site link
+            var newGithubLink = $('.slot1 .github-link').attr('href');
+            var newSiteLink = $('.slot1 .site-link').attr('href');
+
+            // Update main display with new links
+            $('.main-content .display-github-link').attr('href', newGithubLink);
+            $('.main-content .display-site-link').attr('href', newSiteLink);
         })();
     });
 
 
+    // When right arrow is clicked
     $(".right-arrow").on('click', function(event) {
 
         var sideWidth = $('.slot0').width();
@@ -186,7 +204,7 @@ $(document).ready(function() {
         // animate dots and change title / caption display
         (function animateDotRight() {
             var activeDot = $('.active-dot').removeClass('active-dot');
-              // get data-dot of the active-dot to keep track of dot position
+            // get data-dot of the active-dot to keep track of dot position
             var activeDotData = +activeDot[0].dataset.dot;
             activeDotData++;
             if (activeDotData > 4) {
@@ -195,7 +213,7 @@ $(document).ready(function() {
             // Add class .active-dot to the new active dot
             $(`[data-dot=${activeDotData}]`).addClass('active-dot');
 
-            // Get title and caption from parent of img's original slot
+            // Get title and caption going to slot2 (ie: get from slot3)
             var newTitle = $(`.slot3 .title`).text();
             var newCaption = $(`.slot3 .caption`).text();
 
@@ -208,6 +226,14 @@ $(document).ready(function() {
 
             // Updates main display info
             $('.info-display').text(newInfo);
+
+            // Get next slide's new github and site link
+            var newGithubLink = $('.slot3 .github-link').attr('href');
+            var newSiteLink = $('.slot3 .site-link').attr('href');
+
+            // Update main display with new links
+            $('.main-content .display-github-link').attr('href', newGithubLink);
+            $('.main-content .display-site-link').attr('href', newSiteLink);
         })();
     });
 
