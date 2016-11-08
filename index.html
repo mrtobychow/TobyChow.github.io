@@ -25,12 +25,19 @@
         <div class="content">
             <div class="nav-bar-container">
                 <ul class="nav-bar">
-                    <a href=""><li>Projects</li></a>
-                    <a href=""><li>About</li></a>
-                    <a href=""><li>Contact</li></a>
+                    <a href="">
+                        <li>Projects</li>
+                    </a>
+                    <a href="">
+                        <li>About</li>
+                    </a>
+                    <a href="">
+                        <li>Contact</li>
+                    </a>
                 </ul>
             </div>
-            <p><span class="hello">Hello, World! </span><br>My Name is
+            <p><span class="hello">Hello, World! </span>
+                <br>My Name is
                 <br><span class="name">Toby Chow</span></p>
             <div class="aim">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga sit debitis, expedita a repudiandae ab harum labore reprehenderit temporibus, impedit quaerat aut, et voluptate veniam nostrum ex consequatur, deleniti sint.
@@ -85,35 +92,88 @@
     </div>
     <!-- Carousel -->
     <div class="projects">
-        <h1 class="title">Projects</h1>
+    <h1 class="title">Projects</h1>
         <div class="carousel-container">
-            <!-- preview left -->
-            <div class="slot-0 web ">
-                <div class="img-title">bbbbbbbbbbbbbbb</div>
-                <div class="caption">2222222222222222</div>
-                <img class="web" data-img="0" src="https://placeholdit.imgix.net/~text?txtsize=28&bg=0099ff&txtclr=ffffff&txt=300%C3%97300&w=300&h=300&fm=png" alt="">
-            </div>
-            <div class="slot-1 web">
-                <div class="img-title">ccccccccccccc</div>
-                <div class="caption">3333333333</div>
-                <img class="web" data-img="1" src="http://nemanjakovacevic.net/wp-content/uploads/2013/07/placeholder.png" alt="">
-            </div>
-            <!-- main display -->
-            <div class="carousel">
-                <!-- left arrow -->
-                <div class="left-arrow-container">
-                    <div class="left-arrow"><i class="fa fa-arrow-left arrow" aria-hidden="true"></i></div>
+            <div class="slot0 web">
+                <div class="to-move" data-img='0'>
+                    <div class="content">
+         
+                        <img class="img0" src="./assets/images/quote.png" alt="">
+                        <h1 class="title">Image 1 Title</h1>
+                        <div class="links">
+                            <a href="" target="_blank" class="github-link"><i class="fa fa-github-alt" aria-hidden="true"></i>
+                                <span class="description">View Code</span></a>
+                            <a href="" target="_blank"  class="site-link"><i class="fa fa-desktop" aria-hidden="true"></i>
+                                <span class="description">View Site</span></a>
+                        </div>
+            
+                        <div class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit, modi!</div>
+                        <div class="info">
+                            <h1>info title 1</h1>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus error consequatur, quasi voluptatem sequi perspiciatis voluptate iste excepturi deleniti incidunt illum laborum quisquam, nemo quis dolor ad quia soluta eveniet?</p>
+                        </div>
+                    </div>
                 </div>
-                <!-- main img -->
-                <div class="slot-2 curr-img-container">
-                    <div class="img-title">aaaaaaaaaaaaaaaaaaaaaa</div>
-                    <div class="caption">11111111111111111111111</div>
-                    <div class="main-overlay">
-                        <div class="header">
-                            <div class="img-title-display"></div>
+            </div>
+            <div class="slot1 web">
+                <div class="to-move" data-img='1'>
+                    <div class="content">
+                        <img class="img1" src="./assets/images/pomo.png" alt="">
+                        <h1 class="title">Image 2 Title </h1>
+                        <div class="links">
+                            <a href="" target="_blank" class="github-link"><i class="fa fa-github-alt" aria-hidden="true"></i>
+                                <span class="description">View Code</span></a>
+                            <a href="" target="_blank" class="site-link"><i class="fa fa-desktop" aria-hidden="true"></i>
+                                <span class="description">View Site</span></a>
+                        </div>
+                        <div class="caption">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe, repellat.</div>
+                        <div class="info">
+                            info 2 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perspiciatis sint vitae dolorem, repellat autem voluptatem laudantium temporibus animi ipsum facilis! Est nemo enim non tempora similique repellat quo numquam quis?
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slot2 main-display">
+                <div class="to-move" data-img='2'>
+                    <div class="content">
+                        <img class="img2 web" src="./assets/images/twitch.png" alt="">
+                        <h1 class="title">Image 3 Title</h1>
+                        <div class="links">
+                            <a href="http://www.google.ca" target="_blank" class="github-link"><i class="fa fa-github-alt" aria-hidden="true"></i>
+                                <span class="description">View Code</span></a>
+                            <a href="2" target="_blank" class="site-link"><i class="fa fa-desktop" aria-hidden="true"></i>
+                                <span class="description">View Site</span></a>
+                        </div>
+                        <div class="caption">222222222222222222</div>
+                        <div class="info">
+                            info 3 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit necessitatibus totam earum, ut quaerat, culpa nemo odit maiores explicabo! Rem ea nulla ducimus magnam nostrum perspiciatis possimus incidunt deleniti! Odio.
+                        </div>
+                    </div>
+                </div>
+                <!-- Only visible on tablet and larger screens -->
+                <div class="overlay">
+                    <!-- left arrow column -->
+                    <div class="left-bar">
+                        <i class="fa fa-arrow-left left-arrow" aria-hidden="true"></i>
+                    </div>
+                    <!-- Image title, icons on hover, caption, nav-dots -->
+                    <div class="main-content">
+                        <span class="display-title">cccccccccccccccccc</span>
+                        <div class="center">
+                            <div class="view-code view">
+                                <a href="https://www.google.ca" target="_blank"><i class="fa fa-github-alt" aria-hidden="true"></i><br>
+                                <span class="description">View Code</span></a>
+                            </div>
+                            <div class="view-live view">
+                                <a href="https://www.github.com" target="_blank">
+                                    <i class="fa fa-desktop" aria-hidden="true"></i>
+                                    <br>
+                                    <span class="description">View Site</span>
+                                </a>
+                            </div>
                         </div>
                         <div class="footer">
-                            <div class="caption-display"></div>
+                            <div class="display-caption">22222222222222</div>
                             <div class="nav-bar">
                                 <div class="left-icons">
                                     <a class="github-icon" href="" title="View Code"><i class="fa fa-github " aria-hidden="true"></i></a>
@@ -131,38 +191,52 @@
                             </div>
                         </div>
                     </div>
-                    <img class="img-2 active web" data-img="2" src="./assets/images/twitch.png">
-                </div>
-                <!-- right arrow -->
-                <div class="right-arrow-container">
-                    <div class="right-arrow"><i class="fa fa-arrow-right arrow" aria-hidden="true"></i></div>
+                    <!-- right arrow column -->
+                    <div class="right-bar">
+                        <i class="fa fa-arrow-right right-arrow" aria-hidden="true"></i>
+                    </div>
                 </div>
             </div>
-            <!-- preview right -->
-            <div class="slot-3 web">
-                <div class="img-title">ddddddddddddddd</div>
-                <div class="caption">44444444444444</div>
-                <img class="web" data-img="3" src="https://getuikit.com/docs/images/placeholder_600x400.svg" alt="">
+            <div class="slot3 web">
+                <div class="to-move" data-img='3'>
+                    <div class="content">
+                        <img class="img3" src="./assets/images/weather.png" alt="">
+                        <h1 class="title">Image 4 Title</h1>
+                        <div class="links">
+                            <a href="img4" target="_blank" class="github-link"><i class="fa fa-github-alt" aria-hidden="true"></i>
+                                <span class="description">View Code</span></a>
+                            <a href="img4" target="_blank" class="site-link"><i class="fa fa-desktop" aria-hidden="true"></i>
+                                <span class="description">View Site</span></a>
+                        </div>
+                        <div class="caption">333333333333333</div>
+                        <div class="info">
+                            info 4 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corrupti inventore incidunt perspiciatis unde quibusdam odio rem alias culpa molestias perferendis laudantium, nostrum doloremque, fuga quas officiis quae repudiandae vitae eligendi!
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="slot-4 web">
-                <div class="img-title">eeeeeeeeeeeee</div>
-                <div class="caption">555555555</div>
-                <img class="web" data-img="4" src="https://openclipart.org/image/2400px/svg_to_png/194077/Placeholder.png" alt="">
+            <div class="slot4 web">
+                <div class="to-move" data-img='4'>
+                    <div class="content">
+                        <img class="img4" src="./assets/images/wiki.png" alt="">
+                        <h1 class="title">Image 5 Title</h1>
+                        <div class="links">
+                            <a href="" target="_blank" class="github-link"><i class="fa fa-github-alt" aria-hidden="true"></i>
+                                <span class="description">View Code</span></a>
+                            <a href="" target="_blank" class="site-link"><i class="fa fa-desktop" aria-hidden="true"></i>
+                                <span class="description">View Site</span></a>
+                        </div>
+                        <div class="caption">444444444444444</div>
+                        <div class="info">
+                            info 5 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi debitis numquam fuga eius ullam sequi dolorum accusantium illo, labore quasi officiis, quidem quibusdam expedita saepe, quaerat nihil tenetur dolore qui!
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        <!-- Info Section -->
-        <div class="info">
-            <h4 class="title">AAAAAAAAAAAAAAAAAAA</h4>
-            <div class="overview">
-                <b>Overview:</b>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, recusandae mollitia dignissimos cupiditate! Voluptas ratione quae aliquid assumenda officia minima rerum eum quasi non cumque impedit cupiditate beatae similique et nihil, consectetur, commodi ad quod earum incidunt explicabo voluptatum saepe, architecto repellendus! Tempora ratione, impedit, laborum voluptatum ipsa soluta, quae qui eos vero, delectus recusandae illum provident quidem enim rem eius dolorem officiis doloribus nostrum commodi ullam magni harum deleniti fugiat. Asperiores fugit corporis, vel necessitatibus maiores, expedita deleniti esse ut impedit rerum quos. Quas, debitis repellendus reprehenderit possimus eos laudantium sint voluptatem aliquam quam ullam iste pariatur cumque maiores.</p>
-            </div>
-            <div class="challenge">
-                <b>Challenges:</b>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, fugiat. Dolor atque aut tempore quis dolorem facilis, impedit veritatis rem, labore a possimus maxime! Distinctio sed facilis aspernatur earum mollitia magni nemo. Consectetur error quo at sint dicta dolorum aperiam est facere, quas, voluptate sapiente atque soluta magni, dolor neque.</p>
-            </div>
-        </div>
+        <div class="info-display"></div>
     </div>
+
     <!-- Learning Progress -->
     <section class="learning">
         <!-- To-Do list -->
@@ -197,11 +271,11 @@
     <div class="contact">
         <h1 class="title">Let's Work Together!</h1>
         <div class="mail">
-          <p><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> Toby_Chow@hotmail.com</p>
+            <p><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> Toby_Chow@hotmail.com</p>
         </div>
         <div class="mobile">
-            <p><i class="fa fa-mobile fa-3x" aria-hidden="true"></i>
-             999-999-9999</p>
+            <p><i class="fa fa-mobile fa-3x" aria-hidden="true"></i> 999-999-9999
+            </p>
         </div>
     </div>
     <!-- CODE ABOVE -->

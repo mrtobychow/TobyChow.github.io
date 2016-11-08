@@ -1,324 +1,282 @@
 /* jshint esversion:6 */
+$(document).ready(function() {
 
-// Carousel.js
-// TODO: ADD LEFT/RIGHT ARROW KEYS FUNCTION TO SLIDE CAROUSEL
-// data-img tracking the slot that the img is in now from original (ex: img-2 with data-img 0 = img-2 is at slot0)
-$(window).load(function() {
+    var speed = 300; // speed of animation
+    var tablet = 768; // tablet px size
 
-    var screenWidth = $(window).width();
-    var mobile = screenWidth <= 1000;
-    var mainDot = '2';
-    var speed = 400;
-    if (mobile) {
-        $(".img-2").attr('src', '').removeClass('web').addClass('mobile');
-    }
-    // Left arrow is clicked
-    $(".right-arrow").on('click', function(event) {
-        // Arrow function on mobile
-        if (mobile) {
-            var imgSize = 500; // individual img size in px
-            var numImg = 5;
-            // px to shift for next image
-            var newPos = (function getNewPos() {
-                var maxSize = imgSize * (numImg - 1);
-                var newPos = (+mainDot + 1) * imgSize;
-                if (newPos > maxSize) { newPos = 0; }
-                return '-'+ newPos;
-            })();
-            $(".img-2.mobile").animate({
-                'background-position': newPos
-            });
+    // Displays initial title and caption of main display from slot 2
+    (function displayMainText() {
+        $('.slot2 .display-title').text($('.slot2 .title').text());
+        $('.slot2 .display-caption').text($('.slot2 .caption').text());
+    })();
 
-        } else {
-            var mainWidth = $(".curr-img-container").width();
-            var mainHeight = $(".curr-img-container").height();
-
-            var sideWidth = $(".slot-0").width();
-            var sideHeight = $(".slot-0").height();
-
-            var slots = {};
-
-
-            (function getSlotCoord() {
-                $(".carousel-container").find("[class*='slot-']").each(function(index, el) {
-                    slots[index] = { x: $(this).offset().left, y: $(this).offset().top };
-                });
-            })();
-            var dataSlideValue = $(".carousel-container").find("img.web").each(function(index, el) {
-                var imgValue = Number(this.dataset.img);
-                if (increment) {
-                    if (imgValue <= 0) {
-                        imgValue = 4;
-                        this.dataset.img = 4;
-                    } else {
-                        imgValue -= 1;
-                        this.dataset.img -= 1;
-                    }
-                }
-                // if img is going into slot-2 (ie:main display)
-                if (+(this.dataset.img) === 2) {
-                    $(this).css({
-                            'position': 'absolute',
-                            width: '150px',
-                            height: '150px'
-                        }) // shrink image to preview slide size
-                        .animate({
-                            width: mainWidth,
-                            height: mainHeight,
-                            left: slots[+imgValue].x, // account for margin
-                            top: slots[+imgValue].y
-                        }, speed);
-                }
-                if (+(this.dataset.img) === 4) {
-                    var offsetDistance = $(window).width() + sideWidth;
-                    $(this).css({
-                            'position': 'absolute',
-                            width: '150px',
-                            height: '150px'
-                        })
-                        .offset({
-                            top: $(".slot-4").offset().top,
-                            left: offsetDistance
-                        })
-                        .animate({
-                            width: sideWidth,
-                            height: sideHeight,
-                            left: slots[4].x,
-                            top: slots[4].y
-                        }, speed);
-                }
-                if (+(this.dataset.img) !== 2 && +(this.dataset.img) !== 4) {
-                    $(this).css({
-                            'position': 'absolute',
-                            width: '150px',
-                            height: '150px'
-                        }) // shrink image to preview slide size
-                        .animate({
-                            width: sideWidth,
-                            height: sideHeight,
-                            left: slots[+imgValue].x, // account for margin
-                            top: slots[+imgValue].y
-                        }, speed);
-                }
-            });
-        }
-        // dotsssssssssssssssssssss
-        if (increment) {
-            $(".active-dot").removeClass('active-dot');
-            mainDot++;
-            if (mainDot > 4) { mainDot = 0; }
-            $(`[data-dot='${mainDot}']`).addClass('active-dot');
-
-            // Change img-title and caption
-            nextTitle = $(`.slot-${mainDot}  .img-title`).text();
-            nextCaption = $(`.slot-${mainDot}  .caption`).text();
-            $(".main-overlay  .img-title-display").text(nextTitle);
-            $(".main-overlay  .caption-display").text(nextCaption);
-
-            if(mobile){
-                // animate pos
-            }
-        }
-
+    // Info display fnc for tablet only
+    $('.info-icon').on('click', function(event) {
+        var mainInfo = $('.slot2 .info').text();
+        $('.info-display').text(mainInfo);
+        $('.info-display').slideToggle();
     });
-    ////////////////////////////////////////// right arrow
-    var increment = true;
+
+    // When left arrow of carousel is clicked
     $(".left-arrow").on('click', function(event) {
-        if (mobile) {
-            var imgSize = 500; // individual img size in px
-            var numImg = 5;
-            // px to shift for next image
-            var newPos = (function getNewPos() {
-                var maxSize = imgSize * (numImg - 1);
-                var newPos = (+mainDot - 1) * imgSize;
-                if (newPos < 0) { newPos = maxSize; }
-                return '-'+ newPos;
-            })();
-            $(".img-2.mobile").animate({
-                'background-position': newPos
+
+        // Get dimensions of the side panels
+        var sideWidth = $('.slot0').width();
+        var sideHeight = $('.slot0').height();
+
+        // Used to manipulate dataset values since it is stored as strings
+        function addUnicodeBy1(str) {
+            return String.fromCharCode(str.charCodeAt() + 1);
+        }
+
+        // Stores dimensions(top and left) of each panels
+        var slots = {};
+
+        (function getSlotCoord() {
+            $(".carousel-container").find("[class*='slot']").each(function(index, el) {
+                slots[index] = { x: $(this).position().left, y: $(this).position().top };
             });
+        })();
 
-        } else {
-            var mainWidth = $(".curr-img-container").width();
-            var mainHeight = $(".curr-img-container").height();
-
-            var sideWidth = $(".slot-0").width();
-            var sideHeight = $(".slot-0").height();
-
-            var slots = {};
-
-
-            (function getSlotCoord() {
-                $(".carousel-container").find("[class*='slot-']").each(function(index, el) {
-                    slots[index] = { x: $(this).offset().left, y: $(this).offset().top };
-                });
-            })();
-
-            function addUnicodeBy1(str) {
-                return String.fromCharCode(str.charCodeAt() + 1);
+        $(".carousel-container").find(".to-move").each(function(index, el) {
+            var initialSlot = +this.dataset.img;
+            // loops back last img to the first slot
+            if (initialSlot === 4) {
+                this.dataset.img = 0;
+            } else {
+                this.dataset.img = addUnicodeBy1(this.dataset.img);
             }
 
-            var dataSlideValue = $(".carousel-container").find("img.web").each(function(index, el) {
-                var imgValue = Number(this.dataset.img);
+            function animateSlide(target, destination) {
+                var differenceX = slots[1].x - slots[0].x; // assuming evenly spaced slots
+                var differenceY;
+                if (destination === '.slot2') {
+                    differenceY = slots[2].y - slots[1].y;
+                } else if (destination === '.slot3') {
+                    differenceX = slots[3].x - slots[2].x;
+                    differenceY = slots[3].y - slots[2].y;
+                }
 
-                if (increment) {
-                    if (imgValue >= 4) {
-                        imgValue = 0;
-                        this.dataset.img = 0;
-                    } else {
-                        imgValue += 1;
-                        this.dataset.img = addUnicodeBy1(this.dataset.img);
-                    }
-                }
-                // if img is going into slot-2 (ie:main display)
-                if (+(this.dataset.img) === 2) {
-                    $(this).css({
-                            'position': 'absolute',
-                            width: sideWidth,
-                            height: sideHeight
-                        }) // shrink image to preview slide size
-                        .animate({
-                            width: mainWidth,
-                            height: mainHeight,
-                            left: slots[+imgValue].x, // account for margin
-                            top: slots[+imgValue].y
-                        }, speed);
-                }
-                if (+(this.dataset.img) === 0) {
-                    var offsetDistance = $(window).width() + sideWidth;
-                    $(this).css({
-                            'position': 'absolute',
-                            width: sideWidth,
-                            height: sideHeight
-                        })
-                        .offset({
-                            top: $(".slot-0").offset().top,
-                            left: '-200'
-                        })
-                        .animate({
-                            width: sideWidth,
-                            height: sideHeight,
-                            left: slots[0].x,
-                            top: slots[0].y
-                        }, speed);
-                }
-                if (+(this.dataset.img) !== 2 && +(this.dataset.img) !== 0) {
-                    $(this).css({
-                            'position': 'absolute',
-                            width: sideWidth,
-                            height: sideHeight
-                        }) // shrink image to preview slide size
-                        .animate({
-                            width: sideWidth,
-                            height: sideHeight,
-                            left: slots[+imgValue].x, // account for margin
-                            top: slots[+imgValue].y
-                        }, speed);
-                }
-            });
-        }
-        // dotsssssssssssssssssssss
-        if (increment) {
-            $(".active-dot").removeClass('active-dot');
-            mainDot--;
-            if (mainDot < 0) { mainDot = 4; }
-            $(`[data-dot='${mainDot}']`).addClass('active-dot');
-            // Change img-title and caption
-            nextTitle = $(`.slot-${mainDot}  .img-title`).text();
-            nextCaption = $(`.slot-${mainDot}  .caption`).text();
-            $(".main-overlay  .img-title-display").text(nextTitle);
-            $(".main-overlay  .caption-display").text(nextCaption);
-        }
+                var targetWidth = $(target).width();
+                var targetHeight = $(target).height();
+                var destinationWidth = $(destination).width();
+                var destinationHeight = $(destination).height();
+                $(target)
+                    .css({
+                        'position': 'absolute',
+                        width: targetWidth,
+                        height: targetHeight
+                    })
+                    .animate({
+                        left: differenceX, // only if flex is space evenly distributed
+                        top: differenceY,
+                        width: destinationWidth,
+                        height: destinationHeight
+                    }, speed, function cb() {
+                        $(target).remove().appendTo(destination).css({
+                            left: '0', // resets positioning after inserting img into new DOM
+                            top: '0',
+                            width: '100%',
+                            height: '100%',
+                            position: 'static' // must be static
+                        });
+                    });
+            }
+            var target = el; // stores img classes only;
+            var destination = `.slot${this.dataset.img}`;
+            animateSlide(target, destination);
+            console.log($(`.slot2 .title`).text());
+        });
+
+
+        // animate dots and change title / caption display
+        (function animateDotLeft() {
+            // get data-dot with the active-dot
+            var activeDot = $('.active-dot').removeClass('active-dot');
+            var activeDotData = +activeDot[0].dataset.dot;
+            activeDotData--;
+            if (activeDotData < 0) {
+                activeDotData = 4;
+            }
+            $(`[data-dot=${activeDotData}]`).addClass('active-dot');
+            // Get title and caption from parent of img's original slot
+            var newTitle = $(`.slot1 .title`).text(); // slot1 to get text that would be GOING to slot2
+            var newCaption = $(`.slot1 .caption`).text();
+            // insert new title / caption into slot 2
+            $('.main-content .display-title').text(newTitle);
+            $('.main-content .display-caption').text(newCaption);
+            // Get info of next slide going into main display
+            var newInfo = $('.slot1 .info').text();
+            // Updates main display info
+            $('.info-display').text(newInfo);
+        })();
     });
 
-    // Dots function
+
+    $(".right-arrow").on('click', function(event) {
+
+        var sideWidth = $('.slot0').width();
+        var sideHeight = $('.slot0').height();
+
+        function minusUnicodeBy1(str) {
+            return String.fromCharCode(str.charCodeAt() - 1);
+        }
+
+        var slots = {};
+
+        (function getSlotCoord() {
+            $(".carousel-container").find("[class*='slot']").each(function(index, el) {
+                slots[index] = { x: $(this).position().left, y: $(this).position().top };
+            });
+        })();
+
+        $(".carousel-container").find(".to-move").each(function(index, el) {
+
+            var initialSlot = +this.dataset.img;
+            // loops back last img to the first slot
+            if (initialSlot === 0) {
+                this.dataset.img = 4;
+            } else {
+                this.dataset.img = minusUnicodeBy1(this.dataset.img);
+            }
+
+            function animateSlide(target, destination) {
+                var differenceX = slots[0].x - slots[1].x; // assuming evenly spaced slots
+                var differenceY;
+                if (destination === '.slot2') {
+                    differenceX = slots[2].x - slots[3].x;
+                    differenceY = slots[2].y - slots[3].y;
+                } else if (destination === '.slot1') {
+                    differenceX = slots[1].x - slots[2].x;
+                    differenceY = slots[1].y - slots[2].y;
+                }
+
+                var targetWidth = $(target).width();
+                var targetHeight = $(target).height();
+                var destinationWidth = $(destination).width();
+                var destinationHeight = $(destination).height();
+                var difference = slots[1].x - slots[0].x; // assuming evenly spaced slots
+                $(target)
+                    .css({
+                        'position': 'absolute',
+                        width: targetWidth,
+                        height: targetHeight
+                    })
+                    .animate({
+                        left: differenceX, // only if flex is space evenly distributed
+                        top: differenceY,
+                        width: destinationWidth,
+                        height: destinationHeight
+                    }, speed, function cb() {
+                        $(target).remove().appendTo(destination).css({
+                            left: '0', // resets positioning after inserting img into new DOM
+                            top: '0',
+                            width: '100%',
+                            height: '100%',
+                            position: 'static' // must be static
+                        });
+                    });
+            }
+            var target = el; // stores img classes only
+            console.log(target);
+            var destination = `.slot${this.dataset.img}`;
+            animateSlide(target, destination);
+        });
+
+        // animate dots and change title / caption display
+        (function animateDotRight() {
+            var activeDot = $('.active-dot').removeClass('active-dot');
+              // get data-dot of the active-dot to keep track of dot position
+            var activeDotData = +activeDot[0].dataset.dot;
+            activeDotData++;
+            if (activeDotData > 4) {
+                activeDotData = 0;
+            }
+            // Add class .active-dot to the new active dot
+            $(`[data-dot=${activeDotData}]`).addClass('active-dot');
+
+            // Get title and caption from parent of img's original slot
+            var newTitle = $(`.slot3 .title`).text();
+            var newCaption = $(`.slot3 .caption`).text();
+
+            // insert new title / caption into slot 2
+            $('.main-content .display-title').text(newTitle);
+            $('.main-content .display-caption').text(newCaption);
+
+            // Get info of next slide going into main display
+            var newInfo = $('.slot3 .info').text();
+
+            // Updates main display info
+            $('.info-display').text(newInfo);
+        })();
+    });
+
+    // Change active (white) dot to the clicked dot
     $(".dot").on('click', function(event) {
         var leftCount = 0;
         var rightCount = 0;
         var clickedDot = +this.dataset.dot;
-        var start = +mainDot;
-        speed = 200;
+        var start = $('.active-dot')[0].dataset.dot;
+        var count = +start;
 
         function distanceCheck(direction) {
-            while (start !== clickedDot) {
+            console.log(count);
+            while (count !== clickedDot) {
 
                 if (direction === 'left') {
                     leftCount++;
-                    start--;
-                    if (start < 0) {
-                        start = 4;
+                    count--;
+                    if (count < 0) {
+                        count = 4;
                     }
                 }
                 if (direction === 'right') {
                     rightCount++;
-                    start++;
-                    if (start > 4) {
-                        start = 0;
+                    count++;
+                    if (count > 4) {
+                        count = 0;
                     }
                 }
             }
-            start = +mainDot; // resets start to do left check
+            count = start; // resets start to do left check
         }
         distanceCheck('right');
         distanceCheck('left');
+        // Go left if it is the shortest route, otherwise go right
         if (leftCount < rightCount) {
             var c = 0;
             while (c < leftCount) {
-                $(".left-arrow").click();
+                // Fix with arrows clicking too quickly, resulting in only 1 click no matter distance
+                setTimeout(function() {
+                    speed = 100;
+                    $(".left-arrow").click();
+                    speed = 300;
+                }, (c * (300)));
                 c++;
             }
         } else {
             var x = 0;
             while (x < rightCount) {
-                $(".right-arrow").click();
+                // same fix as left arrow
+                setTimeout(function() {
+                    speed = 100;
+                    $(".right-arrow").click();
+                    speed = 300;
+                }, (x * (300)));
                 x++;
             }
         }
-        speed = 400;
+
+    });
+    $('.left').on('click', function(event) {
+
+        setTimeout(function() {
+            $('.left-arrow').click();
+        }, 400);
+        setTimeout(function() {
+            $('.left-arrow').click();
+        }, 800);
+
     });
 
-    // Overlay
-
-    var width = $(".slot-2").width();
-    var height = $(".slot-2").height();
-    $(".main-overlay").css({
-        width: width,
-        height: height
-    });
-
-    // fix positioning on windows resize
-    window.onresize = function() {
-        if (!mobile) {
-            increment = false;
-            $(".right-arrow").click();
-            increment = true;
-        }
-        //main display size
-        var width = $(".slot-2").width();
-        var height = $(".slot-2").height();
-        //overlay
-        $(".main-overlay").css({
-            width: width,
-            height: height
-        });
-
-    };
-});
-
-// Display initial message
-$(document).ready(function() {
-    $(".main-overlay  .img-title-display").text(function() {
-        return $(".slot-2 > .img-title").text();
-    });
-
-    $(".main-overlay  .caption-display").text(function() {
-        return $(".slot-2 > .caption").text();
-    });
-
-    // Info-icon button
-    $(".info-icon").on('click', function(event) {
-        $(this).toggleClass('active');
-        $(".info").slideToggle();
-        /* Act on the event */
-    });
 });
