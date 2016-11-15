@@ -6,7 +6,7 @@ $(document).ready(function() {
 
     // Displays initial title,caption, and links of main display from slot 2
     (function displayMainText() {
-        $('.slot2 .display-title').text($('.slot2 .title').text());
+        $('.slot2 .display-title').text($('.slot2 .main-title').text());
         $('.slot2 .display-caption').text($('.slot2 .caption').text());
         //display github and site link of main display
             var slot2Github = $('.slot2 .github-link').attr('href');
@@ -17,8 +17,8 @@ $(document).ready(function() {
 
     // Info display fnc for tablet only
     $('.info-icon').on('click', function(event) {
-        var mainInfo = $('.slot2 .info').text();
-        $('.info-display').text(mainInfo);
+        var mainInfo = $('.slot2 .info').html();
+        $('.info-display').html(mainInfo);
         $('.info-display').slideToggle();
     });
 
@@ -106,7 +106,7 @@ $(document).ready(function() {
             $(`[data-dot=${activeDotData}]`).addClass('active-dot');
 
             // Get title and caption from parent of img's original slot
-            var newTitle = $(`.slot1 .title`).text(); // slot1 to get text that would be GOING to slot2
+            var newTitle = $(`.slot1 .main-title`).text(); // slot1 to get text that would be GOING to slot2
             var newCaption = $(`.slot1 .caption`).text();
 
             // insert new title / caption into slot 2
@@ -114,10 +114,10 @@ $(document).ready(function() {
             $('.main-content .display-caption').text(newCaption);
 
             // Get info of next slide going into main display
-            var newInfo = $('.slot1 .info').text();
+            var newInfo = $('.slot1 .info').html();
 
             // Updates main display info
-            $('.info-display').text(newInfo);
+            $('.info-display').html(newInfo);
 
             // Get next slide's new github and site link
             var newGithubLink = $('.slot1 .github-link').attr('href');
@@ -214,7 +214,7 @@ $(document).ready(function() {
             $(`[data-dot=${activeDotData}]`).addClass('active-dot');
 
             // Get title and caption going to slot2 (ie: get from slot3)
-            var newTitle = $(`.slot3 .title`).text();
+            var newTitle = $(`.slot3 .main-title`).text();
             var newCaption = $(`.slot3 .caption`).text();
 
             // insert new title / caption into slot 2
@@ -222,11 +222,9 @@ $(document).ready(function() {
             $('.main-content .display-caption').text(newCaption);
 
             // Get info of next slide going into main display
-            var newInfo = $('.slot3 .info').text();
-
+            var newInfo = $('.slot3 .info').html();
             // Updates main display info
-            $('.info-display').text(newInfo);
-
+            $('.info-display').html(newInfo);
             // Get next slide's new github and site link
             var newGithubLink = $('.slot3 .github-link').attr('href');
             var newSiteLink = $('.slot3 .site-link').attr('href');
