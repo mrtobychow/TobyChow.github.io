@@ -50,6 +50,16 @@ $tablet:900px;
     color: white;
 }
 
+.top{
+        align-self:flex-end; // for arrow in about section
+        text-align:right;// aligns icon to right
+         padding-right:2em;
+         font-size:2em;
+         .fa{
+            color:black;
+         }
+    }
+
 //---------------------------------------------------- Header
 .intro {
     position: relative;
@@ -149,9 +159,10 @@ $tablet:900px;
 }
 
 //----------------------------------------------------Projects
-/////
 .projects {
     padding: 2em 0;
+    // background:radial-gradient(circle,white 0%, black 100%);
+    // background:center/cover no-repeat url("http://www.industryweek.com/site-files/industryweek.com/files/imagecache/large_img/uploads/2014/10/stage.jpg");
     .carousel-container {
         @media(min-width: $tablet) {
             flex-flow: row nowrap;
@@ -160,14 +171,15 @@ $tablet:900px;
         display: flex;
         flex-flow: column wrap;
         justify-content: space-around;
-        border: 1px solid gold;
         [class^='slot'] {
             @media(min-width: $tablet) {
                 flex: 1 1 20%;
                 height: 150px;
             }
             @media(max-width:$tablet) {
-                background: rgba(217, 217, 224, 0.35);
+                &:nth-child(odd){
+                background: rgba(217, 217, 224, 0.35); 
+            }
                 &:nth-child(even) {
                     background: #DCDCDD;
                 }
@@ -175,7 +187,6 @@ $tablet:900px;
             display:flex;
             justify-content: space-between;
             position: relative;
-            border: 1px solid blue;
             margin: 10px;
             // Contains contents div with title,caption,etc. and the corresponding img
             .to-move {
@@ -291,10 +302,6 @@ $tablet:900px;
                             .view {
                                 display: none;
                                 flex-flow: column nowrap;
-                                border: 1px solid gold;
-                                .description {
-                                    border: 1px solid blue;
-                                }
                                 a {
                                     color: white; // change default anchor color
                                 }
@@ -366,20 +373,17 @@ $tablet:900px;
 
 .info-display {
     display: none;
-    background: grey;
     padding: 1em;
     @media(max-width: $tablet) {
         display: none !important; // hides .info-display even if .info is displayed on >=tablet size
     }
 }
 
-//----------------------------------------------------------------
-// Learning
+//-------------------------------------------------------About
 .about {
     display: flex;
     flex-flow: column;
     align-items: center;
-    
     padding: 2em 0;
     background: center/cover no-repeat url("./assets/images/learning-bg.jpg");
     .statement {
@@ -405,11 +409,15 @@ $tablet:900px;
             flex: 1 1 100%;
             margin: 1em 0;
             padding: 1em;
+            text-align:center;
             @media(min-width: $tablet) {
                 flex: 1 1 50%;
             }
             .description {
                 max-width: 25em;
+                height:5em; // aligns images vertically
+                margin:1em;
+                background:rgba(255,255,255,0.4);
             }
             img {
                 max-width: 100%;
@@ -423,24 +431,28 @@ $tablet:900px;
 .contact {
     padding: 2em;
     background: #e5e6e9;
+    @media(min-width:$tablet){
+        padding:2em 0;
+    }
     .contact-icons {
         display: flex;
         flex-flow: row wrap;
-        padding: 1em;
         @media(min-width: $tablet) {
             flex-flow: row nowrap;
             justify-content: space-around;
             align-items: center;
-            margin: 0; // remove margin from default fa-ul
+            padding:0;    // remove default
         }
-        &>* {
-            @media(max-width: $tablet) {
-                flex: 1 1 100%;
-            }
+        &>*{
+            padding-top:1em;
         }
         // align icons to middle of text
         .fa {
             vertical-align: middle;
+            font-size:1.5em;
+            @media(min-width:$tablet){
+                font-size:2em;
+            }
         }
         // change default <a> color
         a {

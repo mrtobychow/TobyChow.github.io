@@ -21,19 +21,19 @@
 <body>
     <!-- CODE BELOW -->
     <!-- Header -->
-    <div class="intro">
+    <div class="intro" id="intro">
         <div class="background-image"></div>
         <div class="content">
             <div class="nav-bar-container">
                 <ul class="nav-bar">
-                    <a href="">
-                        <li>Projects</li>
+                    <a href="#projects">
+                        <li class="project-btn">Projects</li>
                     </a>
-                    <a href="">
-                        <li>About</li>
+                    <a href="#about">
+                        <li class="about-btn">About</li>
                     </a>
-                    <a href="">
-                        <li>Contact</li>
+                    <a href="#contact">
+                        <li class="contact-btn">Contact</li>
                     </a>
                 </ul>
             </div>
@@ -92,7 +92,7 @@
         </div>
     </div>
     <!-- Carousel -->
-    <div class="projects">
+    <div class="projects" id="projects">
         <h1 class="title">Projects</h1>
         <div class="carousel-container">
             <!-- First slot -->
@@ -288,7 +288,7 @@
                                 <span class="description">View Code</span></a>
                             <a href="http://tobychow.github.io/wiki" target="_blank" class="site-link"><i class="fa fa-desktop" aria-hidden="true"></i>
                                 <span class="description">View Site</span></a>
-                         </div>
+                        </div>
                         <h3 class="title caption-title">Project Overview</h3>
                         <div class="caption">
                             Find available Wikipedia articles on a topic
@@ -314,8 +314,10 @@
         </div>
         <div class="info-display"></div>
     </div>
+    <!-- Back to top button -->
+    <div class="top"><a href="#intro"><i class="fa fa-sort-asc" aria-hidden="true"></i></a></div>
     <!-- Learning Progress -->
-    <section class="about">
+    <section class="about" id="about">
         <h1 class="title">A Little About Me</h1>
         <div class="statement">
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam fugit voluptatibus provident illum deserunt nihil, dolor odio molestias iste et. Quam dolore non laboriosam atque, eum a dolor beatae explicabo blanditiis consectetur, minima. Quasi harum atque, distinctio, illum rerum laboriosam molestiae. Omnis adipisci, fuga aliquam nihil, porro voluptatum. Cumque, at!
@@ -328,7 +330,7 @@
                 </div>
             </div>
             <div class="eloquentjs resource">
-                <div class="description">Another highly recommended book called <strong>Eloquent JavaScript</strong>that explores JavaScript by <strong>Marijn Haverbeke</strong></div>
+                <div class="description">Another highly recommended book called <strong>Eloquent JavaScript</strong> that explores JavaScript by <strong>Marijn Haverbeke</strong></div>
                 <div class="img-container">
                     <a href="http://eloquentjavascript.net"><img src="./assets/images/elojs.png" alt="Eloquent JavaScript"></a>
                 </div>
@@ -341,29 +343,32 @@
             </div>
             <div class="fcc resource">
                 <div class="description"><strong>FreeCodeCamp</strong> is an online curriculum built by the community to teach users how to code and also provide project ideas.
-                <br>
-                <div style="text-align:center"> Come check out my <a href="https://www.freecodecamp.com/tobychow">Profile!</a></div>
+                    <br>
+                    <div style="text-align:center"> Come check out my <a href="https://www.freecodecamp.com/tobychow">Profile!</a></div>
                 </div>
                 <div class="img-container">
                     <img src="./assets/images/fcc.png" alt="">
                 </div>
             </div>
         </div>
+                <!-- Back to top button -->
+    <div class="top"><a href="#intro"><i class="fa fa-sort-asc" aria-hidden="true"></i></a></div>
     </section>
+
     <!-- Contact -->
-    <div class="contact">
+    <div class="contact" id="contact">
         <h1 class="title">Let's Work Together!</h1>
-        <ul class="contact-icons fa-ul">
+        <ul class="contact-icons">
             <div class="mail">
-                <span><i class="fa fa-envelope-o fa-2x" aria-hidden="true"></i> Toby_Chow@hotmail.com</span>
+                <span><i class="fa fa-envelope-o fa-fw" aria-hidden="true"></i> Toby_Chow@hotmail.com</span>
             </div>
             <div class="mobile">
-                <span><i class="fa fa-mobile fa-3x" aria-hidden="true"></i> 999-999-9999
+                <span><i class="fa fa-mobile fa-fw" aria-hidden="true"></i> 999-999-9999
                 </span>
             </div>
             <div class="github">
-                <a href="" target="_blank" class="github-link">
-                    <i class="fa fa-github-alt fa-2x" aria-hidden="true"></i>
+                <a href="https://github.com/TobyChow/TobyChow.github.io" target="_blank" class="github-link">
+                    <i class="fa fa-github-alt fa-fw" aria-hidden="true"></i>
                     <span class="description">View Github</span></a>
             </div>
         </ul>
