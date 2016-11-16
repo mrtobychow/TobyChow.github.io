@@ -1,174 +1,142 @@
- @font-face {
-     font-family: twitch;
-     src: url('../fonts/twitch.TTF');
- }
- /*prevents horizontal scrolling on mobile*/
- 
- html,
- body {
-     max-width: 100%;
-     overflow-x: hidden;
- }
- 
- .twitch-banner {
-     position: relative;
-     width: 100vw;
-     height: 30vh;
-     background-color: #64439a;
- }
- 
- h1 {
-     font-family: twitch;
-     text-align: center;
-     margin-top: 0;
-     padding-top: 30px;
- }
- 
- .search-group {
-     min-width: 50vw;
-     max-width: 30em;
-     margin: 0 auto;
- }
- 
- .alert-msg{
-     text-align: center;
- }
- .alert {
-     display: inline-block;
-     margin-top: 15px;
-     padding: 10px;
-     font-size: 1.3em;
- }
+@font-face {
+  font-family: twitch;
+  src: url("../fonts/twitch.TTF"); }
 
- .loading {
-     text-align: center;
-     height: 10em;
-     position: absolute;
-     top: 0;
-     right: 0;
-     bottom: 0;
-     left: 0;
-     margin: auto;
- }
- 
- .streamer {
-     position: relative;
-     margin: 2em auto 1em;
-     text-align: center;
-     display: none;
- }
- 
- .name,
- .status,
- .play {
-     /* horz. center*/
-     position: absolute;
-     margin: 0 auto;
-     left: 0;
-     right: 0;
-     width: 320px;
-     color: white;
-     font-size: 1.2em;
-     background-color: rgba(0, 0, 0, 0.5);
- }
- 
- .delete-btn {
-     margin-left: -2px;
-     margin-top: -2px;
-     float: left;
-     color: grey;
- }
- 
- .delete-btn:hover {
-     cursor: pointer;
-     color: #a57e7e;
-     transform: scale(1.5, 1.5);
- }
- 
- .name {
-     top: 0;
-     text-transform: capitalize;
- }
- 
- .logo {
-     border-radius: 50%;
-     position: absolute;
-     top: -0.5em;
-     right: -10px;
-     width: 75px;
-     height: 75px;
- }
- 
- .person-icon {
-     background: grey;
-     border-radius: 50%;
-     width: 1em;
-     margin-right: -10px;
- }
- 
- .status {
-     /* horz. center, rest of properties inherited from .name*/
-     bottom: 0;
-     max-height: 50px;
- }
-  
- .play {
-     position: absolute;
-     width: 320px;
-     height: 180px;
-     background: rgba(0, 0, 0, 0.5);
- }
- 
- .play-btn {
-     position: absolute;
-     width: 320px;
-     height: 90px;
-     bottom: 0;
-     right: 0;
-     left: 0;
-     top: 0;
-     margin: auto;
- }
- /*Fix alignment issues at resolutions below*/
- 
- @media (max-width:340px) {
-     .streamer {
-         padding-left: 0;
-     }
- }
- 
- @media (min-width:992px) and (max-width: 1199px) {
-     .name,
-     .status {
-         margin-left: 15px;
-     }
-     .logo {
-         width: 50px;
-         height: 50px;
-         right: 0;
-     }
-     .person-icon {
-         font-size: 2.5em !important;
-     }
- }
- 
- @media (max-width: 456px) {
-     h1 {
-         font-size: 30pt;
-     }
- }
- 
- @media (min-width:768px) {
-     h1 {
-         font-size: 70pt;
-     }
- }
- 
- @media (min-width:456px) and (max-width:767px) {
-     h1 {
-         font-size: 50pt;
-     }
-     .twitch-banner {
-         height: 25vh;
-     }
- }
+/*prevents horizontal scrolling on mobile*/
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden; }
+
+h1 {
+  font-family: twitch;
+  text-align: center;
+  margin-top: 0;
+  padding-top: 30px; }
+  @media (max-width: 456px) {
+    h1 {
+      font-size: 30pt; } }
+  @media (min-width: 456px) and (max-width: 767px) {
+    h1 {
+      font-size: 50pt; } }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 70pt; } }
+
+.loading {
+  text-align: center;
+  height: 10em;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto; }
+
+.twitch-banner {
+  position: relative;
+  width: 100vw;
+  height: 30vh;
+  background-color: #64439a; }
+  @media (min-width: 456px) and (max-width: 767px) {
+    .twitch-banner {
+      height: 25vh; } }
+  .twitch-banner .search-group {
+    min-width: 50vw;
+    max-width: 30em;
+    margin: 0 auto; }
+  .twitch-banner .alert-msg {
+    text-align: center; }
+  .twitch-banner .alert {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 1.3em; }
+
+.streamer-container .streamer {
+  display: none;
+  position: relative;
+  margin: 2em auto 1em;
+  text-align: center; }
+  @media (max-width: 340px) {
+    .streamer-container .streamer {
+      padding-left: 0; } }
+  .streamer-container .streamer .overlay.play {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 320px;
+    color: white;
+    font-size: 1.2em;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    width: 320px;
+    height: 180px;
+    background: rgba(0, 0, 0, 0.5); }
+  .streamer-container .streamer .overlay .play-btn {
+    position: absolute;
+    width: 320px;
+    height: 90px;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    top: 0;
+    margin: auto; }
+  .streamer-container .streamer .name {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 320px;
+    color: white;
+    font-size: 1.2em;
+    background-color: rgba(0, 0, 0, 0.5);
+    top: 0;
+    text-transform: capitalize; }
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .streamer-container .streamer .name {
+        margin-left: 15px; } }
+    .streamer-container .streamer .name .delete-btn {
+      margin-left: -2px;
+      margin-top: -2px;
+      float: left;
+      color: grey; }
+      .streamer-container .streamer .name .delete-btn:hover {
+        cursor: pointer;
+        color: #a57e7e;
+        transform: scale(1.5, 1.5); }
+    .streamer-container .streamer .name .logo {
+      border-radius: 50%;
+      position: absolute;
+      top: -0.5em;
+      right: -10px;
+      width: 75px;
+      height: 75px; }
+      @media (min-width: 992px) and (max-width: 1199px) {
+        .streamer-container .streamer .name .logo {
+          width: 50px;
+          height: 50px;
+          right: 0; } }
+      .streamer-container .streamer .name .logo .person-icon {
+        background: grey;
+        border-radius: 50%;
+        width: 1em;
+        margin-right: -10px; }
+        @media (min-width: 992px) and (max-width: 1199px) {
+          .streamer-container .streamer .name .logo .person-icon {
+            font-size: 2.5em; } }
+  .streamer-container .streamer .status {
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    width: 320px;
+    color: white;
+    font-size: 1.2em;
+    background-color: rgba(0, 0, 0, 0.5);
+    bottom: 0;
+    max-height: 50px; }
+    @media (min-width: 992px) and (max-width: 1199px) {
+      .streamer-container .streamer .status {
+        margin-left: 15px; } }

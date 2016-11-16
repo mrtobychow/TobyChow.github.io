@@ -1,43 +1,27 @@
-* {
-    box-sizing: border-box;
-}
-
 .background-img {
-    background: center/cover no-repeat;
-}
+  background: center/cover no-repeat; }
 
 .contain {
-    display: flex;
-    flex-flow: column wrap;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-}
-
-.date-display {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; }
+  .contain .date-display {
     text-align: center;
-    font-family: 'Rokkitt', serif;
-}
-
-#date-underline {
+    font-family: 'Rokkitt', serif; }
+  .contain #date-underline {
     display: block;
-    border: 1px solid white;
-}
-
-.location-display,
-.weather-display,
-.time-display {
+    border: 1px solid white; }
+  .contain .location-display,
+  .contain .weather-display,
+  .contain .time-display {
     font: bold;
     width: 100vw;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.display {
-    font-family: 'Passion One', cursive;
-}
-
-#location-text,
-#weather-text {
-    padding-top: 8px;
-}
+    background-color: rgba(0, 0, 0, 0.3); }
+  .contain .display {
+    font-family: 'Passion One', cursive; }
+  .contain #location-text,
+  .contain #weather-text {
+    padding-top: 8px; }
