@@ -24,8 +24,11 @@ h1 {
 .top {
   align-self: flex-end;
   text-align: right;
-  padding-right: 2em;
-  font-size: 2em; }
+  font-size: 2em;
+  padding-right: 1em; }
+  @media (min-width: 900px) {
+    .top {
+      padding-right: 1em; } }
   .top .fa {
     color: black; }
 
@@ -114,7 +117,7 @@ h1 {
             order: 0; } }
 
 .projects {
-  padding: 2em 0; }
+  padding-top: 1em; }
   .projects .carousel-container {
     display: flex;
     flex-flow: column wrap;
@@ -303,8 +306,6 @@ h1 {
       flex-flow: column wrap;
       align-items: center;
       flex: 1 1 100%;
-      margin: 1em 0;
-      padding: 1em;
       text-align: center; }
       @media (min-width: 900px) {
         .about .learning-resource .resource {
@@ -313,6 +314,7 @@ h1 {
         max-width: 25em;
         height: 5em;
         margin: 1em;
+        font-size: 1.2em;
         background: rgba(255, 255, 255, 0.4); }
       .about .learning-resource .resource img {
         max-width: 100%;

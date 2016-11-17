@@ -53,8 +53,11 @@ $tablet:900px;
 .top{
         align-self:flex-end; // for arrow in about section
         text-align:right;// aligns icon to right
-         padding-right:2em;
          font-size:2em;
+         padding-right:1em;
+         @media(min-width: $tablet){
+            padding-right:1em;
+         }
          .fa{
             color:black;
          }
@@ -160,7 +163,7 @@ $tablet:900px;
 
 //----------------------------------------------------Projects
 .projects {
-    padding: 2em 0;
+    padding-top:1em;
     // background:radial-gradient(circle,white 0%, black 100%);
     // background:center/cover no-repeat url("http://www.industryweek.com/site-files/industryweek.com/files/imagecache/large_img/uploads/2014/10/stage.jpg");
     .carousel-container {
@@ -407,8 +410,6 @@ $tablet:900px;
             flex-flow: column wrap;
             align-items: center;
             flex: 1 1 100%;
-            margin: 1em 0;
-            padding: 1em;
             text-align:center;
             @media(min-width: $tablet) {
                 flex: 1 1 50%;
@@ -417,6 +418,7 @@ $tablet:900px;
                 max-width: 25em;
                 height:5em; // aligns images vertically
                 margin:1em;
+                font-size:1.2em;
                 background:rgba(255,255,255,0.4);
             }
             img {
