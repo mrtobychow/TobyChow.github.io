@@ -2,9 +2,13 @@
   background: center/cover no-repeat; }
 
 .contain {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-flow: column wrap;
   flex-flow: column wrap;
+  -ms-flex-pack: center;
   justify-content: center;
+  -ms-flex-align: center;
   align-items: center;
   min-height: 100vh; }
   .contain .date-display {

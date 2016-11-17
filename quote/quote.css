@@ -2,7 +2,9 @@ body {
   background: url("gameofthrones.jpg") center/cover; }
 
 .container {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-flow: column nowrap;
   flex-flow: column nowrap;
   height: 100vh; }
   .container .title-container {
@@ -30,12 +32,18 @@ body {
         font-family: FontAwesome;
         margin-left: 10px; }
       .container .quote-container .quote .cite {
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-flow: row nowrap;
         flex-flow: row nowrap;
+        -ms-flex-pack: end;
         justify-content: flex-end; }
   .container .buttons {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-pack: center;
     justify-content: center;
+    -ms-flex-align: center;
     align-items: center; }
     .container .buttons .quote-btn {
       margin-left: 2em; }
