@@ -97,6 +97,7 @@ $(document).ready(function() {
                         width: destinationWidth,
                         height: destinationHeight
                     }, speed, function cb() {
+                        // Callback to cement new .to-move into DOM
                         $(target).remove().appendTo(destination).css({
                             left: '0', // resets positioning after inserting img into new DOM
                             top: '0',
@@ -205,6 +206,7 @@ $(document).ready(function() {
                         width: destinationWidth,
                         height: destinationHeight
                     }, speed, function cb() {
+                        // Callback to cement new .to-move into DOM
                         $(target).remove().appendTo(destination).css({
                             left: '0', // resets positioning after inserting img into new DOM
                             top: '0',

@@ -34,7 +34,7 @@ h1 {
 
 .intro {
   position: relative;
-  min-height: 75vh;
+  height: 75vh;
   text-align: center; }
   .intro .background-image {
     position: absolute;
