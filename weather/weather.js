@@ -4,9 +4,8 @@ $(document).ready(function() {
     var lon;
     var city;
     var country;
-    // tempType options: metric , imperial
-    var tempType = 'metric';
-    var tempUnit = '&#8451';
+    var tempType = 'metric'; // tempType options: metric , imperial
+    var tempUnit = '&#8451'; // default as celsius
     var temperatureC;
     var temperatureF;
     var weatherDescription;
@@ -32,6 +31,7 @@ $(document).ready(function() {
                 weatherDescription = json.weather[0].description;
                 weatherIcon = json.weather[0].icon;
                 $("#location-text").text(city + ', ' + country);
+                // weather info html
                 $("#weather-text").html('<span id="temp-display">' + temperature + '</span>' + '<span id="tempUnit">' + tempUnit + '</span>' + ' , ' + weatherDescription + "<img src='http://openweathermap.org/img/w/" + weatherIcon + ".png'>");
                 changeBackground();
 
