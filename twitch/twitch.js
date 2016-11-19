@@ -1,21 +1,11 @@
 /*jshint esversion: 6 */
-// Issues: 
-//streamers result not in order of array
-//mouseleave does not register if moving mouse across preview quickly
-// challenges: 
-//waiting for ajax call to complete before working with data, 
-//fixed hover flickering issue
-//tree traversal for different 'this' values
-//hovering on overlapping elements
-//Sorting streamers first by status, then if online, by alphabetical name
-//Ordering columns with bootstrap's push/pull classes
+
 $(document).ready(function() {
 
     // List of streamers to display
     var streamers = ['esl_csgo', 'freecodecamp', 'voyboy', 'reynad27', 'callofduty', 'kolento', 'imaqtpie', 'brunofin', 'comster404', 'nalcs1', 'nalcs2'];
     var copy = streamers.slice(0); // to be used for 'display' function, so 'streamers' can be perserved (.shift() mutates array)
     var numStreamers = streamers.length;
-    // can use result object after resolve to clean up global namespace
     var streamLink;
     var status;
     var channelLogo;
@@ -24,19 +14,21 @@ $(document).ready(function() {
     // track number of streamers that are loaded and ready to be displayed
     var count = 0;
 
-    var clientID = 'oqovo123t1rrdi3m1dyfx4lil5qf3d0';
+    var clientID = 'oqovo123t1rrdi3m1dyfx4lil5qf3d0'; // required for twitch authen
 
     // Get twitch API info and displays information
     function twitchAPI(query) {
         // Create promise container to ensure streamers displayed in the same order as the 'streamers' array
         return new Promise(function(resolve, reject) {
+
             // Creates default image for offline / non-existent accounts
             function createTemplatePic(width, height) {
                 return 'http://static-cdn.jtvnw.net/previews-ttv/live_user_test_channel-' + width + 'x' + height + '.jpg';
             }
+
             //Call twitch API
             $.when(
-                
+                //  Get required data from different twitch api
                 $.ajax({
                     url: `https://api.twitch.tv/kraken/channels/${query}?client_id=${clientID}`,
                     dataType: 'jsonp',
@@ -75,7 +67,7 @@ $(document).ready(function() {
 
 
     function display(streamers) {
-        // Removes first item in 'streamers' and returns value to 'streamer'
+        // Removes first item in 'streamers' and stores value in 'streamer'
         var streamer = streamers.shift();
         // if not end of list
         if (streamer) {
@@ -108,7 +100,7 @@ $(document).ready(function() {
                                 <div class="previewPic">${image}</div>
                                 <div class="status">${status}</div>`);
                     })();
-                    
+
                     //Add status class 
                     if (status === 'Offline') {
                         $('.streamer-container').find(`.${streamer}`).addClass('offline');
@@ -117,17 +109,18 @@ $(document).ready(function() {
                     } else {
                         $('.streamer-container').find(`.${streamer}`).addClass('online');
                     }
+
                     // Shows play button on hover
                     $('.overlay,.preview').hover(function() {
+                            // Only target the elements that belong to the hovered element (Ex: hovering freecodecamp only triggers its child .status, instead of all .status)
                             var overlay = $(this).parent('.previewPic').siblings('.overlay ');
-                            var name = $(this).parent('.previewPic').siblings('.name ');
                             var status = $(this).parent('.previewPic').siblings('.status');
                             var playBtn = $(this).find('.play-btn');
                             overlay.addClass('play');
                             $(playBtn).css('display', 'inline-block');
-                            // $(name).add(status).fadeOut(); //.add to add multiple variable selectors
                             $(status).slideUp();
                         },
+                        // Callback when hover off
                         function() {
                             $(this).removeClass('play'); // context of 'this' is changed??
                             $('.play-btn').hide();
@@ -144,7 +137,7 @@ $(document).ready(function() {
                     // track streamers info that are ready to be displayed
                     count++;
 
-                    //Only create next streamer's display after current streamer is complete to preserve the array's order
+                    //Only create next streamer's display after current streamer is complete to preserve the array's order (I guess it doesn't matter since I'm gonna sort it anyways)
                     display(streamers);
 
                 })
@@ -159,7 +152,7 @@ $(document).ready(function() {
                     }
                     if (count === numStreamers) {
                         var $container = $('.streamer-container');
-                        // Defining differnet queries to pass into sortBy function
+                        // Defining differnet queries to pass into sortBy function (sorting by online > offline > closed right now)
                         var alphabetical = $container.find('.streamer');
                         var statusOnline = $container.find('.online');
                         var statusOffline = $container.find('.offline');
@@ -187,7 +180,7 @@ $(document).ready(function() {
         var newStreamer = streamer[0].toLowerCase();
         var streamerExist = $('.streamer-container').find('*').hasClass(newStreamer);
         if (streamer) {
-            // fix .fadeOut setting display:none (which will prevent additional msgs to show)
+            // fix .fadeOut default setting from display:none (which will prevent additional msgs to show)
             $('.alert-msg').css('display', 'block');
             if (!streamerExist) {
                 count -= 1; // Remove 1 to account for adding a new streamer because count only tracks the original array length from 'streamers'
