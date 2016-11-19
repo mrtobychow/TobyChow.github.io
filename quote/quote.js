@@ -1,4 +1,3 @@
-/* Further Improvements : No repeat quotes, Seperate quotes for each houses, Optimize code
 /* COLLECTION OF QUOTES */
 var quotes = {
     'Let me give you some advice bastard Never forget what you areThe rest of the world will not. Wear it like armor, and it can never be used to hurt you': 'Tyrion Lannister',
@@ -14,39 +13,39 @@ var quotes = {
     "Winter is coming.": "Eddard Stark"
 };
 
-// 'Click for a quote' button
+// quote btn when clicked
 $(".btn").click(function() {
-
-    // Stores all quotes
-    var quoteArr = Object.keys(quotes);
+    var quoteArr = Object.keys(quotes); // Stores all quotes
     var min = 0;
     var max = quoteArr.length;
 
     // Generates a random number from 0 to the number of quotes
-    var ranNum = [Math.floor(Math.random() * (max - min) + min)];
+    var ranNum = [Math.floor(Math.random() * max)];
 
+    // Get quote/author pair from index of the random number
     var chosenQuote = quoteArr[ranNum];
-    var author  = quotes[chosenQuote];
-    var currQuote = $(".quote").text();
+    var author = quotes[chosenQuote];
 
-    // Prevents same quote from repeating
-    if(currQuote === chosenQuote){
-        chosenQuote = quoteArr[Math.floor(Math.random() * (max - min) + min)];
+    // Get new quote/author if currently displayed quote is the same as the new pair
+    var currQuote = $(".quote").text();
+    if (currQuote === chosenQuote) {
+        chosenQuote = quoteArr[Math.floor(Math.random() * max)];
     }
-    var chosenPair = [chosenQuote, author];
-    var citation = '"' + chosenQuote + '"' + " -" + author;
+
+    var chosenPair = [chosenQuote, author]; //  quote/author to be displayed
+    var citation = '"' + chosenQuote + '"' + " -" + author; // used for tweet btn
 
     //Remove previous quote and citations
-    $(".well .quote b").remove(); 
-    $("cite").remove(); 
+    $(".well .quote b").remove();
+    $("cite").remove();
 
-    //Add quote and author to 'well'
+    //Add quote and author to '.well'
     $(".well .quote").append("<b></b>");
     $(".well b").append(chosenQuote);
     $(".well .cite").append("<cite>- </cite>");
     $(".well .cite cite").append(author);
 
-     $('#tweetBtn iframe').remove();
+    $('#tweetBtn iframe').remove();
     // Update twitter button with new quote
     var tweetBtn = $('<a></a>')
         .addClass('twitter-share-button')
@@ -54,7 +53,7 @@ $(".btn").click(function() {
         .attr('data-text', citation);
     $('#tweetBtn').append(tweetBtn);
     twttr.widgets.load();
-    
+
 });
 
 $(document).ready(function() {
