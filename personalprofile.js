@@ -1,22 +1,22 @@
 /* jshint esversion:6 */
 $(document).ready(function() {
 
- // Smooth scroll from https://css-tricks.com/snippets/jquery/smooth-scrolling/ //
- $('a[href*=#]:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') || location.hostname == this.hostname) {
-        var target = $(this.hash);
-         console.log(`target is ${target}, location.pathname is ${location.pathname} location.hostname is ${location.hostname}`);
-         console.log(this.hash);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-           if (target.length) {
-             $('html,body').animate({
-                 scrollTop: target.offset().top
-            }, 1000);
-            return false;
-        }
+    // Smooth scroll from https://css-tricks.com/snippets/jquery/smooth-scrolling/ //
+    $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+            var target = $(this.hash);
+            console.log(`target is ${target}, location.pathname is ${location.pathname} location.hostname is ${location.hostname}`);
+            console.log(this.hash);
+            target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+            if (target.length) {
+                $('html,body').animate({
+                    scrollTop: target.offset().top
+                }, 1000);
+                return false;
+            }
 
-    }
-});
+        }
+    });
 
 
     //// Carousel ////
@@ -27,10 +27,10 @@ $(document).ready(function() {
         $('.slot2 .display-title').text($('.slot2 .main-title').text());
         $('.slot2 .display-caption').text($('.slot2 .caption').text());
         //display github and site link of main display
-            var slot2Github = $('.slot2 .github-link').attr('href');
-            var slot2Site = $('.slot2 .site-link').attr('href');
-            $('.main-content .display-github-link').attr('href', slot2Github);
-            $('.main-content .display-site-link').attr('href', slot2Site);
+        var slot2Github = $('.slot2 .github-link').attr('href');
+        var slot2Site = $('.slot2 .site-link').attr('href');
+        $('.main-content .display-github-link').attr('href', slot2Github);
+        $('.main-content .display-site-link').attr('href', slot2Site);
     })();
 
     // Info display fnc for tablet only

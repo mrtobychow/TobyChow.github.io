@@ -6,7 +6,6 @@
 ////// Variables
 $tablet:900px;
 $desktop: 1000px;
-
 @font-face {
     font-family: bit;
     src: url("./assets/fonts/8bit.TTF")
@@ -40,9 +39,10 @@ html {
 h1 {
     margin: 0;
 }
-h3{
-    @media(max-width:$tablet){
-        margin-bottom:1.1rem;
+
+h3 {
+    @media(max-width: $tablet) {
+        margin-bottom: 1.1rem;
     }
 }
 
@@ -55,9 +55,9 @@ body {
 
 // title font type
 .title {
-    font:{
+    font: {
         family: 'Questrial', sans-serif;
-        size:2em;
+        size: 2em;
     }
     text-align: center;
 }
@@ -150,7 +150,7 @@ body {
         .aim {
             text-align: center;
             font-size: 1.5em;
-            color:#d4963a;
+            color: #d4963a;
         }
         .skill {
             display: flex;
@@ -242,7 +242,7 @@ body {
                         clear: both; // clears caption from floated img
                     }
                     ul {
-                        display:inline-block; // center ul
+                        display: inline-block; // center ul
                         text-align: left;
                     }
                     img {
@@ -341,7 +341,7 @@ body {
                                     visibility: hidden;
                                 }
                                 margin-left: 10px;
-                                color: black; 
+                                color: black;
                                 font-size: 25pt;
                             }
                             .nav-dots {
@@ -393,7 +393,7 @@ body {
     .info-display {
         display: none;
         padding: 1em;
-        background: rgba(128,128,128,0.3); // info-display background color
+        background: rgba(128, 128, 128, 0.3); // info-display background color
         @media(max-width: $tablet) {
             display: none !important; // prevent from showing on mobile
         }
@@ -486,3 +486,4 @@ body {
         }
     }
 }
+
