@@ -284,7 +284,8 @@ body {
                     flex: 1 1 10%;
                     height: 100%;
                     .left-arrow {
-                        @include hoverColor;
+                        // @include hoverColor;
+                        background:black;
                         font-size: 20pt;
                         color: white;
                         &:hover {

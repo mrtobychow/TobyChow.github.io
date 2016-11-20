@@ -211,8 +211,7 @@ body {
         flex: 1 1 10%;
         height: 100%; }
         .projects .carousel-container .main-display .overlay .left-bar .left-arrow, .projects .carousel-container .main-display .overlay .right-bar .left-arrow, .projects .carousel-container .main-display .overlay .right-bar .right-arrow {
-          background: rgba(0, 0, 0, 0.45);
-          color: white;
+          background: black;
           font-size: 20pt;
           color: white; }
           .projects .carousel-container .main-display .overlay .left-bar .left-arrow:hover, .projects .carousel-container .main-display .overlay .right-bar .left-arrow:hover, .projects .carousel-container .main-display .overlay .right-bar .right-arrow:hover {
