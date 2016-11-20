@@ -1,26 +1,24 @@
-.title{
-    font-family:serif;
-    text-align:center;
+.title {
+    font-family: serif;
+    text-align: center;
 }
+
 .top-btn {
     .random-button {
         margin: {
             top: 1em;
             bottom: 1em;
-        };
+        }
+        ;
     }
-
     .mobile {
         margin-top: 1em;
-
         @media (min-width: 992px) {
             display: none;
         }
-
         .dropdown-menus {
             .mobile-result {
                 padding-left: 10px;
-
                 @extend .recent-search-result;
             }
         }
@@ -31,12 +29,10 @@
     .web {
         padding: 0;
         max-width: 11em;
-
         @media (max-width: 991px) {
             display: none;
         }
     }
-
     .recent-search-result {
         white-space: nowrap;
         overflow: hidden;
@@ -54,3 +50,4 @@
         text-overflow: ellipsis;
     }
 }
+
