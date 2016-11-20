@@ -19,9 +19,8 @@ $(document).ready(function() {
 });
 
 
-//// Carousel ////
+    //// Carousel ////
     var speed = 300; // speed of animation
-    var tablet = 768; // tablet px size
 
     // Displays initial title,caption, and links of main display from slot 2
     (function displayMainText() {
@@ -37,7 +36,7 @@ $(document).ready(function() {
     // Info display fnc for tablet only
     $('.info-icon').on('click', function(event) {
         var mainInfo = $('.slot2 .info').html();
-        $('.info-display').html(mainInfo);
+        $('.info-display-text').html(mainInfo);
         $('.info-display').slideToggle();
     });
 
@@ -137,7 +136,7 @@ $(document).ready(function() {
             var newInfo = $('.slot1 .info').html();
 
             // Updates main display info
-            $('.info-display').html(newInfo);
+            $('.info-display-text').html(newInfo);
 
             // Get next slide's new github and site link
             var newGithubLink = $('.slot1 .github-link').attr('href');
@@ -245,7 +244,7 @@ $(document).ready(function() {
             // Get info of next slide going into main display
             var newInfo = $('.slot3 .info').html();
             // Updates main display info
-            $('.info-display').html(newInfo);
+            $('.info-display-text').html(newInfo);
             // Get next slide's new github and site link
             var newGithubLink = $('.slot3 .github-link').attr('href');
             var newSiteLink = $('.slot3 .site-link').attr('href');

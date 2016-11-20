@@ -1,18 +1,23 @@
+//--------------------------------------Globals
 * {
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    overflow-x: hidden;
-}
+////// Variables
+$tablet:900px;
+$desktop: 1000px;
 
 @font-face {
     font-family: bit;
     src: url("./assets/fonts/8bit.TTF")
 }
 
+@mixin hoverColor {
+    background: rgba(0, 0, 0, 0.45);
+    color: white;
+}
+
+// animated lines on hover (ex: in nav-bar)
 @mixin animate-white-line {
     content: "";
     position: absolute;
@@ -26,30 +31,38 @@ body {
     transition: all 0.3s ease-in-out 0s;
 }
 
-$desktop: 1000px;
-.title {
-    font-family: 'Questrial', sans-serif;
-    text-align: center;
-}
-
-// Hide horz scrollbar when panning through slides
-html,
-body {
+// hide horz scrollbar when panning through project slides
+html {
     overflow-x: hidden;
 }
 
-//remove default margin 
+// remove default margin 
 h1 {
     margin: 0;
 }
-
-////// Variables
-$tablet:900px;
-@mixin hoverColor {
-    background: rgba(0, 0, 0, 0.45);
-    color: white;
+h3{
+    @media(max-width:$tablet){
+        margin-bottom:1.1rem;
+    }
 }
 
+// body font type
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+}
+
+// title font type
+.title {
+    font:{
+        family: 'Questrial', sans-serif;
+        size:2em;
+    }
+    text-align: center;
+}
+
+//---------- to top of page button
 .top {
     align-self: flex-end; // for arrow in about section
     text-align: right; // aligns icon to right
@@ -63,12 +76,11 @@ $tablet:900px;
     }
 }
 
-//---------------------------------------------------- Header
+//---------------------------------------------------- intro
 .intro {
     position: relative;
     height: 75vh;
     text-align: center;
-    // background-color: #C74444;
     .background-image {
         position: absolute;
         width: 100%;
@@ -123,19 +135,22 @@ $tablet:900px;
             color: #2ba3e2;
             font: {
                 family: bit;
-                size: 30pt;
+                size: 2rem;
             }
         }
         .name {
             font: {
-                size: 36pt;
+                size: 3em;
                 weight: bold;
             }
             color:#c56f00;
+            padding-bottom:5px;
             border-bottom:2px solid white;
         }
         .aim {
             text-align: center;
+            font-size: 1.5em;
+            color:#d4963a;
         }
         .skill {
             display: flex;
@@ -163,9 +178,7 @@ $tablet:900px;
 
 //----------------------------------------------------Projects
 .projects {
-    padding-top: 1em;
-    // background:radial-gradient(circle,white 0%, black 100%);
-    // background:center/cover no-repeat url("http://www.industryweek.com/site-files/industryweek.com/files/imagecache/large_img/uploads/2014/10/stage.jpg");
+    margin-top: 2em;
     .carousel-container {
         @media(min-width: $tablet) {
             flex-flow: row nowrap;
@@ -219,6 +232,7 @@ $tablet:900px;
                         font-size: 1.2em;
                         text-align: left;
                         a {
+                            text-align: center; // center links
                             color: black; // change default <a> color
                         }
                     }
@@ -228,6 +242,7 @@ $tablet:900px;
                         clear: both; // clears caption from floated img
                     }
                     ul {
+                        display:inline-block; // center ul
                         text-align: left;
                     }
                     img {
@@ -242,24 +257,25 @@ $tablet:900px;
                 }
             }
         }
+        // set size of featured slide
         .main-display {
             @media(min-width: $tablet) {
                 height: 50vh;
                 flex: 1 1 70%;
             }
+            // divided into 3 columns: left, main, right
             .overlay {
-                display: none;
+                display: none; // overlay not shown on mobile
                 @media(min-width: $tablet) {
                     display: flex;
                     flex-flow: row nowrap;
                     justify-content: space-between;
                     align-items: center;
                     position: absolute;
-                    left:0; // required for firefox and ie (fix overlay positioning)
+                    left: 0; // required for firefox and IE interaction with flexbox (fix overlay positioning)
                     width: 100%;
                     height: 100%;
                     text-align: center;
-
                 }
                 .left-bar {
                     display: flex;
@@ -289,6 +305,7 @@ $tablet:900px;
                     .center {
                         display: none;
                         @media(min-width: $tablet) {
+                            // when center of overlays is hovered
                             &:hover {
                                 @include hoverColor;
                                 &>.view {
@@ -304,7 +321,7 @@ $tablet:900px;
                                 font-size: 3rem;
                             }
                             .view {
-                                display: none;
+                                display: none; // hide icons when not hovered
                                 flex-flow: column nowrap;
                                 a {
                                     color: white; // change default anchor color
@@ -324,7 +341,7 @@ $tablet:900px;
                                     visibility: hidden;
                                 }
                                 margin-left: 10px;
-                                color: black;
+                                color: black; 
                                 font-size: 25pt;
                             }
                             .nav-dots {
@@ -334,7 +351,7 @@ $tablet:900px;
                                     height: 12px;
                                     border-radius: 50%;
                                     margin: 0 10px;
-                                    background: black;
+                                    background: grey; // dot colors
                                     &:hover {
                                         cursor: pointer;
                                     }
@@ -373,13 +390,19 @@ $tablet:900px;
             }
         }
     }
-}
-
-.info-display {
-    display: none;
-    padding: 1em;
-    @media(max-width: $tablet) {
-        display: none !important; // hides .info-display even if .info is displayed on >=tablet size
+    .info-display {
+        display: none;
+        padding: 1em;
+        background: rgba(128,128,128,0.3); // info-display background color
+        @media(max-width: $tablet) {
+            display: none !important; // prevent from showing on mobile
+        }
+    }
+    // to-top btn for mobile only, required due to layout
+    .top-btn-mobile {
+        @media(min-width: $tablet) {
+            display: none;
+        }
     }
 }
 
@@ -392,7 +415,7 @@ $tablet:900px;
     background: center/cover no-repeat url("./assets/images/learning-bg.jpg");
     .statement {
         font: {
-            size: 1.5em;
+            size: 1.4em;
         }
         padding:1em;
         background: rgba(255,
@@ -430,7 +453,7 @@ $tablet:900px;
     }
 }
 
-// Contact
+//------------------------------------------------------ Contact
 .contact {
     padding: 2em;
     background: #e5e6e9;
@@ -463,4 +486,3 @@ $tablet:900px;
         }
     }
 }
-
