@@ -26,6 +26,7 @@ body {
   text-align: center; }
 
 .top {
+  -ms-flex-item-align: end;
   align-self: flex-end;
   text-align: right;
   font-size: 2em;
@@ -45,17 +46,21 @@ body {
     width: 100%;
     height: 100%;
     background: center/cover no-repeat url("./assets/images/home-toronto.jpg");
+    -webkit-filter: blur(4px);
     filter: blur(4px); }
   .intro .content {
     position: relative; }
     .intro .content .nav-bar {
+      display: -ms-flexbox;
       display: flex;
+      -ms-flex-pack: center;
       justify-content: center;
       background-color: rgba(255, 255, 255, 0.35);
       margin: 0;
-      padding: 0; }
+      padding: 10px; }
       @media (min-width: 1000px) {
         .intro .content .nav-bar {
+          -ms-flex-pack: end;
           justify-content: flex-end; } }
       .intro .content .nav-bar a {
         text-decoration: none; }
@@ -64,6 +69,7 @@ body {
           position: relative;
           font-family: 'Questrial', sans-serif;
           font-size: 1.3em;
+          font-weight: 500;
           color: black;
           list-style-type: none;
           letter-spacing: 0;
@@ -94,7 +100,6 @@ body {
       font-size: 2rem; }
     .intro .content .name {
       font-size: 3em;
-      font-weight: bold;
       color: #c56f00;
       padding-bottom: 5px;
       border-bottom: 2px solid white; }
@@ -103,8 +108,11 @@ body {
       font-size: 1.5em;
       color: #d4963a; }
     .intro .content .skill {
+      display: -ms-flexbox;
       display: flex;
+      -ms-flex-flow: row wrap;
       flex-flow: row wrap;
+      -ms-flex-pack: distribute;
       justify-content: space-around;
       margin-top: 2em; }
       .intro .content .skill [class*="-icon"] > * {
@@ -114,32 +122,45 @@ body {
       .intro .content .skill .html-icon,
       .intro .content .skill .css-icon,
       .intro .content .skill .js-icon {
+        -ms-flex: 1 1 33%;
         flex: 1 1 33%;
+        -ms-flex-order: -1;
         order: -1; }
         @media (min-width: 1000px) {
           .intro .content .skill .html-icon,
           .intro .content .skill .css-icon,
           .intro .content .skill .js-icon {
+            -ms-flex: unset;
             flex: unset;
+            -ms-flex-order: 0;
             order: 0; } }
 
 .projects {
   margin-top: 2em; }
   .projects .carousel-container {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-flow: column wrap;
     flex-flow: column wrap;
+    -ms-flex-pack: distribute;
     justify-content: space-around; }
     @media (min-width: 900px) {
       .projects .carousel-container {
+        -ms-flex-flow: row nowrap;
         flex-flow: row nowrap;
+        -ms-flex-align: center;
+        -ms-grid-row-align: center;
         align-items: center; } }
     .projects .carousel-container [class^='slot'] {
+      display: -ms-flexbox;
       display: flex;
+      -ms-flex-pack: justify;
       justify-content: space-between;
       position: relative;
       margin: 10px; }
       @media (min-width: 900px) {
         .projects .carousel-container [class^='slot'] {
+          -ms-flex: 1 1 20%;
           flex: 1 1 20%;
           height: 150px; } }
       @media (max-width: 900px) {
@@ -148,24 +169,31 @@ body {
         .projects .carousel-container [class^='slot']:nth-child(even) {
           background: #DCDCDD; } }
       .projects .carousel-container [class^='slot'] .to-move {
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-flow: row wrap;
         flex-flow: row wrap;
+        -ms-flex-pack: justify;
         justify-content: space-between;
         width: 100%; }
         @media (min-width: 900px) {
           .projects .carousel-container [class^='slot'] .to-move {
             display: block; } }
         .projects .carousel-container [class^='slot'] .to-move .content {
+          -ms-flex: 1 1 100%;
           flex: 1 1 100%;
           height: 100%;
           text-align: center; }
           .projects .carousel-container [class^='slot'] .to-move .content :not(img) {
+            -ms-flex: 1 1 100%;
             flex: 1 1 100%; }
             @media (min-width: 900px) {
               .projects .carousel-container [class^='slot'] .to-move .content :not(img) {
                 display: none; } }
           .projects .carousel-container [class^='slot'] .to-move .content .links {
+            display: -ms-flexbox;
             display: flex;
+            -ms-flex-flow: row wrap;
             flex-flow: row wrap;
             font-size: 1.2em;
             text-align: left; }
@@ -190,14 +218,19 @@ body {
     @media (min-width: 900px) {
       .projects .carousel-container .main-display {
         height: 50vh;
+        -ms-flex: 1 1 70%;
         flex: 1 1 70%; } }
     .projects .carousel-container .main-display .overlay {
       display: none; }
       @media (min-width: 900px) {
         .projects .carousel-container .main-display .overlay {
+          display: -ms-flexbox;
           display: flex;
+          -ms-flex-flow: row nowrap;
           flex-flow: row nowrap;
+          -ms-flex-pack: justify;
           justify-content: space-between;
+          -ms-flex-align: center;
           align-items: center;
           position: absolute;
           left: 0;
@@ -205,9 +238,13 @@ body {
           height: 100%;
           text-align: center; } }
       .projects .carousel-container .main-display .overlay .left-bar, .projects .carousel-container .main-display .overlay .right-bar {
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-flow: column nowrap;
         flex-flow: column nowrap;
+        -ms-flex-pack: center;
         justify-content: center;
+        -ms-flex: 1 1 10%;
         flex: 1 1 10%;
         height: 100%; }
         .projects .carousel-container .main-display .overlay .left-bar .left-arrow, .projects .carousel-container .main-display .overlay .right-bar .left-arrow, .projects .carousel-container .main-display .overlay .right-bar .right-arrow {
@@ -217,8 +254,11 @@ body {
           .projects .carousel-container .main-display .overlay .left-bar .left-arrow:hover, .projects .carousel-container .main-display .overlay .right-bar .left-arrow:hover, .projects .carousel-container .main-display .overlay .right-bar .right-arrow:hover {
             cursor: pointer; }
       .projects .carousel-container .main-display .overlay .main-content {
+        display: -ms-flexbox;
         display: flex;
+        -ms-flex-flow: column nowrap;
         flex-flow: column nowrap;
+        -ms-flex-pack: justify;
         justify-content: space-between;
         width: 100%;
         height: 100%;
@@ -230,19 +270,24 @@ body {
           display: none; }
           @media (min-width: 900px) {
             .projects .carousel-container .main-display .overlay .main-content .center {
+              display: -ms-flexbox;
               display: flex;
+              -ms-flex-pack: distribute;
               justify-content: space-around;
+              -ms-flex-align: center;
               align-items: center;
               height: 100%; }
               .projects .carousel-container .main-display .overlay .main-content .center:hover {
                 background: rgba(0, 0, 0, 0.45);
                 color: white; }
                 .projects .carousel-container .main-display .overlay .main-content .center:hover > .view {
+                  display: -ms-flexbox;
                   display: flex; }
               .projects .carousel-container .main-display .overlay .main-content .center .fa {
                 font-size: 3rem; }
               .projects .carousel-container .main-display .overlay .main-content .center .view {
                 display: none;
+                -ms-flex-flow: column nowrap;
                 flex-flow: column nowrap; }
                 .projects .carousel-container .main-display .overlay .main-content .center .view a {
                   color: white; } }
@@ -250,8 +295,11 @@ body {
           background: rgba(0, 0, 0, 0.45);
           color: white; }
           .projects .carousel-container .main-display .overlay .main-content .footer .nav-bar {
+            display: -ms-flexbox;
             display: flex;
+            -ms-flex-pack: justify;
             justify-content: space-between;
+            -ms-flex-align: center;
             align-items: center;
             width: 100%; }
             .projects .carousel-container .main-display .overlay .main-content .footer .nav-bar .left-icons {
@@ -262,6 +310,7 @@ body {
                 .projects .carousel-container .main-display .overlay .main-content .footer .nav-bar .left-icons {
                   visibility: hidden; } }
             .projects .carousel-container .main-display .overlay .main-content .footer .nav-bar .nav-dots {
+              display: -ms-flexbox;
               display: flex; }
               .projects .carousel-container .main-display .overlay .main-content .footer .nav-bar .nav-dots .dot {
                 width: 12px;
@@ -285,6 +334,7 @@ body {
               .projects .carousel-container .main-display .overlay .main-content .footer .nav-bar .right-icons:hover {
                 cursor: pointer; }
         .projects .carousel-container .main-display .overlay .main-content:hover.center {
+          display: -ms-flexbox;
           display: flex; }
   .projects .info-display {
     display: none;
@@ -298,8 +348,11 @@ body {
       display: none; } }
 
 .about {
+  display: -ms-flexbox;
   display: flex;
+  -ms-flex-flow: column;
   flex-flow: column;
+  -ms-flex-align: center;
   align-items: center;
   padding: 2em 0;
   background: center/cover no-repeat url("./assets/images/learning-bg.jpg"); }
@@ -311,16 +364,23 @@ body {
       .about .statement {
         width: 50vw; } }
   .about .learning-resource {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-flow: row wrap;
     flex-flow: row wrap; }
     .about .learning-resource .resource {
+      display: -ms-flexbox;
       display: flex;
+      -ms-flex-flow: column wrap;
       flex-flow: column wrap;
+      -ms-flex-align: center;
       align-items: center;
+      -ms-flex: 1 1 100%;
       flex: 1 1 100%;
       text-align: center; }
       @media (min-width: 900px) {
         .about .learning-resource .resource {
+          -ms-flex: 1 1 50%;
           flex: 1 1 50%; } }
       .about .learning-resource .resource .description {
         max-width: 25em;
@@ -339,12 +399,18 @@ body {
     .contact {
       padding: 2em 0; } }
   .contact .contact-icons {
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-flow: row wrap;
     flex-flow: row wrap; }
     @media (min-width: 900px) {
       .contact .contact-icons {
+        -ms-flex-flow: row nowrap;
         flex-flow: row nowrap;
+        -ms-flex-pack: distribute;
         justify-content: space-around;
+        -ms-flex-align: center;
+        -ms-grid-row-align: center;
         align-items: center;
         padding: 0; } }
     .contact .contact-icons > * {
