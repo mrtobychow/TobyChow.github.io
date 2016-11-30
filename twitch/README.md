@@ -5,3 +5,11 @@
 - Add or remove streamers from your list
 - Existing streamers will be not added
 - Streamers sorted by status and alphabetically
+
+### Built With
+- HTML5
+- CSS3
+- JavaScript
+- Sass
+- Bootstrap
+- jQuery

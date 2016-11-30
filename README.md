@@ -11,4 +11,5 @@
 ### All Projects Tested On:
 - Chrome v54.02840.99
 - Firefox 50.0
-- Safari
+- Safari (iOS 10.1.1 on iPhone 5)
+- Responsiveness using Chrome's Developer Tools

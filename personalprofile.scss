@@ -1,19 +1,15 @@
-//--------------------------------------Globals
 * {
     box-sizing: border-box;
 }
 
-////// Variables
-$tablet:900px;
-$desktop: 1000px;
-@font-face {
-    font-family: bit;
-    src: url("./assets/fonts/8bit.TTF")
-}
-
-@mixin hoverColor {
-    background: rgba(0, 0, 0, 0.45);
-    color: white;
+// variables
+$tablet:768px;
+// require for parallax
+body,
+html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
 }
 
 // animated lines on hover (ex: in nav-bar)
@@ -30,400 +26,358 @@ $desktop: 1000px;
     transition: all 0.3s ease-in-out 0s;
 }
 
-// hide horz scrollbar when panning through project slides
-html {
-    overflow-x: hidden;
-}
-
-// remove default margin 
-h1 {
-    margin: 0;
-}
-
-h3 {
-    @media(max-width: $tablet) {
-        margin-bottom: 1.1rem;
-    }
-}
-
-// body font type
-body {
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    overflow-x: hidden;
-}
-
-// title font type
-.title {
-    font: {
-        family: 'Questrial', sans-serif;
-        size: 2em;
-    }
-    text-align: center;
-}
-
-//---------- to top of page button
-.top {
-    align-self: flex-end; // for arrow in about section
-    text-align: right; // aligns icon to right
-    font-size: 2em;
-    padding-right: 1em;
-    @media(min-width: $tablet) {
-        padding-right: 1em;
-    }
-    .fa {
-        color: black;
-    }
-}
-
-//---------------------------------------------------- intro
-.intro {
+// define parallax function
+@mixin parallaxCSS($img-url) {
     position: relative;
-    height: 75vh;
+    // method to prevent img opacity from affecting child elements
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), $img-url;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+// ios issues with fixed background
+@mixin mobileParallaxCSS($img-url) {
+    position: relative;
+    // method to prevent img opacity from affecting child elements
+    background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), $img-url;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+// horizontally and vertically center element
+@mixin horzAndVertCenter {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// style section titles
+@mixin titleStyle {
+    color: white;
+    background: #282e34;
+    padding: 1rem;
+    margin: 0; // remove default
+    letter-spacing: 0.3rem;
     text-align: center;
-    .background-image {
-        position: absolute;
+}
+
+// style project names
+@mixin nameStyle {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 1rem;
+    font-size: 1.5rem;
+    letter-spacing: 0.3rem;
+    text-align: center;
+}
+
+// // style project descriptions
+// @mixin caption {
+//     // styling
+//     background: rgba(40, 46, 52, 1);
+//     color: white;
+//     font-size: 1rem;
+//     padding: 1rem;
+//     // position caption below project name
+//     position: absolute;
+//     top: 55%;
+//     left: 50%;
+//     transform: translate(-50%, 0);
+// }
+//---------------------------------intro
+.intro {
+    height: 100%;
+    .nav-bar {
+        @include titleStyle;
+        display: flex;
+        justify-content: center;
+        margin: 0; // remove default css styling from ul
+        padding: 10px;
+        // fix nav bar to top
+        position: fixed;
         width: 100%;
-        height: 100%;
-        background: center/cover no-repeat url("./assets/images/home-toronto.jpg");
-        filter: blur(4px);
+        z-index: 10;
+        @media(min-width: $tablet) {
+            justify-content: flex-end;
+        }
+        a {
+            text-decoration: none; //remove default
+            li {
+                right: 0.5rem; // padding for between contact and browser
+                margin: 0 0.5rem; // space between each li item
+                position: relative;
+                color: white;
+                list-style-type: none;
+                letter-spacing: 0; // remove letter spacing for mobile (lack of space for it)
+                border-bottom: 2px solid white;
+                @media(min-width: $tablet) {
+                    letter-spacing: 0.3rem;
+                    border: unset; // remove border set for mobile (using animated white line instead)
+                    // --------------------------- animate white line
+                    &:before {
+                        @include animate-white-line;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        // show animated white lines on hover
+                        &:before {
+                            visibility: visible;
+                            width: 100%;
+                        }
+                    }
+                    //-----------------------------
+                }
+            }
+        }
     }
-    .content {
-        position: relative;
-        .nav-bar {
+    .intro-img {
+        @media(min-width: $tablet) {
+            @include parallaxCSS(url('./assets/images/home-toronto.jpg'));
+        }
+        @media(max-width:$tablet) {
+            @include mobileParallaxCSS(url('./assets/images/home-toronto.jpg'));
+        }
+        height: 100%;
+        .content-container {
+            @include horzAndVertCenter;
+            width: 100%;
+            position: relative;
+            .name-container {
+                display: inline-block; // background only fills up to content
+                // horz center
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                // 
+                @include nameStyle;
+                .name {
+                    text-decoration: underline;
+                }
+                .description {
+                    text-decoration: unset;
+                }
+            }
+            .skill {
+                display: none; //////////////// test@@@@@@@@@@@@
+                // display: flex;
+                flex-flow: row wrap;
+                justify-content: space-around;
+                padding: 0.5rem;
+                background: rgba(0, 0, 0, 0.5); // background color 
+                [class*="-icon"] > * {
+                    width: 3rem;
+                    height: 3rem;
+                    border-radius: 20%;
+                }
+                // maybe remove???????????
+                .html-icon,
+                .css-icon,
+                .js-icon {
+                    flex: 1 1 33.33%;
+                    order: -1;
+                    @media(min-width: $tablet) {
+                        flex: unset;
+                        order: 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//-------------------------------projects
+.projects {
+    min-height: 100%; // allow '.projects' div to expand all the way
+    // styles section titles
+    .title {
+        @include titleStyle;
+        text-align: center
+    }
+    .skills {
+        display: inline-flex;
+        flex-flow: column nowrap;
+        justify-content: center;
+        height: 100vh;
+        & img {
+            position: relative;
+            width: 3rem;
+            height: 3rem;
+            margin: 1rem 0.3rem;
+            // for initial state of animation
+            left: -3rem;
+            opacity: 0;
+            @media(min-width: $tablet) {
+                margin: 1rem 1.5rem;
+            }
+            //---- animations
+            &.animated {
+                transition: all 1s ease;
+            }
+            &.in-view {
+                left: 0;
+                opacity: 1;
+            }
+        }
+    }
+    // contains content in center 
+    .proj-content {
+        @include horzAndVertCenter;
+        display: flex;
+        text-align: center;
+        // display as column layout on mobile
+        @media(max-width: $tablet) {
+            flex-flow: column;
+        }
+        // display as row layout on mobile
+        @media(min-width: $tablet) {
             display: flex;
             justify-content: center;
-            background-color: rgba(255, 255, 255, 0.35);
-            margin: 0; // remove default css styling from ul
-            padding: 10px;
-            @media(min-width: $desktop) {
-                justify-content: flex-end;
+            width: 100%;
+        }
+        // for 'view code' and 'view site' icons
+        [class*='icon-container'] {
+            display: inline-block; // background only extends up to icons
+            position: relative;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 0.5rem;
+            @media(min-width: $tablet) {
+                display: flex;
+                flex-flow: column;
+                text-align: center; // align fa icon
             }
             a {
-                text-decoration: none;
-                li {
-                    margin: 0 10px;
-                    position: relative;
-                    font: {
-                        family: 'Questrial', sans-serif;
-                        size: 1.3em;
-                        weight:500;
-                    }
-                    color:black;
-                    list-style-type: none;
-                    letter-spacing: 0;
-                    border-bottom: 2px solid white;
-                    @media(min-width:$desktop) {
-                        letter-spacing: 0.3em;
-                        border: unset;
-                        &:before {
-                            @include animate-white-line;
-                        }
-                        &:hover {
-                            cursor: pointer;
-                            color: black;
-                            &:before {
-                                visibility: visible;
-                                width: 100%;
-                            }
-                        }
-                    }
+                color: white;
+                .fa {
+                    // width: 2em;
+                    // height: 2em;
+                    font-size: 2em;
+                    text-align: center;
                 }
             }
         }
-        .hello {
-            color: #2ba3e2;
-            font: {
-                family: bit;
-                size: 2rem;
-            }
+        // ---------------------------- animation of 'view-site and view-github'
+        .icon-container-left {
+            left: -50px;
+            opacity: 0;
         }
-        .name {
-            font: {
-                size: 3em;
-            }
-            color:#c56f00;
-            padding-bottom:5px;
-            border-bottom:2px solid white;
+        .icon-container-right {
+            left: 50px;
+            opacity: 0;
         }
-        .aim {
-            text-align: center;
-            font-size: 1.5em;
-            color: #d4963a;
+        .animated {
+            transition: all 1s ease;
         }
-        .skill {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-around;
-            margin-top: 2em;
-            [class*="-icon"] > * {
-                width: 3em;
-                height: 3em;
-                border-radius: 20%;
-            }
-            .html-icon,
-            .css-icon,
-            .js-icon {
-                flex: 1 1 33%;
-                order: -1;
-                @media(min-width: $desktop) {
-                    flex: unset;
-                    order: 0;
-                }
-            }
+        // applied when elements with '.animated' is in viewport
+        .in-view {
+            left: 0px;
+            opacity: 1;
         }
-    }
-}
-
-//----------------------------------------------------Projects
-.projects {
-    margin-top: 2em;
-    .carousel-container {
-        @media(min-width: $tablet) {
-            flex-flow: row nowrap;
-            align-items: center;
-        }
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: space-around;
-        [class^='slot'] {
-            @media(min-width: $tablet) {
-                flex: 1 1 20%;
-                height: 150px;
-            }
-            @media(max-width:$tablet) {
-                &:nth-child(odd) {
-                    background: rgba(217, 217, 224, 0.35);
-                }
-                &:nth-child(even) {
-                    background: #DCDCDD;
-                }
-            }
-            display:flex;
-            justify-content: space-between;
+        // -----------------------------------------------------------
+        // black line to connect project name and 'view-' links
+        .line {
             position: relative;
-            margin: 10px;
-            // Contains contents div with title,caption,etc. and the corresponding img
-            .to-move {
-                @media(min-width: $tablet) {
-                    display: block; // fix content box taking up space
-                }
-                display: flex;
-                flex-flow:row wrap;
-                justify-content: space-between;
-                width:100%;
-                // Targets everything in .content except for img
-                .content {
-                    flex: 1 1 100%;
-                    height: 100%; // fix image pos in tablet
-                    text-align: center;
-                    & :not(img) {
-                        // ** make sure prettify does not remove space between & :not... or img will not be displayed
-                        @media(min-width: $tablet) {
-                            display: none;
-                        }
-                        flex:1 1 100%; // sets allowed space of .content before collapse
-                        // flex:1 1; maybe not be needed, img0 on refresh doesnt not size properly inititally
-                    }
-                    .links {
-                        display: flex;
-                        flex-flow: row wrap;
-                        font-size: 1.2em;
-                        text-align: left;
-                        a {
-                            text-align: center; // center links
-                            color: black; // change default <a> color
-                        }
-                    }
-                    .caption-title {
-                        padding-top: 1em;
-                        margin: 0; // remove default
-                        clear: both; // clears caption from floated img
-                    }
-                    ul {
-                        display: inline-block; // center ul
-                        text-align: left;
-                    }
-                    img {
-                        float: right;
-                        width: 150px;
-                        height: 150px;
-                        @media(min-width: $tablet) {
-                            width: 100%;
-                            height: 100%;
-                        }
-                    }
-                }
-            }
-        }
-        // set size of featured slide
-        .main-display {
+            align-self: center;
+            height: 2rem;
+            width: 5px;
+            background: black;
             @media(min-width: $tablet) {
-                height: 50vh;
-                flex: 1 1 70%;
-            }
-            // divided into 3 columns: left, main, right
-            .overlay {
-                display: none; // overlay not shown on mobile
-                @media(min-width: $tablet) {
-                    display: flex;
-                    flex-flow: row nowrap;
-                    justify-content: space-between;
-                    align-items: center;
-                    position: absolute;
-                    left: 0; // required for firefox and IE interaction with flexbox (fix overlay positioning)
-                    width: 100%;
-                    height: 100%;
-                    text-align: center;
-                }
-                .left-bar {
-                    display: flex;
-                    flex-flow: column nowrap;
-                    justify-content: center;
-                    flex: 1 1 10%;
-                    height: 100%;
-                    .left-arrow {
-                        // @include hoverColor;
-                        background:black;
-                        font-size: 20pt;
-                        color: white;
-                        &:hover {
-                            cursor: pointer;
-                        }
-                    }
-                }
-                .main-content {
-                    display: flex;
-                    flex-flow: column nowrap;
-                    justify-content: space-between;
-                    width: 100%;
-                    height: 100%;
-                    position: relative;
-                    .display-title {
-                        @include hoverColor;
-                    }
-                    .center {
-                        display: none;
-                        @media(min-width: $tablet) {
-                            // when center of overlays is hovered
-                            &:hover {
-                                @include hoverColor;
-                                &>.view {
-                                    display: flex;
-                                }
-                            }
-                            display:flex;
-                            justify-content: space-around;
-                            align-items:center;
-                            height:100%;
-                            // middle icon size
-                            & .fa {
-                                font-size: 3rem;
-                            }
-                            .view {
-                                display: none; // hide icons when not hovered
-                                flex-flow: column nowrap;
-                                a {
-                                    color: white; // change default anchor color
-                                }
-                            }
-                        }
-                    }
-                    .footer {
-                        @include hoverColor;
-                        .nav-bar {
-                            display: flex;
-                            justify-content: space-between;
-                            align-items: center;
-                            width: 100%;
-                            .left-icons {
-                                @media(min-width: $tablet) {
-                                    visibility: hidden;
-                                }
-                                margin-left: 10px;
-                                color: black;
-                                font-size: 25pt;
-                            }
-                            .nav-dots {
-                                display: flex;
-                                .dot {
-                                    width: 12px;
-                                    height: 12px;
-                                    border-radius: 50%;
-                                    margin: 0 10px;
-                                    background: grey; // dot colors
-                                    &:hover {
-                                        cursor: pointer;
-                                    }
-                                }
-                                .active-dot {
-                                    width: 12px;
-                                    height: 12px;
-                                    border-radius: 50%;
-                                    margin: 0 10px;
-                                    background: white;
-                                }
-                            }
-                            .right-icons {
-                                margin-right: 10px;
-                                font-size: 25pt;
-                                &.active {
-                                    color: blue;
-                                }
-                                &:hover {
-                                    cursor: pointer;
-                                }
-                            }
-                        }
-                    }
-                    &:hover.center {
-                        display: flex;
-                    }
-                }
-                // right bar same css as left bar
-                .right-bar {
-                    @extend .left-bar;
-                    .right-arrow {
-                        @extend .left-arrow;
-                    }
-                }
+                align-self: center;
+                width: 2rem;
+                height: 5px;
             }
         }
-    }
-    .info-display {
-        display: none;
-        padding: 1em;
-        background: rgba(128, 128, 128, 0.3); // info-display background color
-        @media(max-width: $tablet) {
-            display: none !important; // prevent from showing on mobile
+        // name of each project
+        .name {
+            @include nameStyle;
         }
     }
-    // to-top btn for mobile only, required due to layout
-    .top-btn-mobile {
+    // project 0
+    .project-0-img {
         @media(min-width: $tablet) {
-            display: none;
+            @include parallaxCSS(url('./assets/images/twitch.PNG'));
         }
+        @media(max-width:$tablet) {
+            @include mobileParallaxCSS(url('./assets/images/twitch.PNG'));
+        }
+        min-height: 100vh;
+        ; // adjust height for different parallax feel
+    }
+    // project 1 
+    .project-1-img {
+        @media(min-width: $tablet) {
+            @include parallaxCSS(url('./assets/images/wiki.PNG'));
+        }
+        @media(max-width:$tablet) {
+            @include mobileParallaxCSS(url('./assets/images/wiki.PNG'));
+        }
+        min-height:100vh;
+    }
+    .project-2-img {
+        @media(min-width: $tablet) {
+            @include parallaxCSS(url('./assets/images/pomo.PNG'));
+        }
+        @media(max-width:$tablet) {
+            @include mobileParallaxCSS(url('./assets/images/pomo.PNG'));
+        }
+        min-height:100vh;
+    }
+    .project-3-img {
+        @media(min-width: $tablet) {
+            @include parallaxCSS(url('./assets/images/weather.PNG'));
+        }
+        @media(max-width:$tablet) {
+            @include mobileParallaxCSS(url('./assets/images/weather.PNG'));
+        }
+        min-height:100vh;
+    }
+    .project-4-img {
+        @media(min-width: $tablet) {
+            @include parallaxCSS(url('./assets/images/quote.PNG'));
+        }
+        @media(max-width:$tablet) {
+            @include mobileParallaxCSS(url('./assets/images/quote.PNG'));
+        }
+        min-height:100vh;
     }
 }
 
 //-------------------------------------------------------About
+.title {
+    @include titleStyle;
+}
+
 .about {
+    overflow-x: hidden; // hides horz scrollbar due to initial pos of animated elements
+    @media(min-width: $tablet) {
+        @include parallaxCSS( url("./assets/images/learning-bg.jpg"));
+        background-size: cover;
+    }
+    @media(max-width:$tablet) {
+        @include mobileParallaxCSS( url("./assets/images/learning-bg.jpg"));
+    }
     display: flex;
     flex-flow: column;
     align-items: center;
     padding: 2em 0;
-    background: center/cover no-repeat url("./assets/images/learning-bg.jpg");
+    // background: center/cover no-repeat url("./assets/images/learning-bg.jpg");
     .statement {
-        font: {
-            size: 1.4em;
-        }
-        padding:1em;
-        background: rgba(255,
-        255,
-        255,
-        0.8);
-        @media(min-width:$tablet) {
+        font-size: 1.4rem;
+        padding: 1rem;
+        background: rgba(194, 204, 199, 0.7);
+        border-radius: 5px;
+        opacity: 0; // to be animated back to 1
+        @media(min-width: $tablet) {
             width: 50vw;
+        }
+        &.animated {
+            transition: all 2s ease;
+        }
+        &.in-view {
+            opacity: 1;
         }
     }
     .learning-resource {
@@ -440,25 +394,45 @@ body {
             }
             .description {
                 max-width: 25em;
-                height: 5em; // aligns images vertically
+                min-height: 5em; // aligns images vertically
                 margin: 1em;
                 font-size: 1.2em;
-                background: rgba(255, 255, 255, 0.4);
+                background: rgba(255, 255, 255, 0.6);
             }
             img {
                 max-width: 100%;
                 max-height: 10em;
             }
         }
+        //----------------animation
+        .ydkjs,
+        .htmlandcss {
+            position: relative;
+            left: -10%;
+            opacity: 0;
+        }
+        .eloquentjs,
+        .fcc {
+            position: relative;
+            left: 10%;
+            opacity: 0;
+        }
+        .animated {
+            transition: all 1s ease;
+        }
+        .in-view {
+            left: 0;
+            opacity: 1;
+        }
     }
 }
 
 //------------------------------------------------------ Contact
 .contact {
-    padding: 2em;
     background: #e5e6e9;
-    @media(min-width: $tablet) {
-        padding: 2em 0;
+    padding-bottom: 2em;
+    .title {
+        @include titleStyle;
     }
     .contact-icons {
         display: flex;
@@ -469,8 +443,13 @@ body {
             align-items: center;
             padding: 0; // remove default
         }
+        // target each individual icon div
         &>* {
+            flex: 1 1 100%; // each contact in columns on mobile
             padding-top: 1em;
+            @media(min-width: $tablet) {
+                flex: none; // remove flex for non-mobile
+            }
         }
         // align icons to middle of text
         .fa {
@@ -482,6 +461,7 @@ body {
         }
         // change default <a> color
         a {
+            text-decoration: none;
             color: black;
         }
     }
