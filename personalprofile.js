@@ -41,8 +41,8 @@ $(document).ready(function() {
             var elTopPos = $el.offset().top;
             var elBotPos = (elTopPos + elHeight); // tracking bottom of el, ie: when el is fully in viewport
 
-            // check if el is fully in viewport (*maybe try removing eltoppos<=windowbotpos)
-            if ((elBotPos >windowTopPos) && (elTopPos < windowBotPos)){
+            // check if el is fully in viewport 
+            if ((elBotPos >= windowTopPos) && (elTopPos <= windowBotPos)){
                 $el.addClass('in-view');
             }
             else{

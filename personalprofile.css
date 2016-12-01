@@ -16,8 +16,12 @@ html {
     margin: 0;
     letter-spacing: 0.3rem;
     text-align: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin: 0;
     padding: 10px;
     position: fixed;
@@ -25,7 +29,9 @@ html {
     z-index: 10; }
     @media (min-width: 768px) {
       .intro .nav-bar {
-        justify-content: flex-end; } }
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end; } }
     .intro .nav-bar a {
       text-decoration: none; }
       .intro .nav-bar a li {
@@ -49,6 +55,7 @@ html {
               left: 0;
               background-color: white;
               visibility: hidden;
+              -webkit-transition: all 0.3s ease-in-out 0s;
               transition: all 0.3s ease-in-out 0s; }
             .intro .nav-bar a li:hover {
               cursor: pointer; }
@@ -60,6 +67,7 @@ html {
     @media (min-width: 768px) {
       .intro .intro-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-size: contain;
         background-position: center;
@@ -68,6 +76,7 @@ html {
     @media (max-width: 768px) {
       .intro .intro-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-size: cover;
         background-position: center;
@@ -76,14 +85,16 @@ html {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
       width: 100%;
       position: relative; }
       .intro .intro-img .content-container .name-container {
         display: inline-block;
         position: relative;
         left: 50%;
-        transform: translateX(-50%);
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%);
         background: rgba(0, 0, 0, 0.8);
         color: white;
         padding: 1rem;
@@ -96,8 +107,10 @@ html {
           text-decoration: unset; }
       .intro .intro-img .content-container .skill {
         display: none;
-        flex-flow: row wrap;
-        justify-content: space-around;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
         padding: 0.5rem;
         background: rgba(0, 0, 0, 0.5); }
         .intro .intro-img .content-container .skill [class*="-icon"] > * {
@@ -107,14 +120,22 @@ html {
         .intro .intro-img .content-container .skill .html-icon,
         .intro .intro-img .content-container .skill .css-icon,
         .intro .intro-img .content-container .skill .js-icon {
-          flex: 1 1 33.33%;
-          order: -1; }
+          -webkit-box-flex: 1;
+              -ms-flex: 1 1 33.33%;
+                  flex: 1 1 33.33%;
+          -webkit-box-ordinal-group: 0;
+              -ms-flex-order: -1;
+                  order: -1; }
           @media (min-width: 768px) {
             .intro .intro-img .content-container .skill .html-icon,
             .intro .intro-img .content-container .skill .css-icon,
             .intro .intro-img .content-container .skill .js-icon {
-              flex: unset;
-              order: 0; } }
+              -webkit-box-flex: unset;
+                  -ms-flex: unset;
+                      flex: unset;
+              -webkit-box-ordinal-group: 1;
+                  -ms-flex-order: 0;
+                      order: 0; } }
 
 .projects {
   min-height: 100%; }
@@ -127,10 +148,15 @@ html {
     text-align: center;
     text-align: center; }
   .projects .skills {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
     display: inline-flex;
-    flex-flow: column nowrap;
-    justify-content: center;
-    height: 100vh; }
+    -ms-flex-flow: column nowrap;
+        flex-flow: column nowrap;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    min-height: 100vh; }
     .projects .skills img {
       position: relative;
       width: 3rem;
@@ -142,7 +168,8 @@ html {
         .projects .skills img {
           margin: 1rem 1.5rem; } }
       .projects .skills img.animated {
-        transition: all 1s ease; }
+        -webkit-transition: all 1s linear;
+        transition: all 1s linear; }
       .projects .skills img.in-view {
         left: 0;
         opacity: 1; }
@@ -150,16 +177,24 @@ html {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     text-align: center; }
     @media (max-width: 768px) {
       .projects .proj-content {
-        flex-flow: column; } }
+        -ms-flex-flow: column;
+            flex-flow: column; } }
     @media (min-width: 768px) {
       .projects .proj-content {
+        display: -webkit-box;
+        display: -ms-flexbox;
         display: flex;
-        justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         width: 100%; } }
     .projects .proj-content [class*='icon-container'] {
       display: inline-block;
@@ -168,8 +203,11 @@ html {
       padding: 0.5rem; }
       @media (min-width: 768px) {
         .projects .proj-content [class*='icon-container'] {
+          display: -webkit-box;
+          display: -ms-flexbox;
           display: flex;
-          flex-flow: column;
+          -ms-flex-flow: column;
+              flex-flow: column;
           text-align: center; } }
       .projects .proj-content [class*='icon-container'] a {
         color: white; }
@@ -183,19 +221,24 @@ html {
       left: 50px;
       opacity: 0; }
     .projects .proj-content .animated {
-      transition: all 1s ease; }
+      -webkit-transition: all 1s linear;
+      transition: all 1s linear; }
     .projects .proj-content .in-view {
       left: 0px;
       opacity: 1; }
     .projects .proj-content .line {
       position: relative;
-      align-self: center;
+      -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center;
       height: 2rem;
       width: 5px;
       background: black; }
       @media (min-width: 768px) {
         .projects .proj-content .line {
-          align-self: center;
+          -ms-flex-item-align: center;
+              -ms-grid-row-align: center;
+              align-self: center;
           width: 2rem;
           height: 5px; } }
     .projects .proj-content .name {
@@ -210,6 +253,7 @@ html {
     @media (min-width: 768px) {
       .projects .project-0-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-size: contain;
         background-position: center;
@@ -218,6 +262,7 @@ html {
     @media (max-width: 768px) {
       .projects .project-0-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-size: cover;
         background-position: center;
@@ -227,6 +272,7 @@ html {
     @media (min-width: 768px) {
       .projects .project-1-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-size: contain;
         background-position: center;
@@ -235,6 +281,7 @@ html {
     @media (max-width: 768px) {
       .projects .project-1-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-size: cover;
         background-position: center;
@@ -244,6 +291,7 @@ html {
     @media (min-width: 768px) {
       .projects .project-2-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-size: contain;
         background-position: center;
@@ -252,6 +300,7 @@ html {
     @media (max-width: 768px) {
       .projects .project-2-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-size: cover;
         background-position: center;
@@ -261,6 +310,7 @@ html {
     @media (min-width: 768px) {
       .projects .project-3-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-size: contain;
         background-position: center;
@@ -269,6 +319,7 @@ html {
     @media (max-width: 768px) {
       .projects .project-3-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-size: cover;
         background-position: center;
@@ -278,6 +329,7 @@ html {
     @media (min-width: 768px) {
       .projects .project-4-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-size: contain;
         background-position: center;
@@ -286,6 +338,7 @@ html {
     @media (max-width: 768px) {
       .projects .project-4-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-size: cover;
         background-position: center;
@@ -301,13 +354,19 @@ html {
 
 .about {
   overflow-x: hidden;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-flow: column;
-  align-items: center;
+  -ms-flex-flow: column;
+      flex-flow: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 2em 0; }
   @media (min-width: 768px) {
     .about {
       position: relative;
+      background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-size: contain;
       background-position: center;
@@ -317,6 +376,7 @@ html {
   @media (max-width: 768px) {
     .about {
       position: relative;
+      background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-size: cover;
       background-position: center;
@@ -331,21 +391,34 @@ html {
       .about .statement {
         width: 50vw; } }
     .about .statement.animated {
-      transition: all 2s ease; }
+      -webkit-transition: all 2s linear;
+      transition: all 2s linear; }
     .about .statement.in-view {
       opacity: 1; }
   .about .learning-resource {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap; }
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap; }
     .about .learning-resource .resource {
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-flow: column wrap;
-      align-items: center;
-      flex: 1 1 100%;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 100%;
+              flex: 1 1 100%;
       text-align: center; }
       @media (min-width: 768px) {
         .about .learning-resource .resource {
-          flex: 1 1 50%; } }
+          -webkit-box-flex: 1;
+              -ms-flex: 1 1 50%;
+                  flex: 1 1 50%; } }
       .about .learning-resource .resource .description {
         max-width: 25em;
         min-height: 5em;
@@ -366,7 +439,8 @@ html {
       left: 10%;
       opacity: 0; }
     .about .learning-resource .animated {
-      transition: all 1s ease; }
+      -webkit-transition: all 1s linear;
+      transition: all 1s linear; }
     .about .learning-resource .in-view {
       left: 0;
       opacity: 1; }
@@ -382,20 +456,31 @@ html {
     letter-spacing: 0.3rem;
     text-align: center; }
   .contact .contact-icons {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-flow: row wrap; }
+    -ms-flex-flow: row wrap;
+        flex-flow: row wrap; }
     @media (min-width: 768px) {
       .contact .contact-icons {
-        flex-flow: row nowrap;
-        justify-content: space-around;
-        align-items: center;
+        -ms-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+        -ms-flex-pack: distribute;
+            justify-content: space-around;
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center;
         padding: 0; } }
     .contact .contact-icons > * {
-      flex: 1 1 100%;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 100%;
+              flex: 1 1 100%;
       padding-top: 1em; }
       @media (min-width: 768px) {
         .contact .contact-icons > * {
-          flex: none; } }
+          -webkit-box-flex: 0;
+              -ms-flex: none;
+                  flex: none; } }
     .contact .contact-icons .fa {
       vertical-align: middle;
       font-size: 1.5em; }

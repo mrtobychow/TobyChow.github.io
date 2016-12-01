@@ -4,6 +4,7 @@
 
 // variables
 $tablet:768px;
+$animation: all 1s linear;
 // require for parallax
 body,
 html {
@@ -201,7 +202,7 @@ html {
         display: inline-flex;
         flex-flow: column nowrap;
         justify-content: center;
-        height: 100vh;
+        min-height: 100vh;
         & img {
             position: relative;
             width: 3rem;
@@ -215,7 +216,7 @@ html {
             }
             //---- animations
             &.animated {
-                transition: all 1s ease;
+                transition: $animation;
             }
             &.in-view {
                 left: 0;
@@ -269,7 +270,7 @@ html {
             opacity: 0;
         }
         .animated {
-            transition: all 1s ease;
+            transition: $animation;
         }
         // applied when elements with '.animated' is in viewport
         .in-view {
@@ -374,7 +375,7 @@ html {
             width: 50vw;
         }
         &.animated {
-            transition: all 2s ease;
+            transition: all 2s linear;
         }
         &.in-view {
             opacity: 1;
@@ -418,7 +419,7 @@ html {
             opacity: 0;
         }
         .animated {
-            transition: all 1s ease;
+            transition: $animation;
         }
         .in-view {
             left: 0;
