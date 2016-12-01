@@ -24,6 +24,7 @@ gulp.task('sass', function () {
   // ignore node_modules folder
   return gulp.src([path+'*.scss','!node_modules/**'],{base: "."})
     .pipe(sass().on('error', sass.logError))
+    .pipe(autoprefixer())
     .pipe(gulp.dest('.'))
     .pipe(browserSync.reload({
       stream:true
