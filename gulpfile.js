@@ -10,7 +10,7 @@ const autoprefixer = require('gulp-autoprefixer');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync').create();
 
-var Promise = require('es6-promise').Promise; // require for autoprefixer
+var Promise = require('es6-promise').Promise.polyfill(); // require for autoprefixer
 
 
 
