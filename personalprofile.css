@@ -32,6 +32,13 @@ html {
         -webkit-box-pack: end;
             -ms-flex-pack: end;
                 justify-content: flex-end; } }
+    .intro .nav-bar .github-link {
+      margin-right: auto; }
+      .intro .nav-bar .github-link img {
+        width: 2rem;
+        height: 2rem;
+        background: white;
+        border-radius: 25%; }
     .intro .nav-bar a {
       text-decoration: none; }
       .intro .nav-bar a li {
@@ -72,7 +79,8 @@ html {
         background-size: contain;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed; } }
+        background-attachment: fixed;
+        background-size: cover; } }
     @media (max-width: 768px) {
       .intro .intro-img {
         position: relative;
@@ -90,52 +98,21 @@ html {
       width: 100%;
       position: relative; }
       .intro .intro-img .content-container .name-container {
-        display: inline-block;
-        position: relative;
-        left: 50%;
-        -webkit-transform: translateX(-50%);
-                transform: translateX(-50%);
         background: rgba(0, 0, 0, 0.8);
         color: white;
         padding: 1rem;
         font-size: 1.5rem;
         letter-spacing: 0.3rem;
-        text-align: center; }
+        text-align: center;
+        display: inline-block;
+        position: relative;
+        left: 50%;
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%); }
         .intro .intro-img .content-container .name-container .name {
           text-decoration: underline; }
         .intro .intro-img .content-container .name-container .description {
           text-decoration: unset; }
-      .intro .intro-img .content-container .skill {
-        display: none;
-        -ms-flex-flow: row wrap;
-            flex-flow: row wrap;
-        -ms-flex-pack: distribute;
-            justify-content: space-around;
-        padding: 0.5rem;
-        background: rgba(0, 0, 0, 0.5); }
-        .intro .intro-img .content-container .skill [class*="-icon"] > * {
-          width: 3rem;
-          height: 3rem;
-          border-radius: 20%; }
-        .intro .intro-img .content-container .skill .html-icon,
-        .intro .intro-img .content-container .skill .css-icon,
-        .intro .intro-img .content-container .skill .js-icon {
-          -webkit-box-flex: 1;
-              -ms-flex: 1 1 33.33%;
-                  flex: 1 1 33.33%;
-          -webkit-box-ordinal-group: 0;
-              -ms-flex-order: -1;
-                  order: -1; }
-          @media (min-width: 768px) {
-            .intro .intro-img .content-container .skill .html-icon,
-            .intro .intro-img .content-container .skill .css-icon,
-            .intro .intro-img .content-container .skill .js-icon {
-              -webkit-box-flex: unset;
-                  -ms-flex: unset;
-                      flex: unset;
-              -webkit-box-ordinal-group: 1;
-                  -ms-flex-order: 0;
-                      order: 0; } }
 
 .projects {
   min-height: 100%; }

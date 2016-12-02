@@ -76,19 +76,6 @@ html {
     text-align: center;
 }
 
-// // style project descriptions
-// @mixin caption {
-//     // styling
-//     background: rgba(40, 46, 52, 1);
-//     color: white;
-//     font-size: 1rem;
-//     padding: 1rem;
-//     // position caption below project name
-//     position: absolute;
-//     top: 55%;
-//     left: 50%;
-//     transform: translate(-50%, 0);
-// }
 //---------------------------------intro
 .intro {
     height: 100%;
@@ -104,6 +91,15 @@ html {
         z-index: 10;
         @media(min-width: $tablet) {
             justify-content: flex-end;
+        }
+        .github-link {
+            margin-right: auto;
+            img {
+                width: 2rem;
+                height: 2rem;
+                background: white;
+                border-radius: 25%;
+            }
         }
         a {
             text-decoration: none; //remove default
@@ -138,6 +134,7 @@ html {
     .intro-img {
         @media(min-width: $tablet) {
             @include parallaxCSS(url('./assets/images/home-toronto.jpg'));
+            background-size: cover;
         }
         @media(max-width:$tablet) {
             @include mobileParallaxCSS(url('./assets/images/home-toronto.jpg'));
@@ -148,13 +145,13 @@ html {
             width: 100%;
             position: relative;
             .name-container {
+                @include nameStyle;
                 display: inline-block; // background only fills up to content
                 // horz center
                 position: relative;
                 left: 50%;
                 transform: translateX(-50%);
                 // 
-                @include nameStyle;
                 .name {
                     text-decoration: underline;
                 }
@@ -162,31 +159,19 @@ html {
                     text-decoration: unset;
                 }
             }
-            .skill {
-                display: none; //////////////// test@@@@@@@@@@@@
-                // display: flex;
-                flex-flow: row wrap;
-                justify-content: space-around;
-                padding: 0.5rem;
-                background: rgba(0, 0, 0, 0.5); // background color 
-                [class*="-icon"] > * {
-                    width: 3rem;
-                    height: 3rem;
-                    border-radius: 20%;
-                }
-                // maybe remove???????????
-                .html-icon,
-                .css-icon,
-                .js-icon {
-                    flex: 1 1 33.33%;
-                    order: -1;
-                    @media(min-width: $tablet) {
-                        flex: unset;
-                        order: 0;
-                    }
-                }
-            }
         }
+        // .social-links {
+        //     display: flex;
+        //     justify-content: center;
+        //     img {
+        //         width: 3rem;
+        //         height: 3rem;
+        //         margin: 1rem;
+        //         &:hover {
+        //             transform: scale(1.5);
+        //         }
+        //     }
+        // }
     }
 }
 
