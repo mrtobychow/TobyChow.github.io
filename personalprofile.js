@@ -37,7 +37,7 @@ $(document).ready(function() {
         $.each($animated,function(){
             var $el = $(this);
             // Get dimensions and position of each element
-            var elHeight = $el.outerHeight();
+            var elHeight = $el.height();
             var elTopPos = $el.offset().top;
             var elBotPos = (elTopPos + elHeight); // tracking bottom of el, ie: when el is fully in viewport
 

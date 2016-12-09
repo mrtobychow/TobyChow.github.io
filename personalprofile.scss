@@ -3,8 +3,8 @@
 }
 
 // variables
-$tablet:768px;
-$animation: all 1s linear;
+$tablet:769px;
+$animation: all 0.8s linear;
 // require for parallax
 body,
 html {
@@ -32,7 +32,7 @@ html {
     position: relative;
     // method to prevent img opacity from affecting child elements
     background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), $img-url;
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -98,7 +98,7 @@ html {
                 width: 2rem;
                 height: 2rem;
                 background: white;
-                border-radius: 25%;
+                border-radius: 50%;
             }
         }
         a {
@@ -183,6 +183,7 @@ html {
         @include titleStyle;
         text-align: center
     }
+    // list of tools used for each proj
     .skills {
         display: inline-flex;
         flex-flow: column nowrap;
@@ -422,12 +423,13 @@ html {
     }
     .contact-icons {
         display: flex;
-        flex-flow: row wrap;
+        flex-flow: column wrap;
+        align-items:center;
+        padding: 0; // remove default ul styling
         @media(min-width: $tablet) {
             flex-flow: row nowrap;
             justify-content: space-around;
             align-items: center;
-            padding: 0; // remove default
         }
         // target each individual icon div
         &>* {
