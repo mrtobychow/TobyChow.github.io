@@ -1,11 +1,11 @@
 /* COLLECTION OF QUOTES */
 var quotes = {
-    'Let me give you some advice bastard Never forget what you areThe rest of the world will not. Wear it like armor, and it can never be used to hurt you': 'Tyrion Lannister',
+    'Let me give you some advice bastard Never forget what you areThe rest of the world will not. Wear it like armor, and it can never be used to hurt you.': 'Tyrion Lannister',
     'When you play the game of thrones, you win or you die. There is no middle ground.': 'Cersi Lannister',
     "Power resides where men believe it resides. It's a trick, a shadow on the wall. And a very small man can cast a very large shadow.": 'Varys',
     "Ooo, I'm a monster. Perhaps you should speak to me more softly then. Monsters are dangerous and just now kings are dying like flies.": 'Tyrion Lannister',
     "I will not give my life for Joffrey's murder. And I know I'll get no justice here. So I will let the gods decide my fate. I demand trial by combat.": "Tyrion Lannister",
-    "Dracarys": "Daenerys Stormborn",
+    "Dracarys.": "Daenerys Stormborn",
     "If you think this has a happy ending, you haven't been paying attention": "Ramsay Bolton",
     "Rhaegar fought valiantly, Rhaegar fought nobly, Rhaegar fought honorably. And Rhaegar died.": "Jorah Mormont",
     "What is dead may never die, but rises again, harder and stronger.": "Aeron Damphair",
