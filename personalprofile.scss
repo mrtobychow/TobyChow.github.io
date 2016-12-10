@@ -5,6 +5,7 @@
 // variables
 $tablet:769px;
 $animation: all 0.8s linear;
+$section-color:#282e34;
 // require for parallax
 body,
 html {
@@ -83,6 +84,7 @@ html {
         @include titleStyle;
         display: flex;
         justify-content: center;
+        align-items: center;
         margin: 0; // remove default css styling from ul
         padding: 10px;
         // fix nav bar to top
@@ -160,18 +162,6 @@ html {
                 }
             }
         }
-        // .social-links {
-        //     display: flex;
-        //     justify-content: center;
-        //     img {
-        //         width: 3rem;
-        //         height: 3rem;
-        //         margin: 1rem;
-        //         &:hover {
-        //             transform: scale(1.5);
-        //         }
-        //     }
-        // }
     }
 }
 
@@ -183,8 +173,15 @@ html {
         @include titleStyle;
         text-align: center
     }
+    .projDivider {
+        width: 100vw;
+        height: 5px;
+        background: $section-color;
+    }
     // list of tools used for each proj
     .skills {
+        display:none;
+        @media(min-width:$tablet){
         display: inline-flex;
         flex-flow: column nowrap;
         justify-content: center;
@@ -209,6 +206,7 @@ html {
                 opacity: 1;
             }
         }
+              }
     }
     // contains content in center 
     .proj-content {
@@ -424,7 +422,7 @@ html {
     .contact-icons {
         display: flex;
         flex-flow: column wrap;
-        align-items:center;
+        align-items: center;
         padding: 0; // remove default ul styling
         @media(min-width: $tablet) {
             flex-flow: row nowrap;
