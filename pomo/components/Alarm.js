@@ -8,7 +8,7 @@ export default class Alarm extends Component {
 	render() {
 		return (
 			<div style={container}>
-				<audio id="alarm" src="../alarm.mp3" volume="0.0" loop="true" controls></audio>
+				<audio id="alarm" src="./alarm.mp3" volume="0.0" loop="true" controls></audio>
 			</div>
 		);
 	}
