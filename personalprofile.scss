@@ -180,33 +180,33 @@ html {
     }
     // list of tools used for each proj
     .skills {
-        display:none;
-        @media(min-width:$tablet){
-        display: inline-flex;
-        flex-flow: column nowrap;
-        justify-content: center;
-        min-height: 100vh;
-        & img {
-            position: relative;
-            width: 3rem;
-            height: 3rem;
-            margin: 1rem 0.3rem;
-            // for initial state of animation
-            left: -3rem;
-            opacity: 0;
-            @media(min-width: $tablet) {
-                margin: 1rem 1.5rem;
-            }
-            //---- animations
-            &.animated {
-                transition: $animation;
-            }
-            &.in-view {
-                left: 0;
-                opacity: 1;
+        display: none;
+        @media(min-width: $tablet) {
+            display: inline-flex;
+            flex-flow: column nowrap;
+            justify-content: center;
+            min-height: 100vh;
+            & img {
+                position: relative;
+                width: 3rem;
+                height: 3rem;
+                margin: 1rem 0.3rem;
+                // for initial state of animation
+                left: -3rem;
+                opacity: 0;
+                @media(min-width: $tablet) {
+                    margin: 1rem 1.5rem;
+                }
+                //---- animations
+                &.animated {
+                    transition: $animation;
+                }
+                &.in-view {
+                    left: 0;
+                    opacity: 1;
+                }
             }
         }
-              }
     }
     // contains content in center 
     .proj-content {

@@ -1,27 +1,28 @@
 {
-  "name": "tobychow",
-  "version": "1.0.0",
-  "description": "- [Pomodoro Timer](http://tobychow.github.io/pomo)\r - [Quote Generator](http://tobychow.github.io/quote)\r - [Twitch Viewer](http://tobychow.github.io/twitch)\r - [Local Weather](http://tobychow.github.io/weather)\r - [Wikipedia Viewer](http://tobychow.github.io/wiki)",
-  "main": "PersonalProfile.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/TobyChow/TobyChow.github.io.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/TobyChow/TobyChow.github.io/issues"
-  },
-  "homepage": "https://github.com/TobyChow/TobyChow.github.io#readme",
-  "devDependencies": {
-    "browser-sync": "^2.16.0",
-    "del": "^2.2.2",
-    "gulp": "^3.9.1",
-    "gulp-autoprefixer": "^3.1.1",
-    "gulp-sass": "^2.3.2",
-    "run-sequence": "^1.2.2"
-,  "es6-promise":"^4.0.5" }
+    "name": "tobychow",
+    "version": "1.0.0",
+    "description": "- [Pomodoro Timer](http://tobychow.github.io/pomo)\r - [Quote Generator](http://tobychow.github.io/quote)\r - [Twitch Viewer](http://tobychow.github.io/twitch)\r - [Local Weather](http://tobychow.github.io/weather)\r - [Wikipedia Viewer](http://tobychow.github.io/wiki)",
+    "main": "PersonalProfile.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/TobyChow/TobyChow.github.io.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/TobyChow/TobyChow.github.io/issues"
+    },
+    "homepage": "https://github.com/TobyChow/TobyChow.github.io#readme",
+    "devDependencies": {
+        "browser-sync": "^2.16.0",
+        "del": "^2.2.2",
+        "gulp": "^3.9.1",
+        "gulp-autoprefixer": "^3.1.1",
+        "gulp-sass": "^2.3.2",
+        "run-sequence": "^1.2.2",
+        "es6-promise": "^4.0.5"
+    }
 }
