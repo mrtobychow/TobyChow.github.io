@@ -132,12 +132,22 @@ html {
     height: 5px;
     background: #282e34; }
   .projects .skills {
-    display: none; }
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
+    .projects .skills img {
+      position: relative;
+      width: 3rem;
+      height: 3rem;
+      margin: 1rem 0.3rem; }
     @media (min-width: 769px) {
       .projects .skills {
-        display: -webkit-inline-box;
-        display: -ms-inline-flexbox;
-        display: inline-flex;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
         -ms-flex-flow: column nowrap;
             flex-flow: column nowrap;
         -webkit-box-pack: center;
