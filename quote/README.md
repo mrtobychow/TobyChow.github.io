@@ -2,7 +2,7 @@
 
 ### Features
 - Share a quote using the tweet button
-- Quote with not repeat in succession
+- Quote will not repeat in succession
 
 ### Built With
 - HTML5
