@@ -26,8 +26,6 @@ $(document).ready(function() {
     // trigger scrolls on load, check if there are elements to be animated in beginning view
     $window.trigger('scroll');
 
-    // checks 
-
     function checkInView(){
         // Get dimensions of current viewport
         var windowHeight = $window.height();
