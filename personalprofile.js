@@ -43,9 +43,9 @@ $(document).ready(function() {
             if ((elBotPos >= windowTopPos) && (elTopPos <= windowBotPos)){
                 $el.addClass('in-view');
             }
-            else{
-                $el.removeClass('in-view');
-            }
+            // else{
+            //     $el.removeClass('in-view');
+            // }
         });
     }
 
