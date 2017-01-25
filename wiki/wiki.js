@@ -121,9 +121,9 @@ input.addEventListener('keydown', function(evt) {
 var recentBtn = document.getElementsByClassName('recent-btn')[0];
 recentBtn.addEventListener('click', function() {
     var recentSearchResult = document.getElementsByClassName('recent-search-result');
-    console.log(document.getElementsByClassName('recent-search-result'));
     // remove all elemenets with class '.recent-search-results' stored in recentSearchResult
     while (recentSearchResult[0]) {
+        console.log(recentSearchResult[0]);
         // while recentSearchResult is not empty...
         recentSearchResult[0].parentNode.removeChild(recentSearchResult[0]);
     }

@@ -43,6 +43,7 @@ $(document).ready(function() {
             if ((elBotPos >= windowTopPos) && (elTopPos <= windowBotPos)){
                 $el.addClass('in-view');
             }
+            // uncomment to enable animation each time element comes into view
             // else{
             //     $el.removeClass('in-view');
             // }
