@@ -7,6 +7,12 @@ import {container,button} from '../css/buttons/buttons';
 // Buttons share same css
 let Button = (props) => <button style={Object.assign({},fontStyle,button)} {...props}>{props.text}</button>
 
+TimerButtons.propTypes = {
+	onStart: React.propTypes.func,
+	onPause: React.propTypes.func,
+	onReset: React.propTypes.func,
+}
+
 export default class TimerButtons extends Component {
 
 	render() {

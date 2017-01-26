@@ -4,6 +4,11 @@ import {fontColor} from '../css/fontColor';
 import {fontStyle} from '../css/fontStyle';
 import {container,state,timer} from '../css/timeStatus/timeStatus';
 
+TimeStatus.propTypes = {
+	time: React.propTypes.string,
+	status: React.propTypes.string,
+}
+
 export default class TimeStatus extends Component {
 	render() {
 		let { status, time } = this.props;

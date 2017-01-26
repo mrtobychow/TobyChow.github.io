@@ -4,6 +4,12 @@ import {fontColor} from '../css/fontColor';
 import {fontStyle} from '../css/fontStyle';
 import {container,input,sessions} from '../css/timeInput/timeInput';
 
+TimerInput.propTypes = {
+	onInput: React.propTypes.func,
+	time: React.propTypes.string,
+	session: React.propTypes.string
+}
+
 export default class TimeInput extends React.Component{
 
 	// only allow inputs set by 'allowedKeys'
@@ -22,7 +28,6 @@ export default class TimeInput extends React.Component{
 
 	render(){
 		let { session } = this.props;
-		// let a = (input) => this.nameInput = input;
 		return(
 			<div style={container}>
 				<div style={Object.assign({},fontStyle,fontColor,sessions)}> {session} </div> 
