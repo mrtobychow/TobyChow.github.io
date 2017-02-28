@@ -50,4 +50,12 @@ $(document).ready(function() {
         });
     }
 
+    // Remove 'scroll' event listener when at bottom of page
+    $(window).scroll(function(){
+        if($(window).scrollTop() + $(window).height() === $(document).height()){
+            console.log('bot');
+            $(window).off('scroll');
+        }
+    })
+
 });
