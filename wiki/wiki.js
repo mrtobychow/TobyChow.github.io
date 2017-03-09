@@ -48,7 +48,9 @@ function displayResults() {
 //--------------------------- Get Wikipedia's API
 function wikiData(query) {
     // create HTTP request
-    var httpRequest = new XMLHttpRequest(); // create instance of XMLHTTP 
+    var httpRequest = window.XMLHttpRequest ? // create instance of XMLHTTP 
+    new XMLHttpRequest() :  // chrome/firefox/safari...
+    new ActiveXObject("Microsoft.XMLHTTP");  // IE
 
     // make request
     // note, must pass in &origin=* for CORS 
