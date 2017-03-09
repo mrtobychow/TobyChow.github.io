@@ -1,6 +1,15 @@
 * {
     box-sizing: border-box;
+    @media screen\9{
+        background-attachment:scroll !important;
+        overflow-x:hidden;
+    }
+    @media screen\0{
+        background-attachment: scroll !important;
+        // overflow-x:hidden;        
+    }    
 }
+
 
 // variables
 $tablet:769px;
@@ -37,6 +46,7 @@ html {
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
+    overflow-x:hidden;
 }
 
 // ios issues with fixed background
@@ -102,6 +112,12 @@ html {
                 background: white;
                 border-radius: 50%;
             }
+            @media screen\0{
+                display:none;
+            }
+            @media screen\9{
+                display:none;
+            }            
         }
         a {
             text-decoration: none; //remove default
@@ -386,6 +402,7 @@ html {
     .learning-resource {
         display: flex;
         flex-flow: row wrap;
+        width:100%; // req for IE
         .resource {
             display: flex;
             flex-flow: column wrap;

@@ -1,5 +1,12 @@
 * {
   box-sizing: border-box; }
+  @media screen\9 {
+    * {
+      background-attachment: scroll !important;
+      overflow-x: hidden; } }
+  @media screen\0 {
+    * {
+      background-attachment: scroll !important; } }
 
 body,
 html {
@@ -16,15 +23,12 @@ html {
     margin: 0;
     letter-spacing: 0.3rem;
     text-align: center;
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-pack: center;
+        justify-content: center;
+    -ms-flex-align: center;
+        align-items: center;
     margin: 0;
     padding: 10px;
     position: fixed;
@@ -32,9 +36,8 @@ html {
     z-index: 10; }
     @media (min-width: 769px) {
       .intro .nav-bar {
-        -webkit-box-pack: end;
-            -ms-flex-pack: end;
-                justify-content: flex-end; } }
+        -ms-flex-pack: end;
+            justify-content: flex-end; } }
     .intro .nav-bar .github-link {
       margin-right: auto; }
       .intro .nav-bar .github-link img {
@@ -42,6 +45,12 @@ html {
         height: 2rem;
         background: white;
         border-radius: 50%; }
+      @media screen\0 {
+        .intro .nav-bar .github-link {
+          display: none; } }
+      @media screen\9 {
+        .intro .nav-bar .github-link {
+          display: none; } }
     .intro .nav-bar a {
       text-decoration: none; }
       .intro .nav-bar a li {
@@ -66,7 +75,6 @@ html {
               left: 0;
               background-color: white;
               visibility: hidden;
-              -webkit-transition: all 0.3s ease-in-out 0s;
               transition: all 0.3s ease-in-out 0s; }
             .intro .nav-bar a li:hover {
               cursor: pointer; }
@@ -78,17 +86,16 @@ html {
     @media (min-width: 769px) {
       .intro .intro-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
         background-attachment: fixed;
+        overflow-x: hidden;
         background-size: cover; } }
     @media (max-width: 769px) {
       .intro .intro-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-size: cover;
         background-position: center;
@@ -97,8 +104,7 @@ html {
       position: absolute;
       left: 50%;
       top: 50%;
-      -webkit-transform: translate(-50%, -50%);
-              transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
       width: 100%;
       position: relative; }
       .intro .intro-img .content-container .name-container {
@@ -111,8 +117,7 @@ html {
         display: inline-block;
         position: relative;
         left: 50%;
-        -webkit-transform: translateX(-50%);
-                transform: translateX(-50%); }
+        transform: translateX(-50%); }
         .intro .intro-img .content-container .name-container .name {
           text-decoration: underline; }
         .intro .intro-img .content-container .name-container .description {
@@ -139,12 +144,10 @@ html {
     height: 5px;
     background: #282e34; }
   .projects .skills {
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center; }
+    -ms-flex-pack: center;
+        justify-content: center; }
     .projects .skills img {
       position: relative;
       width: 3rem;
@@ -152,14 +155,12 @@ html {
       margin: 1rem 0.3rem; }
     @media (min-width: 769px) {
       .projects .skills {
-        display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-flow: column nowrap;
             flex-flow: column nowrap;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
         min-height: 100vh; }
         .projects .skills img {
           position: relative;
@@ -173,7 +174,6 @@ html {
         margin: 1rem 1.5rem; } }
     @media (min-width: 769px) {
           .projects .skills img.animated {
-            -webkit-transition: all 0.8s linear;
             transition: all 0.8s linear; }
           .projects .skills img.in-view {
             left: 0;
@@ -182,9 +182,7 @@ html {
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-    display: -webkit-box;
+    transform: translate(-50%, -50%);
     display: -ms-flexbox;
     display: flex;
     text-align: center; }
@@ -194,12 +192,10 @@ html {
             flex-flow: column; } }
     @media (min-width: 769px) {
       .projects .proj-content {
-        display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -webkit-box-pack: center;
-            -ms-flex-pack: center;
-                justify-content: center;
+        -ms-flex-pack: center;
+            justify-content: center;
         width: 100%; } }
     .projects .proj-content [class*='icon-container'] {
       display: inline-block;
@@ -208,7 +204,6 @@ html {
       padding: 0.5rem; }
       @media (min-width: 769px) {
         .projects .proj-content [class*='icon-container'] {
-          display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
           -ms-flex-flow: column;
@@ -226,7 +221,6 @@ html {
       left: 50px;
       opacity: 0; }
     .projects .proj-content .animated {
-      -webkit-transition: all 0.8s linear;
       transition: all 0.8s linear; }
     .projects .proj-content .in-view {
       left: 0px;
@@ -258,16 +252,15 @@ html {
     @media (min-width: 769px) {
       .projects .project-0-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed; } }
+        background-attachment: fixed;
+        overflow-x: hidden; } }
     @media (max-width: 769px) {
       .projects .project-0-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-size: cover;
         background-position: center;
@@ -277,16 +270,15 @@ html {
     @media (min-width: 769px) {
       .projects .project-1-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed; } }
+        background-attachment: fixed;
+        overflow-x: hidden; } }
     @media (max-width: 769px) {
       .projects .project-1-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-size: cover;
         background-position: center;
@@ -296,16 +288,15 @@ html {
     @media (min-width: 769px) {
       .projects .project-2-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed; } }
+        background-attachment: fixed;
+        overflow-x: hidden; } }
     @media (max-width: 769px) {
       .projects .project-2-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-size: cover;
         background-position: center;
@@ -315,16 +306,15 @@ html {
     @media (min-width: 769px) {
       .projects .project-3-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed; } }
+        background-attachment: fixed;
+        overflow-x: hidden; } }
     @media (max-width: 769px) {
       .projects .project-3-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-size: cover;
         background-position: center;
@@ -334,16 +324,15 @@ html {
     @media (min-width: 769px) {
       .projects .project-4-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-        background-attachment: fixed; } }
+        background-attachment: fixed;
+        overflow-x: hidden; } }
     @media (max-width: 769px) {
       .projects .project-4-img {
         position: relative;
-        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-size: cover;
         background-position: center;
@@ -359,29 +348,26 @@ html {
 
 .about {
   overflow-x: hidden;
-  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: column;
       flex-flow: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+      align-items: center;
   padding: 2em 0; }
   @media (min-width: 769px) {
     .about {
       position: relative;
-      background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-attachment: fixed;
+      overflow-x: hidden;
       background-size: cover; } }
   @media (max-width: 769px) {
     .about {
       position: relative;
-      background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-size: cover;
       background-position: center;
@@ -396,34 +382,29 @@ html {
       .about .statement {
         width: 50vw; } }
     .about .statement.animated {
-      -webkit-transition: all 2s linear;
       transition: all 2s linear; }
     .about .statement.in-view {
       opacity: 1; }
   .about .learning-resource {
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: row wrap;
-        flex-flow: row wrap; }
+        flex-flow: row wrap;
+    width: 100%; }
     .about .learning-resource .resource {
-      display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
-      -webkit-box-align: center;
-          -ms-flex-align: center;
-              align-items: center;
-      -webkit-box-flex: 1;
-          -ms-flex: 1 1 100%;
-              flex: 1 1 100%;
+      -ms-flex-align: center;
+          align-items: center;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
       text-align: center; }
       @media (min-width: 769px) {
         .about .learning-resource .resource {
-          -webkit-box-flex: 1;
-              -ms-flex: 1 1 50%;
-                  flex: 1 1 50%; } }
+          -ms-flex: 1 1 50%;
+              flex: 1 1 50%; } }
       .about .learning-resource .resource .description {
         max-width: 25em;
         min-height: 5em;
@@ -444,7 +425,6 @@ html {
       left: 10%;
       opacity: 0; }
     .about .learning-resource .animated {
-      -webkit-transition: all 0.8s linear;
       transition: all 0.8s linear; }
     .about .learning-resource .in-view {
       left: 0;
@@ -461,14 +441,12 @@ html {
     letter-spacing: 0.3rem;
     text-align: center; }
   .contact .contact-icons {
-    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: column wrap;
         flex-flow: column wrap;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    -ms-flex-align: center;
+        align-items: center;
     padding: 0; }
     @media (min-width: 769px) {
       .contact .contact-icons {
@@ -476,19 +454,16 @@ html {
             flex-flow: row nowrap;
         -ms-flex-pack: distribute;
             justify-content: space-around;
-        -webkit-box-align: center;
-            -ms-flex-align: center;
-                align-items: center; } }
+        -ms-flex-align: center;
+            align-items: center; } }
     .contact .contact-icons > * {
-      -webkit-box-flex: 1;
-          -ms-flex: 1 1 100%;
-              flex: 1 1 100%;
+      -ms-flex: 1 1 100%;
+          flex: 1 1 100%;
       padding-top: 1em; }
       @media (min-width: 769px) {
         .contact .contact-icons > * {
-          -webkit-box-flex: 0;
-              -ms-flex: none;
-                  flex: none; } }
+          -ms-flex: none;
+              flex: none; } }
     .contact .contact-icons .fa {
       vertical-align: middle;
       font-size: 1.5em; }
