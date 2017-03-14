@@ -37,6 +37,7 @@ $(document).ready(function() {
 
             },
             error: function(XMLHttpRequest, textStatus, errorThrown) {
+                console.log('error');
                 alert("Your browser does not support or allow geolocation! (Please turn off adblocks if applicable)");
             }
         });
@@ -174,5 +175,8 @@ $(document).ready(function() {
         lat = loc[0];
         lon = loc[1];
         updateTime();
+    })
+    .fail(function(){
+        alert('Please turn off any Adblockers and refresh the page');
     });
 });
