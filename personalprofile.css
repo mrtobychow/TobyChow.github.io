@@ -82,6 +82,7 @@ html {
                 visibility: visible;
                 width: 100%; } }
   .intro .intro-img {
+    position: relative;
     height: 100%; }
     @media (min-width: 769px) {
       .intro .intro-img {
@@ -105,8 +106,7 @@ html {
       left: 50%;
       top: 50%;
       transform: translate(-50%, -50%);
-      width: 100%;
-      position: relative; }
+      width: 100%; }
       .intro .intro-img .content-container .name-container {
         background: rgba(0, 0, 0, 0.8);
         color: white;
@@ -324,7 +324,7 @@ html {
     @media (min-width: 769px) {
       .projects .project-4-img {
         position: relative;
-        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/ava.PNG");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -332,6 +332,24 @@ html {
         overflow-x: hidden; } }
     @media (max-width: 769px) {
       .projects .project-4-img {
+        position: relative;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/ava.PNG");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat; } }
+  .projects .project-5-img {
+    min-height: 100vh; }
+    @media (min-width: 769px) {
+      .projects .project-5-img {
+        position: relative;
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        overflow-x: hidden; } }
+    @media (max-width: 769px) {
+      .projects .project-5-img {
         position: relative;
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-size: cover;

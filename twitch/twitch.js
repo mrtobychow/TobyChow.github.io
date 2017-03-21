@@ -34,7 +34,6 @@ $(document).ready(function() {
                     dataType: 'jsonp',
                     type: 'GET',
                     success: function(data) {
-                        console.log(data);
                         streamLink = '<a target ="_blank" href="https://www.twitch.tv/' + query + '">' + query + '</a>';
                         status = data.status;
                         channelLogo = data.logo || null;

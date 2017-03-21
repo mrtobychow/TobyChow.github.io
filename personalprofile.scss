@@ -158,11 +158,11 @@ html {
         @media(max-width:$tablet) {
             @include mobileParallaxCSS(url('./assets/images/home-toronto.jpg'));
         }
+        position:relative;
         height: 100%;
         .content-container {
             @include horzAndVertCenter;
             width: 100%;
-            position: relative;
             .name-container {
                 @include nameStyle;
                 display: inline-block; // background only fills up to content
@@ -354,6 +354,15 @@ html {
         min-height:100vh;
     }
     .project-4-img {
+        @media(min-width: $tablet) {
+            @include parallaxCSS(url('./assets/images/ava.PNG'));
+        }
+        @media(max-width:$tablet) {
+            @include mobileParallaxCSS(url('./assets/images/ava.PNG'));
+        }
+        min-height:100vh;
+    }
+    .project-5-img {
         @media(min-width: $tablet) {
             @include parallaxCSS(url('./assets/images/quote.PNG'));
         }
