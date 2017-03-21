@@ -1,0 +1,416 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+//responsive
+$tablet:768px;
+// styling
+$theme-color:#353a4c;
+$text-color:white;
+$btn-color:#2176ff;
+$btn-hover-color:#1d6ce2;
+@mixin title {
+    font-size: 3rem;
+}
+
+// define parallax function
+@mixin parallaxCSS($img-url) {
+    position: relative;
+    // method to prevent img opacity from affecting child elements
+    background-image: linear-gradient(rgba(116, 122, 135, 0.5), rgba(116, 122, 135, 0.5)), $img-url;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+}
+
+// button design
+@mixin button($textcol, $bgcolor) {
+    display: inline-block;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border-radius: 10px;
+    text-transform: uppercase;
+    color: $textcol;
+    text-decoration: none;
+    background-color: $bgcolor;
+    &:hover {
+        color: white;
+        background-color: $btn-hover-color;
+    }
+}
+
+// banner
+.banner {
+    display: flex;
+    flex-flow: wrap;
+    align-items: center;
+    background-color: $theme-color;
+    width: 100%;
+    z-index:1;
+    @media(min-width:$tablet){
+    	position:fixed;
+    }
+    .logo {
+        width: 3rem;
+        height: 3rem;
+        margin: 0.5rem;
+    }
+    .menu-bar {
+        margin: 0 0.5rem 0 auto;
+        width: 2rem;
+        background: $theme-color;
+        // hide hamburger menu on desktop
+        @media(min-width: $tablet) {
+            display: none;
+        }
+        .bar {
+            height: 3px;
+            background-color: $text-color;
+            margin: 5px 0;
+            border-radius: 5px;
+        }
+    }
+    .menu-drop-down {
+        display: none;
+        margin-left: auto;
+        @media(min-width: $tablet) {
+            display: flex !important;
+        }
+        .menu-item {
+            width: 100vw;
+            padding: 1rem;
+            color: $text-color;
+            background-color: $theme-color;
+            border-bottom: 1px solid black;
+            text-transform: uppercase;
+            @media(min-width: $tablet) {
+                width: auto;
+                border: none;
+            }
+        }
+    }
+}
+
+// Homepage
+.home {
+    height: 100vh;
+    @include parallaxCSS(url('/app/assets/homepage.jpg'));
+    .main-content {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        a,
+        .slogan {
+            color: $text-color;
+            text-decoration: none;
+        }
+        .main-title {
+            @include title;
+        }
+        .work-btn {
+            @include button($text-color,
+            $btn-color);
+        }
+    }
+}
+
+// About
+.about {
+    display: flex;
+    flex-flow: wrap;
+    padding: 0 2rem;
+    .left {
+        width: 100%;
+        margin: 4rem 1rem;
+        @media(min-width: $tablet) {
+            width: 50%;
+        }
+        .quote {
+            font-size: 2rem;
+            line-height: 4rem;
+            color: #666;
+            @media(min-width: $tablet) {
+                width: 100%;
+                margin: 0.5rem 0.5rem 0.5rem auto;
+            }
+            &:before {
+                content: "\201C";
+                font: {
+                    weight: bold;
+                    size: 60px;
+                }
+            }
+        }
+    }
+    .right {
+        flex: 1 0 400px;
+        .title {
+            @include title;
+        }
+        .first-paragraph:first-letter {
+            padding: 5px 15px;
+            border-radius: 50%;
+            font-size: 2rem;
+            background: $btn-color;
+            color: $text-color;
+        }
+        p {
+            line-height: 1.8rem;
+        }
+        .learn-more-btn {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            margin: 2rem;
+            border: 1px solid black;
+            border-radius: 10px;
+            color: black;
+            text-decoration: none;
+            &:hover {
+                background-color: $btn-color;
+                color: $text-color;
+                border: none;
+            }
+        }
+    }
+}
+
+// About Video
+.about-video {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 75vh;
+    background: linear-gradient(rgba(116, 122, 135, 0.5), rgba(116, 122, 135, 0.5)), url('/app/assets/homepage.jpg') center/cover;
+    color: $text-color;
+    .info {
+        text-transform: uppercase;
+    }
+    .watch-vid-btn {
+        @include button(black,
+        white);
+    }
+}
+
+// Work section
+.work {
+    .header {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        padding: 2rem;
+        .left {
+            flex: 1 1 500px;
+        }
+        .right {
+            display: flex;
+            justify-content: flex-end;
+            flex: 1 1 25%;
+            .our-work-btn {
+                @include button($text-color,
+                $btn-color);
+            }
+        }
+    }
+    .work-imgs {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: center;
+        .img-container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            margin: 1rem;
+            img {
+                width: 100%;
+                height: 100%;
+            }
+            .overlay {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                position: absolute;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background: $btn-color;
+                opacity: 0;
+                transition: 0.5s ease;
+            }
+            &:hover .overlay {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+// Articles section
+.articles {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: $text-color;
+    background-color: $theme-color;
+    p {
+        padding: 0 2rem;
+        text-align: center;
+    }
+    .timeline {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-around;
+        @media(min-width: $tablet) {
+            flex-flow: nowrap;
+        }
+        .left,
+        .right {
+            max-width: 500px;
+        }
+        .middle{
+        	position:relative;
+        	width:2px;
+        	background:white;
+        	@media(max-width:$tablet){
+        		display:none;
+        	}
+        	.circle{
+        		position:absolute;
+        		width:10px;
+        		height:10px;
+        		border-radius:50%;
+        		background:$text-color;
+        		transform:translate(-40%);
+        	}
+        	.circle1{
+        		top:25%;
+        	}
+        	.circle2{
+        		top:75%;
+        	}
+        }
+    }
+    .date-container {
+        color: black;
+        background: white;
+        border: 1px solid white;
+        text-align: center;
+    }
+    .img-container {
+        flex: 0 0 260px;
+        margin: 0 1.5rem 1rem;
+        background: white;
+        border: 1px solid white;
+        img {
+            width: 100%;
+        }
+        .img-title {
+            padding: 0 1rem;
+            color: $btn-color;
+            text-align: center;
+        }
+        p {
+            padding: 0 1rem 1rem;
+            color: black;
+        }
+    }
+    .articles-btn {
+        @include button(black,
+        white);
+        margin:0 0 6rem;
+    }
+}
+
+// Services section
+.services {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    p {
+        width: 75%;
+        text-align: center;
+    }
+    .service-container {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-around;
+        width: 50%;
+        .digital {
+            display: flex;
+            flex-flow: column;
+            align-items: center;
+            padding: 1rem;
+            width: 100%;
+            @media(min-width: $tablet) {
+                width: 33%;
+            }
+        }
+        .image-container {
+            margin-top: 1rem;
+            padding: 1rem;
+            border: 1px solid $btn-color;
+            border-radius: 50%;
+        }
+        .sub {
+            padding: 1rem;
+            text-align: center;
+            border-bottom: 1px solid grey;
+        }
+    }
+    .services-btn {
+        @include button($text-color,
+        $btn-color);
+        margin: 6rem;
+    }
+}
+
+// Contact section
+.contact {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: $text-color;
+    background: $btn-color;
+    border-bottom: 1px solid white;
+    .contact-btn {
+        @include button(black,
+        white);
+        margin-bottom: 4rem;
+    }
+}
+
+// Footer section
+footer {
+    color: white;
+    background: rgb(40, 42, 43);
+    p {
+        padding: 1rem;
+        text-align: center;
+        margin: 0;
+    }
+    .social-media {
+        display: flex;
+        justify-content: center;
+        &>* {
+            margin: 1rem 0.5rem;
+            width: 2rem;
+            height: 2rem;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}
+

@@ -324,7 +324,7 @@ html {
     @media (min-width: 769px) {
       .projects .project-4-img {
         position: relative;
-        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/ava.PNG");
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/ava.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -333,7 +333,7 @@ html {
     @media (max-width: 769px) {
       .projects .project-4-img {
         position: relative;
-        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/ava.PNG");
+        background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/ava.png");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat; } }

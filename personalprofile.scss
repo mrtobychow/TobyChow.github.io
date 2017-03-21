@@ -355,10 +355,10 @@ html {
     }
     .project-4-img {
         @media(min-width: $tablet) {
-            @include parallaxCSS(url('./assets/images/ava.PNG'));
+            @include parallaxCSS(url('./assets/images/ava.png'));
         }
         @media(max-width:$tablet) {
-            @include mobileParallaxCSS(url('./assets/images/ava.PNG'));
+            @include mobileParallaxCSS(url('./assets/images/ava.png'));
         }
         min-height:100vh;
     }
