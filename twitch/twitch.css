@@ -66,6 +66,7 @@ h1 {
     margin: 0 auto;
     left: 0;
     right: 0;
+    width: 320px;
     color: white;
     font-size: 1.2em;
     background-color: rgba(0, 0, 0, 0.5);
@@ -87,6 +88,7 @@ h1 {
     margin: 0 auto;
     left: 0;
     right: 0;
+    width: 320px;
     color: white;
     font-size: 1.2em;
     background-color: rgba(0, 0, 0, 0.5);
@@ -103,8 +105,7 @@ h1 {
       .streamer-container .streamer .name .delete-btn:hover {
         cursor: pointer;
         color: #a57e7e;
-        -webkit-transform: scale(1.5, 1.5);
-                transform: scale(1.5, 1.5); }
+        transform: scale(1.5, 1.5); }
     .streamer-container .streamer .name .logo {
       border-radius: 50%;
       position: absolute;
@@ -130,6 +131,7 @@ h1 {
     margin: 0 auto;
     left: 0;
     right: 0;
+    width: 320px;
     color: white;
     font-size: 1.2em;
     background-color: rgba(0, 0, 0, 0.5);
