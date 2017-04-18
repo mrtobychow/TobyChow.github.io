@@ -1,4 +1,4 @@
-# [Wikipedia Viewer](http://tobychow.github.io/weather)
+# [Wikipedia Viewer](http://tobychow.github.io/wiki)
 ## Search Wikipedia for all available articles on a topic
 
 ### Features
