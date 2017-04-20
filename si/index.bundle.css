@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    color: #fff
+}
+
+body,
+html {
+    margin: 0;
+    padding: 0
+}
+
+.homepage {
+    background: url('./assets/coming-soon.jpg');
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    min-height: 100vh
+}
+
+.homepage header {
+    display: flex
+}
+
+@media (max-width:768px) {
+    .homepage header {
+        align-items: center
+    }
+}
+
+.homepage header .logo-container {
+    width: 90%;
+}
+
+@media (min-width:768px) {
+    .homepage header .logo-container {
+        width: 50%
+    }
+}
+
+@media (min-width:992px) {
+    .homepage header .logo-container {
+        width: 25%
+    }
+}
+
+.homepage header .logo-container img {
+    width: 100%
+}
+
+.homepage header .phone-numbers {
+    padding-top: 1rem
+}
+
+@media (min-width:768px) {
+    .homepage header .phone-numbers {
+        margin: 1.5rem 1rem 0 auto
+    }
+}
+
+@media (min-width:992px) {
+    .homepage header .phone-numbers .local-num {
+        text-align: right
+    }
+}
+
+.homepage .main-content-container {
+    display: flex;
+    flex-flow: column;
+    text-align: center;
+    height: 50vh;
+    justify-content: center;
+    align-items: center
+}
+
+.homepage .main-content-container .slogan {
+    text-transform: uppercase;
+    margin-bottom: 0
+}
+
+.homepage .main-content-container form .email-input {
+    padding: .5rem 1.5rem .5rem .5rem;
+    color: #000
+}
+
+.homepage .main-content-container form button {
+    padding: .5rem 1rem;
+    background: red;
+    border: none
+}
+
+.homepage .main-content-container form button:hover {
+    cursor: pointer
+}
+
+footer {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #5bcceb
+}
+
+@media (min-width:990px) {
+    footer {
+        flex-flow: row nowrap
+    }
+}
+
+footer .social-media-container {
+    flex: 1 0 30%;
+    text-align: center
+}
+
+footer .social-media-container img {
+    width: 3rem;
+    height: 3rem;
+    margin: 1rem
+}
+
+footer .address-container {
+    flex: 1 0 30%;
+    text-align: center;
+    padding-top: 1rem
+}
+
+footer .travel-agencies-container {
+    max-width: 100vw;
+    flex: 1 0 30%;
+    text-align: center
+}
+
+footer .travel-agencies-container img {
+    width: 100%
+}
+
