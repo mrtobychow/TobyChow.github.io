@@ -1,7 +1,7 @@
 /*jshint esversion: 6 */
 
 // bash folder with gulp.js, and change path to desired folder
-var path = './';
+var path = './si/';
 
 var del = require('del');
 var gulp = require('gulp');
@@ -72,4 +72,3 @@ gulp.task('default', function (callback) {
 });
 
  
-

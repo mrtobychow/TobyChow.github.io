@@ -23,12 +23,15 @@ html {
     margin: 0;
     letter-spacing: 0.3rem;
     text-align: center;
+    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: center;
-        justify-content: center;
-    -ms-flex-align: center;
-        align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin: 0;
     padding: 10px;
     position: fixed;
@@ -36,8 +39,9 @@ html {
     z-index: 10; }
     @media (min-width: 769px) {
       .intro .nav-bar {
-        -ms-flex-pack: end;
-            justify-content: flex-end; } }
+        -webkit-box-pack: end;
+            -ms-flex-pack: end;
+                justify-content: flex-end; } }
     .intro .nav-bar .github-link {
       margin-right: auto; }
       .intro .nav-bar .github-link img {
@@ -75,6 +79,7 @@ html {
               left: 0;
               background-color: white;
               visibility: hidden;
+              -webkit-transition: all 0.3s ease-in-out 0s;
               transition: all 0.3s ease-in-out 0s; }
             .intro .nav-bar a li:hover {
               cursor: pointer; }
@@ -87,6 +92,7 @@ html {
     @media (min-width: 769px) {
       .intro .intro-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-size: cover;
         background-position: center;
@@ -97,6 +103,7 @@ html {
     @media (max-width: 769px) {
       .intro .intro-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/home-toronto.jpg");
         background-size: cover;
         background-position: center;
@@ -105,7 +112,8 @@ html {
       position: absolute;
       left: 50%;
       top: 50%;
-      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
       width: 100%; }
       .intro .intro-img .content-container .name-container {
         background: rgba(0, 0, 0, 0.8);
@@ -117,7 +125,8 @@ html {
         display: inline-block;
         position: relative;
         left: 50%;
-        transform: translateX(-50%); }
+        -webkit-transform: translateX(-50%);
+                transform: translateX(-50%); }
         .intro .intro-img .content-container .name-container .name {
           text-decoration: underline; }
         .intro .intro-img .content-container .name-container .description {
@@ -144,10 +153,12 @@ html {
     height: 5px;
     background: #282e34; }
   .projects .skills {
+    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: center;
-        justify-content: center; }
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center; }
     .projects .skills img {
       position: relative;
       width: 3rem;
@@ -155,12 +166,14 @@ html {
       margin: 1rem 0.3rem; }
     @media (min-width: 769px) {
       .projects .skills {
+        display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
         -ms-flex-flow: column nowrap;
             flex-flow: column nowrap;
-        -ms-flex-pack: center;
-            justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         min-height: 100vh; }
         .projects .skills img {
           position: relative;
@@ -174,6 +187,7 @@ html {
         margin: 1rem 1.5rem; } }
     @media (min-width: 769px) {
           .projects .skills img.animated {
+            -webkit-transition: all 0.8s linear;
             transition: all 0.8s linear; }
           .projects .skills img.in-view {
             left: 0;
@@ -182,7 +196,9 @@ html {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     text-align: center; }
@@ -192,10 +208,12 @@ html {
             flex-flow: column; } }
     @media (min-width: 769px) {
       .projects .proj-content {
+        display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
-        -ms-flex-pack: center;
-            justify-content: center;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
         width: 100%; } }
     .projects .proj-content [class*='icon-container'] {
       display: inline-block;
@@ -204,6 +222,7 @@ html {
       padding: 0.5rem; }
       @media (min-width: 769px) {
         .projects .proj-content [class*='icon-container'] {
+          display: -webkit-box;
           display: -ms-flexbox;
           display: flex;
           -ms-flex-flow: column;
@@ -221,6 +240,7 @@ html {
       left: 50px;
       opacity: 0; }
     .projects .proj-content .animated {
+      -webkit-transition: all 0.8s linear;
       transition: all 0.8s linear; }
     .projects .proj-content .in-view {
       left: 0px;
@@ -252,6 +272,7 @@ html {
     @media (min-width: 769px) {
       .projects .project-0-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-size: cover;
         background-position: center;
@@ -261,6 +282,7 @@ html {
     @media (max-width: 769px) {
       .projects .project-0-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/twitch.PNG");
         background-size: cover;
         background-position: center;
@@ -270,6 +292,7 @@ html {
     @media (min-width: 769px) {
       .projects .project-1-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-size: cover;
         background-position: center;
@@ -279,6 +302,7 @@ html {
     @media (max-width: 769px) {
       .projects .project-1-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/wiki.PNG");
         background-size: cover;
         background-position: center;
@@ -288,6 +312,7 @@ html {
     @media (min-width: 769px) {
       .projects .project-2-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-size: cover;
         background-position: center;
@@ -297,6 +322,7 @@ html {
     @media (max-width: 769px) {
       .projects .project-2-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/pomo.PNG");
         background-size: cover;
         background-position: center;
@@ -306,6 +332,7 @@ html {
     @media (min-width: 769px) {
       .projects .project-3-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-size: cover;
         background-position: center;
@@ -315,6 +342,7 @@ html {
     @media (max-width: 769px) {
       .projects .project-3-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/weather.PNG");
         background-size: cover;
         background-position: center;
@@ -324,6 +352,7 @@ html {
     @media (min-width: 769px) {
       .projects .project-4-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/ava.png");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/ava.png");
         background-size: cover;
         background-position: center;
@@ -333,6 +362,7 @@ html {
     @media (max-width: 769px) {
       .projects .project-4-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/ava.png");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/ava.png");
         background-size: cover;
         background-position: center;
@@ -342,6 +372,7 @@ html {
     @media (min-width: 769px) {
       .projects .project-5-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-size: cover;
         background-position: center;
@@ -351,6 +382,7 @@ html {
     @media (max-width: 769px) {
       .projects .project-5-img {
         position: relative;
+        background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/quote.PNG");
         background-size: cover;
         background-position: center;
@@ -366,16 +398,19 @@ html {
 
 .about {
   overflow-x: hidden;
+  display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-flow: column;
       flex-flow: column;
-  -ms-flex-align: center;
-      align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 2em 0; }
   @media (min-width: 769px) {
     .about {
       position: relative;
+      background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-size: cover;
       background-position: center;
@@ -386,6 +421,7 @@ html {
   @media (max-width: 769px) {
     .about {
       position: relative;
+      background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-image: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("./assets/images/learning-bg.jpg");
       background-size: cover;
       background-position: center;
@@ -400,29 +436,35 @@ html {
       .about .statement {
         width: 50vw; } }
     .about .statement.animated {
+      -webkit-transition: all 2s linear;
       transition: all 2s linear; }
     .about .statement.in-view {
       opacity: 1; }
   .about .learning-resource {
+    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: row wrap;
         flex-flow: row wrap;
     width: 100%; }
     .about .learning-resource .resource {
+      display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
       -ms-flex-flow: column wrap;
           flex-flow: column wrap;
-      -ms-flex-align: center;
-          align-items: center;
-      -ms-flex: 1 1 100%;
-          flex: 1 1 100%;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 100%;
+              flex: 1 1 100%;
       text-align: center; }
       @media (min-width: 769px) {
         .about .learning-resource .resource {
-          -ms-flex: 1 1 50%;
-              flex: 1 1 50%; } }
+          -webkit-box-flex: 1;
+              -ms-flex: 1 1 50%;
+                  flex: 1 1 50%; } }
       .about .learning-resource .resource .description {
         max-width: 25em;
         min-height: 5em;
@@ -443,6 +485,7 @@ html {
       left: 10%;
       opacity: 0; }
     .about .learning-resource .animated {
+      -webkit-transition: all 0.8s linear;
       transition: all 0.8s linear; }
     .about .learning-resource .in-view {
       left: 0;
@@ -459,12 +502,14 @@ html {
     letter-spacing: 0.3rem;
     text-align: center; }
   .contact .contact-icons {
+    display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     -ms-flex-flow: column wrap;
         flex-flow: column wrap;
-    -ms-flex-align: center;
-        align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     padding: 0; }
     @media (min-width: 769px) {
       .contact .contact-icons {
@@ -472,16 +517,19 @@ html {
             flex-flow: row nowrap;
         -ms-flex-pack: distribute;
             justify-content: space-around;
-        -ms-flex-align: center;
-            align-items: center; } }
+        -webkit-box-align: center;
+            -ms-flex-align: center;
+                align-items: center; } }
     .contact .contact-icons > * {
-      -ms-flex: 1 1 100%;
-          flex: 1 1 100%;
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 100%;
+              flex: 1 1 100%;
       padding-top: 1em; }
       @media (min-width: 769px) {
         .contact .contact-icons > * {
-          -ms-flex: none;
-              flex: none; } }
+          -webkit-box-flex: 0;
+              -ms-flex: none;
+                  flex: none; } }
     .contact .contact-icons .fa {
       vertical-align: middle;
       font-size: 1.5em; }
