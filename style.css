@@ -453,7 +453,7 @@ html {
 @media (min-width:769px) {
   .projects .project-3-img {
     position: relative;
-    background-image: linear-gradient(hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, .5)), url(./0b0864eec92d846c129d542b705bfe51.PNG);
+    background-image: linear-gradient(hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, .5)), url(./assets/images/weather.PNG);
     background-size: cover;
     background-position: 50%;
     background-repeat: no-repeat;
@@ -465,7 +465,7 @@ html {
 @media (max-width:769px) {
   .projects .project-3-img {
     position: relative;
-    background-image: linear-gradient(hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, .5)), url(./0b0864eec92d846c129d542b705bfe51.PNG);
+    background-image: linear-gradient(hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, .5)), url(./assets/images/weather.PNG);
     background-size: cover;
     background-position: 50%;
     background-repeat: no-repeat
