@@ -366,6 +366,32 @@ html {
   letter-spacing: .3rem;
   text-align: center
 }
+.projects .project-6-img {
+  min-height: 100vh
+}
+
+@media (min-width:769px) {
+  .projects .project-6-img {
+    position: relative;
+    background-image: linear-gradient(hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, .5)), url(./assets/images/ctc.PNG);
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow-x: hidden;
+    background-size: auto 80%
+  }
+}
+
+@media (max-width:769px) {
+  .projects .project-6-img {
+    position: relative;
+    background-image: linear-gradient(hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, .5)), url(./assets/images/ctc.PNG);
+    background-size: cover;
+    background-position: 50%;
+    background-repeat: no-repeat
+  }
+}
 
 .projects .project-0-img {
   min-height: 100vh
