@@ -5,6 +5,7 @@
 - [Connected Thoughts Care](https://connectedthoughtscare.online/)
 
 ### Projects
+- [Chat Application](https://github.com/TobyChow/chat-app)
 - [Pomodoro Timer](http://tobychow.github.io/pomo)
 - [Quote Generator](http://tobychow.github.io/quote)
 - [Twitch Viewer](http://tobychow.github.io/twitch)
