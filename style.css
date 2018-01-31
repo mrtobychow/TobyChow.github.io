@@ -515,6 +515,9 @@ html {
 }
 
 @media (max-width:769px) {
+  .p{
+    font-size:1rem;
+  }
   .projects .project-4-img {
     position: relative;
     background-image: linear-gradient(hsla(0, 0%, 100%, .5), hsla(0, 0%, 100%, .5)), url(./assets/images/ava.png);
